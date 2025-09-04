@@ -4,15 +4,122 @@ import React, { useState } from 'react';
 const App = () => {
     const [isEnrollmentModalOpen, setIsEnrollmentModalOpen] = useState(false);
     const [isSubjectModalOpen, setIsSubjectModalOpen] = useState(false);
+    const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+    const [isMentorRedirectModalOpen, setIsMentorRedirectModalOpen] = useState(false);
+    const [isBackendModalOpen, setIsBackendModalOpen] = useState(false);
     const [currentSubject, setCurrentSubject] = useState(null);
 
     const subjectDetails = {
-        'HTML & CSS Fundamentals': 'Master the foundational languages of the web. This section covers semantic HTML5 for structuring content and modern CSS3 for styling. You will learn advanced layout techniques using Flexbox and CSS Grid to build responsive and aesthetically pleasing interfaces.',
-        'JavaScript & DOM': 'Dive into the core logic of web applications. This module focuses on modern JavaScript (ES6+), teaching you how to manipulate the Document Object Model (DOM) to create interactive and dynamic user experiences. You will also learn about event handling and asynchronous operations.',
-        'Modern Frameworks (React)': 'Build scalable and complex single-page applications using the React library. You will learn about component-based architecture, state management with hooks (useState, useEffect), and efficient data flow to create reusable UI components.',
-        'APIs & Asynchronous Data': 'Connect your frontend applications to backend services. This part of the course teaches you how to fetch data from RESTful APIs using the Fetch API and `async/await`. You will also learn to handle data and display it dynamically in your application.',
-        'Performance & Deployment': 'Learn to optimize your code for speed and efficiency. This section covers techniques for reducing page load times, lazy loading, and code splitting. You will also learn how to deploy your projects to platforms like Vercel and Netlify.',
-        'Git & GitHub': 'Understand the essential tools for professional software development. This module introduces you to Git for version control and GitHub for collaborative development. You will learn how to create repositories, make commits, handle branches, and work in a team.',
+        'Internet & the Web': {
+            details: 'This module demystifies how the internet works, from browsers to servers. You will learn about key concepts like DNS, HTTP/HTTPS, and how client-side applications communicate with the backend.',
+            project: 'Write a simple report explaining the journey of a webpage from a user clicking a link to it appearing on their screen, detailing each step and technology involved.',
+            topics: [
+                'How the Internet Works (Clients, Servers)',
+                'HTTP/HTTPS Protocols',
+                'Domain Name System (DNS)',
+                'Web Browsers and Rendering Engines',
+                'Understanding URLs and Resources',
+                'Introduction to Frontend vs. Backend',
+                'Cookies and Session Storage',
+                'Anatomy of a Request-Response Cycle',
+            ],
+        },
+        'HTML Fundamentals': {
+            details: 'Master the foundational language of the web. This section covers semantic HTML5 for structuring content, accessibility standards, and modern best practices for building robust and well-organized web pages.',
+            project: 'Build a multi-page portfolio website using only semantic HTML5. The site must include a home page, about page, and projects page, and must pass an accessibility checker.',
+            topics: [
+                'Introduction to HTML and the Web',
+                'Semantic HTML5 Tags',
+                'HTML Forms and Inputs',
+                'Accessibility (ARIA roles and attributes)',
+                'Image and Multimedia Elements',
+                'Structuring Content with Headings, Paragraphs, and Lists',
+                'Working with Tables',
+                'Introduction to Web Components',
+            ],
+        },
+        'CSS Fundamentals': {
+            details: 'Dive into the language of web styling. This module covers modern CSS3 for creating visually stunning interfaces. You will learn about the box model, responsive design with media queries, and advanced layout techniques using Flexbox and CSS Grid.',
+            project: 'Take a basic HTML page and style it to match a provided design mockup. You will create a fully responsive layout and implement custom fonts and animations using CSS.',
+            topics: [
+                'CSS Syntax and Selectors',
+                'The Box Model, Sizing, and Spacing',
+                'Working with Colors and Backgrounds',
+                'Typography and Fonts',
+                'Flexbox for One-Dimensional Layouts',
+                'CSS Grid for Two-Dimensional Layouts',
+                'Responsive Design with Media Queries',
+                'CSS Animations and Transitions',
+                'Introduction to Preprocessors (Sass/Less)',
+            ],
+        },
+        'JavaScript & DOM': {
+            details: 'Dive into the core logic of web applications. This module focuses on modern JavaScript (ES6+), teaching you how to manipulate the Document Object Model (DOM) to create interactive and dynamic user experiences. You will also learn about event handling and asynchronous operations.',
+            project: 'Create a fully functional to-do list application that allows users to add, remove, and mark tasks as complete, all without reloading the page.',
+            topics: [
+                'Variables, Data Types, and Operators',
+                'Control Flow and Logic',
+                'Functions and Scopes',
+                'Arrays and Objects',
+                'DOM Manipulation and Traversal',
+                'Event Handling and Listeners',
+                'Introduction to Asynchronous JavaScript',
+                'Error Handling with Try/Catch',
+            ],
+        },
+        'Modern Frameworks (React)': {
+            details: 'Build scalable and complex single-page applications using the React library. You will learn about component-based architecture, state management with hooks (useState, useEffect), and efficient data flow to create reusable UI components.',
+            project: 'Develop a simple e-commerce product gallery with a shopping cart. The application should use React components and manage state with hooks.',
+            topics: [
+                'Introduction to React and JSX',
+                'Component-Based Architecture',
+                'State and Props',
+                'React Hooks (useState, useEffect, useContext)',
+                'Conditional Rendering and Lists',
+                'Handling Forms in React',
+                'Working with Third-Party Libraries',
+                'React Router for Navigation',
+            ],
+        },
+        'APIs & Asynchronous Data': {
+            details: 'Connect your frontend applications to backend services. This part of the course teaches you how to fetch data from RESTful APIs using the Fetch API and `async/await`. You will also learn to handle data and display it dynamically in your application.',
+            project: 'Create a weather application that fetches and displays current weather data for a user-entered city using a public weather API.',
+            topics: [
+                'Introduction to APIs and RESTful Principles',
+                'Using the Fetch API for Data Requests',
+                'Asynchronous JavaScript with `async`/`await`',
+                'Handling JSON Data and Response Objects',
+                'Error Handling for API Calls',
+                'Understanding CORS (Cross-Origin Resource Sharing)',
+            ],
+        },
+        'Performance & Deployment': {
+            details: 'Learn to optimize your code for speed and efficiency. This section covers techniques for reducing page load times, lazy loading, and code splitting. You will also learn how to deploy your projects to platforms like Vercel and Netlify.',
+            project: 'Optimize a sample website by compressing images, lazy-loading content, and deploying it to a free hosting service to achieve a high PageSpeed Insights score.',
+            topics: [
+                'Web Performance Metrics',
+                'Code Splitting and Lazy Loading',
+                'Image and Asset Optimization',
+                'Minification and Bundling',
+                'Web Vitals and Lighthouse Audits',
+                'Domain Name Systems (DNS) and Hosting',
+                'Deployment with Vercel and Netlify',
+                'Content Delivery Networks (CDNs)',
+            ],
+        },
+        'Git & GitHub': {
+            details: 'Understand the essential tools for professional software development. This module introduces you to Git for version control and GitHub for collaborative development. You will learn how to create repositories, make commits, handle branches, and work in a team.',
+            project: 'Collaborate with peers on a small web project, managing all code changes using Git commands and submitting pull requests on GitHub.',
+            topics: [
+                'Git Basics (add, commit, push)',
+                'Branching and Merging',
+                'Working with Remote Repositories',
+                'Handling Merge Conflicts',
+                'Understanding Pull Requests',
+                'Collaborative Workflows',
+                'Using `.gitignore`',
+            ],
+        },
     };
 
     const openEnrollmentModal = () => {
@@ -20,269 +127,266 @@ const App = () => {
         document.body.style.overflow = 'hidden';
     };
 
-    const closeEnrollmentModal = () => {
+    const openMentorModal = () => {
+        setIsMentorRedirectModalOpen(true);
+        document.body.style.overflow = 'hidden';
+    };
+    
+    const openBackendModal = () => {
+        setIsBackendModalOpen(true);
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
         setIsEnrollmentModalOpen(false);
+        setIsSubjectModalOpen(false);
+        setIsSuccessModalOpen(false);
+        setIsMentorRedirectModalOpen(false);
+        setIsBackendModalOpen(false);
+        setCurrentSubject(null);
         document.body.style.overflow = '';
     };
 
     const openSubjectModal = (subjectTitle) => {
         setCurrentSubject({
             title: subjectTitle,
-            details: subjectDetails[subjectTitle],
+            details: subjectDetails[subjectTitle].details,
+            project: subjectDetails[subjectTitle].project,
+            topics: subjectDetails[subjectTitle].topics,
         });
         setIsSubjectModalOpen(true);
         document.body.style.overflow = 'hidden';
     };
 
-    const closeSubjectModal = () => {
-        setIsSubjectModalOpen(false);
-        setCurrentSubject(null);
-        document.body.style.overflow = '';
-    };
-
     const handleEnrollmentSubmit = (e) => {
         e.preventDefault();
-        const formData = new FormData(e.target);
-        const data = Object.fromEntries(formData.entries());
-        console.log('Enrollment data submitted:', data);
-        closeEnrollmentModal();
+        setIsEnrollmentModalOpen(false);
+        setIsSuccessModalOpen(true);
         e.target.reset();
     };
 
     return (
         <div className="App">
-            <style jsx>{`
-                .App {
-                    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-                    background-color: #f9fafb;
-                    color: #1f2937;
+            <style>
+                {`
+                @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+                
+                :root {
+                    --primary-color: #4f46e5;
+                    --primary-dark-color: #4338ca;
+                    --accent-color: #a5b4fc;
+                    --text-color: #1f2937;
+                    --text-light-color: #4b5563;
+                    --bg-color: #f9fafb;
+                    --bg-card: #ffffff;
                 }
+
+                .App {
+                    font-family: 'Inter', sans-serif;
+                    background-color: var(--bg-color);
+                    color: var(--text-color);
+                    line-height: 1.6;
+                }
+
                 .container {
                     max-width: 1280px;
-                    margin-left: auto;
-                    margin-right: auto;
-                    padding: 1rem;
+                    margin: 0 auto;
+                    padding: 0 1.5rem;
                 }
-                @media (min-width: 640px) {
-                    .container {
-                        padding: 1.5rem;
-                    }
-                }
+
                 header {
-                    background-color: #fff;
+                    background-color: var(--bg-card);
                     position: sticky;
                     top: 0;
                     z-index: 40;
-                    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-                    border-bottom: 1px solid #e5e7eb;
+                    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
                 }
+
                 .logo-link {
                     display: flex;
                     align-items: center;
                     gap: 0.5rem;
+                    text-decoration: none;
                 }
+
                 .logo-text {
                     font-size: 1.5rem;
                     font-weight: 700;
-                    color: #1f2937;
+                    color: var(--text-color);
                 }
+
                 .header-button {
-                    background-color: #4f46e5;
+                    background-color: var(--primary-color);
                     color: #fff;
                     font-weight: 500;
                     padding: 0.5rem 1.5rem;
                     border-radius: 9999px;
-                    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-                    transition: background-color 0.2s ease-in-out;
-                }
-                .header-button:hover {
-                    background-color: #4338ca;
-                }
-                main {
-                    padding: 2rem;
-                }
-                @media (min-width: 640px) {
-                    main {
-                        padding: 4rem 2rem;
-                    }
-                }
-                .hero-section {
-                    text-align: center;
-                    padding-top: 4rem;
-                    padding-bottom: 4rem;
-                }
-                @media (min-width: 640px) {
-                    .hero-section {
-                        padding-top: 6rem;
-                        padding-bottom: 6rem;
-                    }
-                }
-                .hero-title {
-                    font-size: 2.25rem;
-                    font-weight: 800;
-                    color: #1f2937;
-                    line-height: 1.25;
-                    margin-bottom: 1rem;
-                }
-                @media (min-width: 640px) {
-                    .hero-title {
-                        font-size: 3rem;
-                    }
-                }
-                .hero-title-span {
-                    color: #4f46e5;
-                }
-                .hero-subtitle {
-                    font-size: 1.125rem;
-                    color: #4b5563;
-                    max-width: 48rem;
-                    margin: 0 auto 2rem;
-                }
-                @media (min-width: 640px) {
-                    .hero-subtitle {
-                        font-size: 1.25rem;
-                    }
-                }
-                .hero-buttons {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 1rem;
-                }
-                @media (min-width: 640px) {
-                    .hero-buttons {
-                        flex-direction: row;
-                        gap: 1rem;
-                    }
-                }
-                .cta-button-primary {
-                    background-color: #4f46e5;
-                    color: #fff;
-                    font-weight: 700;
-                    padding: 0.75rem 2rem;
-                    border-radius: 9999px;
-                    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-                    transition: background-color 0.2s ease-in-out;
-                }
-                .cta-button-primary:hover {
-                    background-color: #4338ca;
-                }
-                .cta-button-secondary {
-                    background-color: #e5e7eb;
-                    color: #1f2937;
-                    font-weight: 500;
-                    padding: 0.75rem 2rem;
-                    border-radius: 9999px;
-                    transition: background-color 0.2s ease-in-out;
-                }
-                .cta-button-secondary:hover {
-                    background-color: #d1d5db;
-                }
-                .section-title {
-                    font-size: 1.875rem;
-                    font-weight: 700;
-                    text-align: center;
-                    margin-bottom: 2.5rem;
-                    color: #1f2937;
-                }
-                @media (min-width: 640px) {
-                    .section-title {
-                        font-size: 2.25rem;
-                    }
-                }
-                .grid-container {
-                    display: grid;
-                    grid-template-columns: repeat(1, minmax(0, 1fr));
-                    gap: 2rem;
-                }
-                @media (min-width: 768px) {
-                    .grid-container {
-                        grid-template-columns: repeat(2, minmax(0, 1fr));
-                    }
-                }
-                @media (min-width: 1024px) {
-                    .grid-container {
-                        grid-template-columns: repeat(3, minmax(0, 1fr));
-                    }
-                }
-                .card {
-                    background-color: #fff;
-                    padding: 1.5rem;
-                    border-radius: 1rem;
-                    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-                    border: 1px solid #e5e7eb;
-                    transition: box-shadow 0.2s ease-in-out;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+                    transition: all 0.2s ease-in-out;
+                    border: none;
                     cursor: pointer;
                 }
-                .card:hover {
-                    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+                .header-button:hover {
+                    background-color: var(--primary-dark-color);
+                    transform: translateY(-2px);
                 }
-                .card-icon-container {
+
+                main {
+                    padding: 2rem 0;
+                }
+
+                .breadcrumbs-container {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding-top: 1rem;
+                    margin-bottom: 2rem;
+                }
+                
+                .breadcrumbs {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    font-size: 0.875rem;
+                    color: #9ca3af;
+                }
+
+                .breadcrumbs a {
+                    color: var(--primary-color);
+                    font-weight: 500;
+                    text-decoration: none;
+                }
+
+                .breadcrumbs a:hover {
+                    text-decoration: underline;
+                }
+
+                .intro-section {
+                    text-align: left;
+                }
+                
+                .intro-description {
+                    font-size: 1rem;
+                    color: var(--text-light-color);
+                }
+                
+                .section-title {
+                    font-size: 2.25rem;
+                    font-weight: 700;
+                    text-align: center;
+                    margin-top: 4rem;
+                    margin-bottom: 2.5rem;
+                }
+
+                .grid-container {
+                    display: grid;
+                    grid-template-columns: repeat(1, 1fr);
+                    gap: 2rem;
+                }
+                
+                @media (min-width: 768px) {
+                    .grid-container {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+                
+                @media (min-width: 1024px) {
+                    .grid-container {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                }
+                
+                .card {
+                    background-color: var(--bg-card);
+                    padding: 1.5rem;
+                    border-radius: 1rem;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+                    border: 1px solid #e5e7eb;
+                    transition: all 0.2s ease-in-out;
+                    cursor: pointer;
+                }
+
+                .card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 15px 20px -5px rgba(0,0,0,0.1), 0 6px 6px -3px rgba(0,0,0,0.08);
+                }
+
+                .card-header {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    margin-bottom: 1rem;
+                }
+
+                .card-number {
+                    background-color: var(--accent-color);
+                    color: var(--primary-dark-color);
+                    width: 2.5rem;
+                    height: 2.5rem;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    width: 3rem;
-                    height: 3rem;
                     border-radius: 9999px;
-                    margin-bottom: 1rem;
+                    font-weight: 700;
                 }
-                .card-icon {
-                    width: 1.5rem;
-                    height: 1.5rem;
-                }
+
                 .card-title {
                     font-size: 1.25rem;
                     font-weight: 700;
-                    margin-bottom: 0.5rem;
                 }
+                
                 .card-text {
-                    color: #4b5563;
+                    color: var(--text-light-color);
                 }
+
                 .cta-banner {
                     text-align: center;
-                    background-color: #eef2ff;
+                    background: linear-gradient(135deg, #eef2ff, #c3daff);
                     border-radius: 1rem;
-                    padding: 2rem;
-                    margin-top: 4rem;
-                    margin-bottom: 4rem;
+                    padding: 3rem;
+                    margin: 4rem auto;
+                    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+                    max-width: 60rem;
                 }
-                @media (min-width: 640px) {
-                    .cta-banner {
-                        padding: 3rem;
-                    }
-                }
+
                 .cta-banner-title {
-                    font-size: 1.875rem;
+                    font-size: 2.25rem;
                     font-weight: 700;
-                    color: #1f2937;
                     margin-bottom: 1rem;
                 }
-                @media (min-width: 640px) {
-                    .cta-banner-title {
-                        font-size: 2.25rem;
-                    }
-                }
+                
                 .cta-banner-text {
-                    color: #4b5563;
+                    color: var(--text-light-color);
                     font-size: 1.125rem;
                     max-width: 42rem;
                     margin: 0 auto 2rem;
                 }
-                @media (min-width: 640px) {
-                    .cta-banner-text {
-                        font-size: 1.25rem;
-                    }
+
+                .cta-button {
+                    background-color: var(--primary-color);
+                    color: #fff;
+                    font-weight: 500;
+                    padding: 0.75rem 2rem;
+                    border-radius: 9999px;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+                    transition: all 0.2s ease-in-out;
+                    border: none;
+                    cursor: pointer;
                 }
+
+                .cta-button:hover {
+                    background-color: var(--primary-dark-color);
+                    transform: translateY(-2px);
+                }
+
                 footer {
-                    background-color: #1f2937;
+                    background-color: var(--text-color);
                     color: #9ca3af;
                     padding: 1.5rem;
                     text-align: center;
                 }
-                .footer-text {
-                    font-size: 0.875rem;
-                }
+                
                 .modal-overlay {
                     position: fixed;
                     inset: 0;
@@ -291,54 +395,59 @@ const App = () => {
                     justify-content: center;
                     padding: 1rem;
                     background-color: rgba(0, 0, 0, 0.5);
-                    transition: opacity 0.3s ease-in-out;
                     z-index: 50;
                 }
+
                 .modal-content {
-                    background-color: #fff;
+                    background-color: var(--bg-card);
                     padding: 1.5rem;
                     border-radius: 1rem;
-                    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+                    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
                     width: 100%;
                     max-width: 28rem;
                 }
-                @media (min-width: 640px) {
-                    .modal-content {
-                        padding: 2rem;
-                    }
-                }
+                
                 .modal-header {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     margin-bottom: 1rem;
                 }
+
                 .modal-title {
                     font-size: 1.5rem;
                     font-weight: 700;
-                    color: #1f2937;
                 }
+
                 .modal-close-button {
                     color: #9ca3af;
                     transition: color 0.2s ease-in-out;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
                 }
+
                 .modal-close-button:hover {
-                    color: #4b5563;
+                    color: var(--text-light-color);
                 }
+                
                 .modal-description {
-                    color: #4b5563;
+                    color: var(--text-light-color);
                     margin-bottom: 1.5rem;
                 }
+
                 .form-group {
                     margin-bottom: 1rem;
                 }
+                
                 .form-label {
                     display: block;
                     font-size: 0.875rem;
                     font-weight: 500;
-                    color: #374151;
+                    color: var(--text-color);
                     margin-bottom: 0.25rem;
                 }
+
                 .form-input, .form-select, .form-textarea {
                     width: 100%;
                     padding: 0.5rem 1rem;
@@ -346,20 +455,61 @@ const App = () => {
                     border-radius: 0.5rem;
                     transition: all 0.2s ease-in-out;
                 }
+
                 .form-input:focus, .form-select:focus, .form-textarea:focus {
-                    outline: 2px solid transparent;
-                    outline-offset: 2px;
-                    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #4f46e5;
+                    outline: none;
+                    border-color: var(--primary-color);
+                    box-shadow: 0 0 0 2px var(--accent-color);
                 }
-                .form-footer {
-                    display: flex;
-                    justify-content: flex-end;
-                    padding-top: 0.5rem;
-                }
+
                 .subject-modal .modal-content {
-                    max-width: 32rem;
+                    max-width: 48rem;
                 }
-            `}</style>
+
+                .subject-section {
+                    background-color: #f3f4f6;
+                    border: 1px solid #e5e7eb;
+                    border-radius: 0.75rem;
+                    padding: 1rem;
+                    margin-top: 1rem;
+                }
+
+                .subject-section h4 {
+                    font-size: 1.125rem;
+                    font-weight: 600;
+                    margin-bottom: 0.5rem;
+                }
+
+                .topics-grid {
+                    display: grid;
+                    grid-template-columns: repeat(1, 1fr);
+                    gap: 0.5rem;
+                    margin-top: 0.75rem;
+                }
+
+                @media (min-width: 640px) {
+                    .topics-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+                
+                .topic-link-card {
+                    display: block;
+                    padding: 0.75rem 1rem;
+                    background-color: var(--accent-color);
+                    color: var(--primary-dark-color);
+                    border-radius: 0.5rem;
+                    font-weight: 500;
+                    transition: all 0.2s ease-in-out;
+                }
+
+                .topic-link-card:hover {
+                    background-color: var(--primary-color);
+                    color: #fff;
+                    transform: translateY(-2px);
+                }
+                `}
+            </style>
 
             {/* Header */}
             <header>
@@ -371,136 +521,103 @@ const App = () => {
                         </svg>
                         <span className="logo-text">Evolve</span>
                     </a>
-                    <button onClick={openEnrollmentModal} className="header-button">
-                        Enroll Now
+                    <button onClick={openMentorModal} className="header-button">
+                        Work with Us
                     </button>
                 </div>
             </header>
 
             {/* Main Content */}
-            <main className="container space-y-16">
-                {/* Hero Section */}
-                <section className="hero-section">
-                    <h1 className="hero-title">
-                        Become a <span className="hero-title-span">Frontend Master</span>
-                    </h1>
-                    <p className="hero-subtitle">
-                        Learn to build beautiful, responsive, and high-performance websites from scratch using modern tools and frameworks.
-                    </p>
-                    <div className="hero-buttons">
-                        <button onClick={openEnrollmentModal} className="cta-button-primary">
-                            Get Started Today
-                        </button>
-                        <button className="cta-button-secondary">
-                            Download Syllabus
+            <main>
+                <div className="container">
+                    {/* Breadcrumbs and Backend Link */}
+                    <div className="breadcrumbs-container">
+                        <div className="breadcrumbs">
+                            <a href="#">Home</a>
+                            <span>&gt;</span>
+                            <span>Frontend</span>
+                        </div>
+                        <button onClick={openBackendModal} className="header-button">
+                            Explore Backend Course
                         </button>
                     </div>
-                </section>
 
-                {/* What You'll Learn Section */}
-                <section>
-                    <h2 className="section-title">What You'll Learn</h2>
-                    <div className="grid-container">
-                        {/* Card 1: HTML & CSS */}
-                        <div onClick={() => openSubjectModal('HTML & CSS Fundamentals')} className="card">
-                            <div className="card-icon-container" style={{ backgroundColor: '#e0f2fe', color: '#0284c7' }}>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="card-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                                </svg>
-                            </div>
-                            <h3 className="card-title">HTML & CSS Fundamentals</h3>
-                            <p className="card-text">Master the building blocks of the web. Learn semantic HTML and modern CSS for styling and layouts, including Flexbox and Grid.</p>
+                    {/* Introduction Section */}
+                    <section className="intro-section">
+                        <h1 className="intro-title">
+                            Master Frontend Development
+                        </h1>
+                        <p className="intro-description mb-4">
+                            **Frontend development** is the practice of building the visual and interactive parts of a website that users see and interact with directly. It involves using languages and frameworks like HTML, CSS, and JavaScript to create everything from the page layout and design to animations and functionality. The goal is to deliver a smooth, responsive, and visually appealing user experience.
+                        </p>
+                        
+                        <h2 className="section-title">What is Frontend vs. Backend Development?</h2>
+                        <p className="intro-description mb-4">
+                            **Frontend** development is all about the **client-side** of a web application. It's the part the user can see and interact with in their web browser. This includes everything from the layout and fonts to buttons, forms, and animations. Frontend developers work with languages like HTML, CSS, and JavaScript to bring designs to life and ensure a seamless user experience.
+                        </p>
+                        <p className="intro-description mb-4">
+                            **Backend** development, on the other hand, is the **server-side** of a web application. It's the logic and functionality that happens behind the scenes. This includes databases, APIs, server scripts, and the business logic that makes the application work. While users don't see the backend directly, it is essential for storing data, processing requests, and authenticating users.
+                        </p>
+
+                        <h2 className="section-title">Essential Tools for Frontend Developers</h2>
+                        <p className="intro-description mb-4">
+                            To build modern web applications, frontend developers use a variety of tools. The core tools include a **code editor** like Visual Studio Code, a **version control system** like Git for tracking changes, and a **package manager** such as npm or Yarn for managing project dependencies. You will also use the **browser's developer tools** for debugging and a **build tool** like Webpack or Vite for bundling your code.
+                        </p>
+
+                        <p className="intro-description">
+                            Our course provides a structured **roadmap** designed to take you from a complete beginner to a confident developer. You'll learn the core skills needed to build modern web applications and create a portfolio of real projects along the way.
+                        </p>
+                    </section>
+                    
+                    {/* What You'll Learn Section */}
+                    <section>
+                        <h2 className="section-title">Course Subjects</h2>
+                        <div className="grid-container">
+                            {Object.keys(subjectDetails).map((subject, index) => (
+                                <div key={subject} onClick={() => openSubjectModal(subject)} className="card">
+                                    <div className="card-header">
+                                        <span className="card-number">{index + 1}</span>
+                                        <h3 className="card-title">{subject}</h3>
+                                    </div>
+                                    <p className="card-text">{subjectDetails[subject].details.split('.')[0] + '.'}</p>
+                                </div>
+                            ))}
                         </div>
+                    </section>
 
-                        {/* Card 2: JavaScript */}
-                        <div onClick={() => openSubjectModal('JavaScript & DOM')} className="card">
-                            <div className="card-icon-container" style={{ backgroundColor: '#fef3c7', color: '#d97706' }}>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="card-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.102l1.102-1.102M12 21.5V17M12 7V2.5" />
-                                </svg>
-                            </div>
-                            <h3 className="card-title">JavaScript & DOM</h3>
-                            <p className="card-text">Dive into the core logic of the web. Learn ES6+, manipulate the DOM, handle events, and create dynamic user experiences.</p>
-                        </div>
-
-                        {/* Card 3: React */}
-                        <div onClick={() => openSubjectModal('Modern Frameworks (React)')} className="card">
-                            <div className="card-icon-container" style={{ backgroundColor: '#cfd2f3', color: '#6840d2' }}>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="card-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                                </svg>
-                            </div>
-                            <h3 className="card-title">Modern Frameworks (React)</h3>
-                            <p className="card-text">Build scalable and complex applications using React. Understand components, state management, hooks, and routing.</p>
-                        </div>
-
-                        {/* Card 4: APIs & Data */}
-                        <div onClick={() => openSubjectModal('APIs & Asynchronous Data')} className="card">
-                            <div className="card-icon-container" style={{ backgroundColor: '#d1f5e0', color: '#10b981' }}>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="card-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h7" />
-                                </svg>
-                            </div>
-                            <h3 className="card-title">APIs & Asynchronous Data</h3>
-                            <p className="card-text">Connect your frontend to the backend. Learn how to fetch data from APIs and handle asynchronous operations with Promises and async/await.</p>
-                        </div>
-
-                        {/* Card 5: Performance & Deployment */}
-                        <div onClick={() => openSubjectModal('Performance & Deployment')} className="card">
-                            <div className="card-icon-container" style={{ backgroundColor: '#e9d5ff', color: '#8b5cf6' }}>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="card-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.418 2.032v5m-4.802 0h-4.667m9.334 0a8.001 8.001 0 00-15.683-1.018M9.696 15l1.64 1.64a2 2 0 002.828 0l2.64-2.64M7.854 4.854a2 2 0 012.828 0l1.64 1.64" />
-                                </svg>
-                            </div>
-                            <h3 className="card-title">Performance & Deployment</h3>
-                            <p className="card-text">Optimize your code for speed and learn to deploy your projects to the web using services like Vercel and Netlify.</p>
-                        </div>
-
-                        {/* Card 6: Version Control */}
-                        <div onClick={() => openSubjectModal('Git & GitHub')} className="card">
-                            <div className="card-icon-container" style={{ backgroundColor: '#fee2e2', color: '#ef4444' }}>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="card-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <h3 className="card-title">Git & GitHub</h3>
-                            <p className="card-text">Collaborate effectively with teams. Learn Git for version control and manage your code on GitHub.</p>
-                        </div>
-                    </div>
-                </section>
-
-                {/* CTA Section */}
-                <section className="cta-banner">
-                    <h2 className="cta-banner-title">
-                        Ready to Start Your Journey?
-                    </h2>
-                    <p className="cta-banner-text">
-                        Spaces are limited! Take the first step towards a rewarding career in web development.
-                    </p>
-                    <button onClick={openEnrollmentModal} className="cta-button-primary">
-                        Enroll in the Course
-                    </button>
-                </section>
+                    {/* Mentor CTA Section */}
+                    <section className="cta-banner">
+                        <h2 className="cta-banner-title">
+                            Are you an expert in frontend development?
+                        </h2>
+                        <p className="cta-banner-text">
+                            Join our team of experienced mentors and help shape the next generation of developers.
+                        </p>
+                        <button onClick={openMentorModal} className="cta-button">
+                            Work with Us
+                        </button>
+                    </section>
+                </div>
             </main>
 
             {/* Footer */}
             <footer>
-                <p className="footer-text">&copy; 2025 Evolve. All rights reserved.</p>
+                <p className="text-sm text-gray-400">&copy; 2025 Evolve. All rights reserved.</p>
             </footer>
 
-            {/* Enrollment Modal */}
+            {/* Enrollment Modal (for Students and Mentees) */}
             {isEnrollmentModalOpen && (
                 <div className="modal-overlay">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h3 className="modal-title">Enrollment Form</h3>
-                            <button onClick={closeEnrollmentModal} className="modal-close-button">
+                            <h3 className="modal-title">Course Application</h3>
+                            <button onClick={closeModal} className="modal-close-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </button>
                         </div>
-                        <p className="modal-description">Fill out the form below to apply for the course.</p>
+                        <p className="modal-description">Fill out the form below to apply to our course. You can choose to be a general student or a mentee for more personalized guidance.</p>
                         <form onSubmit={handleEnrollmentSubmit}>
                             <div className="form-group">
                                 <label htmlFor="name" className="form-label">Full Name</label>
@@ -511,19 +628,15 @@ const App = () => {
                                 <input type="email" id="email" name="email" required className="form-input" />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="role" className="form-label">I am applying to be a...</label>
-                                <select id="role" name="role" required className="form-input form-select">
+                                <label htmlFor="role" className="form-label">I want to apply as a...</label>
+                                <select id="role" name="role" required className="form-select">
                                     <option value="student">Student</option>
-                                    <option value="mentor">Mentor</option>
+                                    <option value="mentee">Mentee</option>
                                 </select>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="message" className="form-label">Message (Optional)</label>
-                                <textarea id="message" name="message" rows="3" className="form-textarea"></textarea>
-                            </div>
-                            <div className="form-footer">
-                                <button type="submit" className="header-button">
-                                    Submit
+                            <div className="form-group text-right">
+                                <button type="submit" className="cta-button">
+                                    Submit Application
                                 </button>
                             </div>
                         </form>
@@ -537,13 +650,111 @@ const App = () => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h3 className="modal-title">{currentSubject.title}</h3>
-                            <button onClick={closeSubjectModal} className="modal-close-button">
+                            <button onClick={closeModal} className="modal-close-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </button>
                         </div>
-                        <p className="modal-description">{currentSubject.details}</p>
+                        <div className="space-y-4">
+                            <div className="subject-section">
+                                <p className="modal-description">
+                                    **About this Subject:** {currentSubject.details}
+                                </p>
+                            </div>
+                            <div className="subject-section">
+                                <p className="modal-description">
+                                    **Project to Work On:** {currentSubject.project}
+                                </p>
+                            </div>
+                            <div className="subject-section">
+                                <h4>Course Topics</h4>
+                                <div className="topics-grid">
+                                    {currentSubject.topics.map((topic, index) => (
+                                        <div key={index} className="topic-link-card">
+                                            <span>{index + 1}.</span> {topic}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="text-right mt-4">
+                            <button onClick={closeModal} className="cta-button">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Success Modal for Mentees and Students */}
+            {isSuccessModalOpen && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h3 className="modal-title">Application Submitted!</h3>
+                            <button onClick={closeModal} className="modal-close-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                        <p className="modal-description">
+                            Thank you for your application! A member of our team will contact you shortly to confirm your enrollment and discuss your next steps.
+                        </p>
+                        <div className="text-right mt-4">
+                            <button onClick={closeModal} className="cta-button">
+                                OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Mentor Redirect Modal */}
+            {isMentorRedirectModalOpen && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h3 className="modal-title">Work with Us</h3>
+                            <button onClick={closeModal} className="modal-close-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                        <p className="modal-description">
+                            Thank you for your interest in becoming a mentor! Please contact us at **mentors@evolve.com** with your resume and a brief description of your experience to get started.
+                        </p>
+                        <div className="text-right mt-4">
+                            <button onClick={closeModal} className="cta-button">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+            
+            {/* Backend Modal */}
+            {isBackendModalOpen && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h3 className="modal-title">Backend Course</h3>
+                            <button onClick={closeModal} className="modal-close-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                        <p className="modal-description">
+                            Our backend course is coming soon! Check back later for a full list of subjects and projects.
+                        </p>
+                        <div className="text-right mt-4">
+                            <button onClick={closeModal} className="cta-button">
+                                OK
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}
