@@ -1,0 +1,89 @@
+/* SCSS Variables */
+$bg-primary: #f8fafc;
+$bg-secondary: #e5e7eb;
+$text-primary: #1f2937;
+$text-secondary: #6b7280;
+$text-accent: #4f46e5;
+$text-accent-hover: #3730a3;
+$text-light: #ffffff;
+$border-color: #e5e7eb;
+$card-bg: #ffffff;
+$modal-overlay: rgba(0, 0, 0, 0.6);
+$shadow-base: 0 10px 20px rgba(79, 70, 229, 0.2);
+
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background-color: $card-bg;
+  border: 1px solid $border-color;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+  text-align: center;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  width: 4rem;
+  background-color: #eef2ff;
+  border-radius: 9999px;
+  color: $text-accent;
+  margin: 0 auto 1rem;
+
+  .card.course-card & {
+    margin-left: 0;
+  }
+
+  svg {
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  color: $text-secondary;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.card-link {
+  color: $text-accent;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  &:hover {
+    color: lighten($text-accent, 10%);
+  }
+}

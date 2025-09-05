@@ -1,0 +1,481 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $modal-overlay;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  &-close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: $text-secondary;
+    background: none;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      color: $text-primary;
+    }
+  }
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 100vh;
+    overflow-y: auto;
+    padding-block: 1.5rem;
+    background-color: $card-bg;
+    border-radius: 1.5rem;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+    &-desc {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      .modal {
+        &-title {
+          font-size: 2rem;
+          font-weight: 600;
+        }
+        &-subtitle {
+          font-size: 0.9rem;
+          color: $text-secondary;
+        }
+      }
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      gap: 1.3rem;
+      .form-group {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+        label {
+          width: 100%;
+          display: block;
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: $text-primary;
+        }
+        input {
+          height: 2rem;
+        }
+        input,
+        textarea {
+          width: 100%;
+          padding-inline-start: 0.5rem;
+          padding-block: 0.25rem;
+          background-color: #f3f4f6;
+          color: #1f2937;
+          border-radius: 0.3rem;
+          border: 1px solid black;
+          &::placeholder {
+            padding-inline: 1rem;
+          }
+          &:focus {
+            border-color: $text-accent;
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+          }
+        }
+      }
+
+      .form-buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+      }
+
+      .cancel-button {
+        background-color: $bg-secondary;
+        color: $text-primary;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          background-color: darken($bg-secondary, 5%);
+        }
+      }
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+      padding-block-start: 4rem;
+  .hero {
+    background-color: $bg-primary;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    &-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      .hero-title {
+        font-size: 2.25rem;
+        font-weight: 800;
+        line-height: 1.25;
+        margin-bottom: 1rem;
+        @media (min-width: 768px) {
+          font-size: 3.75rem;
+        }
+        @media (min-width: 1024px) {
+          font-size: 4.5rem;
+        }
+      }
+      .hero-description {
+        font-size: 1.125rem;
+        color: $text-secondary;
+        max-width: 48rem;
+        margin: 0 auto 2rem;
+        @media (min-width: 768px) {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+
+  /* Common Section Styles */
+  section {
+    min-height: 100vh;
+    padding-block: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    .section-header {
+      text-align: center;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      @media (min-width: 768px) {
+        font-size: 2.4rem;
+      }
+      @media (min-width: 1024px) {
+        font-size: 2.6rem;
+      }
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: $text-secondary;
+      max-width: 42rem;
+    }
+  }
+
+  /* Card Grid Layouts */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 90%;
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .card {
+    background-color: $card-bg;
+    border: 1px solid $border-color;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+    text-align: center;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .course-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    width: 4rem;
+    background-color: #eef2ff;
+    border-radius: 9999px;
+    color: $text-accent;
+    margin: 0 auto 1rem;
+
+    .card.course-card & {
+      margin-left: 0;
+    }
+
+    svg {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-description {
+    color: $text-secondary;
+    flex-grow: 1;
+    margin-bottom: 1rem;
+  }
+
+  .card-link {
+    color: $text-accent;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    &:hover {
+      color: lighten($text-accent, 10%);
+    }
+  }
+
+  /* Testimonials Section */
+  .testimonials-section {
+    background-color: $bg-secondary;
+
+    .testimonial-carousel {
+      position: relative;
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background-color: $card-bg;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      transition: all 0.5s ease-in-out;
+      text-align: center;
+    }
+
+    .testimonial-quote {
+      font-size: 1.25rem;
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .testimonial-author-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .author-avatar {
+      height: 3rem;
+      width: 3rem;
+      border-radius: 9999px;
+      background-color: $text-accent;
+      flex-shrink: 0;
+      margin-right: 1rem;
+    }
+
+    .author-details p {
+      margin: 0;
+    }
+
+    .author-name {
+      font-weight: 600;
+    }
+
+    .author-title {
+      font-size: 0.875rem;
+      color: $text-secondary;
+    }
+
+    .testimonial-nav {
+      position: absolute;
+      top: 50%;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+      button {
+        transform: translateY(-50%);
+        padding: 0.5rem;
+        border-radius: 9999px;
+        background-color: $text-primary;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        color: $text-secondary;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          background-color: #f3f4f6;
+        }
+      }
+
+      &.prev {
+        left: 0;
+      }
+
+      &.next {
+        right: 0;
+      }
+    }
+  }
+
+  /* Memories Section */
+  .memories-card {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .media-container {
+      width: 100%;
+      padding-bottom: 66.67%; /* 3:2 Aspect Ratio */
+      position: relative;
+      background-color: #374151;
+    }
+
+    .media-container img,
+    .media-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .video-play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .video-play-button svg {
+      width: 32px;
+      height: 32px;
+      fill: #fff;
+    }
+    .memories-card:hover .video-play-button {
+      opacity: 0;
+    }
+  }
+
+  .memory-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .memory-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Our Team Section */
+  .team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: $card-bg;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .team-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 4px solid $text-accent;
+    }
+
+    .team-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .team-title {
+      font-size: 1rem;
+      color: $text-secondary;
+    }
+  }
+}
