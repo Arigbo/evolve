@@ -49,9 +49,10 @@ export default function Header() {
           })}
         </div>
       </nav>
-      <Link href="/course" className="btn cta-button">
-        Get Started
-      </Link>
+      <a href="" className="btn cta-button">
+        Signup
+      </a>
+      <i className="fas fa-bars"></i>
     </header>
   );
 }

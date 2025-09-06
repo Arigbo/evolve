@@ -292,7 +292,7 @@ const App = () => {
       </div>
       <main>
         {/* Hero Section */}
-        <section className="hero">
+        <section className="hero home-hero">
           <div className="hero-inner">
             <h1 className="hero-title">
               Launch Your Career <br className="hidden-on-mobile" /> in IT with{" "}
@@ -518,7 +518,7 @@ const App = () => {
               perfect course for you.
             </p>
           </div>
-          <button onClick={openModal} className="cta-button">
+          <button onClick={openModal} className="btn cta-button">
             Contact Us
           </button>
         </section>

@@ -185,7 +185,7 @@ const SingleCourse = () => {
   return (
     <>
       {/* Main Content */}
-      <main>
+      <main className="single-course">
         {/* Breadcrumbs and Backend Link */}
         <div className="breadcrumbs-container">
           <div className="breadcrumbs">

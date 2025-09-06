@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
-
+import Image from "next/image";
+import Link from "next/link";
 const Courses = () => {
   // State to manage the visibility of the contact modal
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -151,16 +152,17 @@ const Courses = () => {
       </div>
       <main>
         {/* Hero Section */}
-        <section className="hero">
+        <section className="hero course-hero">
           <div className="hero-inner">
             <h1 className="hero-title">Our Courses</h1>
             <p className="hero-description">
               Find the right path for your career. We offer a wide range of
               training programs led by industry experts.
             </p>
-            <a href="#course-list" className="btn cta-button">
+            <Link href="/course" className="btn cta-buttonn">
+              {" "}
               Explore All Courses
-            </a>
+            </Link>
           </div>
         </section>
 

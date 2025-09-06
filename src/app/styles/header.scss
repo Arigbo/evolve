@@ -3,7 +3,7 @@ header {
   top: 0;
   right: 0;
   left: 0;
-  padding-inline: 1rem;
+  padding-inline: 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -61,6 +61,15 @@ header {
     }
   }
   .btn {
-    height: 1.2rem;
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .fas {
+      display: none;
+    }
+    .btn {
+      height: 1.2rem;
+      display: block;
+    }
   }
 }
