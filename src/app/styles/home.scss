@@ -144,6 +144,14 @@ main {
       ),
       url("/home-hero2.png");
   }
+  .about-hero{
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.235),
+        rgba(0, 0, 0, 0.816)
+      ),
+      url("/home-hero.png");
+  }
   .hero {
     width: 100%;
     min-height: 100vh;

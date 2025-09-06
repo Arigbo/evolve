@@ -157,7 +157,7 @@ const App = () => {
         {/* Main Content */}
         <main className="main-content">
           {/* Hero Section */}
-          <section className="hero">
+          <section className="hero about-hero">
             <div className="hero-inner">
               <h1 className="hero-title">Crafting Tomorrow's Innovators</h1>
               <p className="hero-description">
@@ -172,30 +172,36 @@ const App = () => {
           </section>
 
           {/* Our Journey Section with image */}
-          <section className="section journey-grid">
-            <div className="order-2 md-order-1">
-              <h2 className="section-heading-left">Our Journey</h2>
-              <p className="text-lg">
-                Evolve was born from a simple idea: to fix online education. We
-                were tired of passive video tutorials and outdated curricula
-                that left learners with a certificate but no practical skills.
-                Our founders, a group of seasoned software engineers, wanted to
-                create a platform that mimicked the real-world experience of a
-                development team.
-              </p>
-              <p className="text-lg mt-4">
-                Today, our courses are centered around building a single,
-                challenging project from start to finish. We provide direct
-                mentorship, a vibrant community, and a roadmap that prepares you
-                for a real-world career.
-              </p>
-            </div>
-            <div className="order-1 md-order-2 journey-image">
-              <img
-                src="/home-hero1.png"
-                alt="Image of Evolve team collaborating"
-                className="w-full h-full object-cover"
-              />
+          <section className="section ">
+            <div className="journey">
+              <div className="journey-left">
+                <h2 className="section-title">
+                  How We <span className="text-gradient">Evolve</span>
+                </h2>
+                <div className="journey-left-text">
+                  <p className="">
+                    Evolve was born from a simple idea: to fix online education.
+                    We were tired of passive video tutorials and outdated
+                    curricula that left learners with a certificate but no
+                    practical skills. Our founders, a group of seasoned software
+                    engineers, wanted to create a platform that mimicked the
+                    real-world experience of a development team.
+                  </p>
+                  <p className="">
+                    Today, our courses are centered around building a single,
+                    challenging project from start to finish. We provide direct
+                    mentorship, a vibrant community, and a roadmap that prepares
+                    you for a real-world career.
+                  </p>
+                </div>
+              </div>
+              <div className="journey-image">
+                <img
+                  src="/team.png"
+                  alt="Image of Evolve team collaborating"
+                  className=""
+                />
+              </div>
             </div>
           </section>
 
