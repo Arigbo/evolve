@@ -29,19 +29,19 @@ const App = () => {
       name: "Dr. Evelyn Reed",
       role: "Head of Curriculum",
       bio: "A Ph.D. in Computer Science with over 15 years of experience in technical education. She designs our roadmaps to be both comprehensive and accessible.",
-      image: "https://placehold.co/128x128/9CA3AF/ffffff?text=ER",
+      image: "/course-hero.png",
     },
     {
       name: "Alex Chen",
       role: "Lead Instructor, Frontend",
       bio: "A seasoned software engineer with a passion for clean code and beautiful user interfaces. He leads our frontend workshops and mentors aspiring developers.",
-      image: "https://placehold.co/128x128/9CA3AF/ffffff?text=AC",
+      image: "/home-hero2.png",
     },
     {
       name: "Maria Rodriguez",
       role: "Community & Mentorship Lead",
       bio: "A champion of collaborative learning. She manages our mentor program and ensures every student feels supported on their journey.",
-      image: "https://placehold.co/128x128/9CA3AF/ffffff?text=MR",
+      image: "/home-hero.png",
     },
   ];
 
@@ -180,12 +180,13 @@ const App = () => {
                 </h2>
                 <div className="journey-left-text">
                   <p className="">
-                    Evolve was born from a simple idea: to fix online education.
-                    We were tired of passive video tutorials and outdated
-                    curricula that left learners with a certificate but no
-                    practical skills. Our founders, a group of seasoned software
-                    engineers, wanted to create a platform that mimicked the
-                    real-world experience of a development team.
+                    <span className="text-gradient">Evolve</span> was born from
+                    a simple idea: to fix online education. We were tired of
+                    passive video tutorials and outdated curricula that left
+                    learners with a certificate but no practical skills. Our
+                    founders, a group of seasoned software engineers, wanted to
+                    create a platform that mimicked the real-world experience of
+                    a development team.
                   </p>
                   <p className="">
                     Today, our courses are centered around building a single,
@@ -207,22 +208,27 @@ const App = () => {
 
           {/* Our Services Section */}
           <section className="section">
-            <h2 className="section-heading">How We Transform Careers</h2>
-            <div className="services-grid">
+            <div className="section-header">
+              <h2 className="section-title">
+                How We <span className="text-gradient">Evolve</span> Careers
+              </h2>
+            </div>
+            <div className="card-grid">
               {services.map((service, index) => (
-                <div key={index} className="service-card">
-                  {service.icon}
-                  <h3 className="font-semibold text-xl mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm">{service.description}</p>
+                <div key={index} className="card">
+                  <div className="card-icon"> {service.icon}</div>
+                  <h3 className="card-title">{service.title}</h3>
+                  <p className="card-description">{service.description}</p>
                 </div>
               ))}
             </div>
           </section>
           {/* Memories & Events Section */}
           <section className="section">
-            <h2 className="section-heading">Memories from Our Community</h2>
+            <div className="section-header">
+              {" "}
+              <h2 className="section-title">Memories from Our Community</h2>
+            </div>
             <div className="gallery-grid">
               {memories.map((memory, index) => (
                 <div key={index} className="gallery-card">
@@ -242,31 +248,48 @@ const App = () => {
           </section>
           {/* Team Section */}
           <section className="section">
-            <h2 className="section-heading">Meet the Architects of Evolve</h2>
-            <div className="team-grid">
+            <div className="section-header">
+              <h2 className="section-title">
+                Meet the Architects of{" "}
+                <span className="text-gradient">Evolve</span>
+              </h2>
+            </div>
+            <div className="card-grid">
               {teamMembers.map((member, index) => (
                 <div key={index} className="team-card">
-                  <img src={member.image} alt={`Photo of ${member.name}`} />
-                  <h4 className="font-semibold text-xl text-gray-900">
-                    {member.name}
-                  </h4>
-                  <p className="text-sm font-medium text-indigo-600 uppercase tracking-widest">
-                    {member.role}
-                  </p>
-                  <p className="text-sm mt-4 text-gray-600">{member.bio}</p>
+                  <div className="team-card-inner">
+                    <img
+                      src={member.image}
+                      alt={`Photo of ${member.name}`}
+                      className="team-image"
+                    />
+                    <h3 className="team-name">{member.name}</h3>
+                    <p className="team-title">{member.role}</p>
+                  </div>
+                  <div className="team-description">
+                    <div className="team-description-inner">
+                      <h2>About</h2>
+                      <p>{member.bio}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* Final CTA Section */}
-          <section className="final-cta">
-            <h2>Ready to make an impact?</h2>
-            <p>
-              Join Evolve and turn your passion into a profession. Our community
-              is waiting to build with you.
-            </p>
-            <button onClick={openCourseModal}>Get Started Today</button>
+          {/* Call to Action Section */}
+          <section id="contact" className="section cta-section">
+            <div className="section-header">
+              <h2 className="section-title">
+                Ready to <span className="text-gradient">Evolve </span>Your
+                Career?
+              </h2>
+              <p className="section-subtitle">
+                Contact us today to learn more about our programs and find the
+                perfect course for you.
+              </p>
+            </div>
+            <button className="btn cta-button">Contact Us</button>
           </section>
         </main>
 

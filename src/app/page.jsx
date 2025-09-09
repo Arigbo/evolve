@@ -309,7 +309,7 @@ const App = () => {
         </section>
 
         {/* About Section (Why Choose Us) */}
-        <section id="about" className="section testimonials-section">
+        <section id="about" className="section">
           <div className="section-header">
             <h2 className="section-title">
               Why Choose <span className="text-gradient">Evolve?</span>
