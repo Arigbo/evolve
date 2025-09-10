@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 export default function Header() {
   const pathname = usePathname();
   const navLink = [
@@ -17,6 +18,8 @@ export default function Header() {
       link: "/course",
     },
   ];
+  const [signup, setSignup] = useState(true);
+  const [nav, setNav] = useState(false);
   return (
     <header className="header">
       <a href="#" className="logo">
@@ -49,10 +52,40 @@ export default function Header() {
           })}
         </div>
       </nav>
-      <a href="" className="btn cta-button">
-        Signup
-      </a>
-      <i className="fas fa-bars"></i>
+      <nav className={`header-nav-mobile ${nav ? "show" : ""}`}>
+        <div className="nav-links">
+          {navLink.map((item) => {
+            return (
+              <Link
+                href={item.link}
+                key={item.name}
+                className={`nav-link ${item.link == pathname ? "active" : ""}`}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
+        </div>
+        {signup ? (
+          <a href="#" className="btn cta-button">
+            Signup
+          </a>
+        ) : (
+          <i className="fas fa-user"></i>
+        )}
+      </nav>
+      {signup ? (
+        <a href="#" className="btn cta-button">
+          Signup
+        </a>
+      ) : (
+        <i className="fas fa-user"></i>
+      )}
+      {nav ? (
+        <i className="fas fa-x" onClick={() => setNav(false)}></i>
+      ) : (
+        <i className="fas fa-bars" onClick={() => setNav(true)}></i>
+      )}
     </header>
   );
 }

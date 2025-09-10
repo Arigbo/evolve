@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -7,7 +8,7 @@ const App = () => {
     useState(false);
   const [isCourseRedirectModalOpen, setIsCourseRedirectModalOpen] =
     useState(false);
-
+  const [about, setAbout] = useState();
   const openMentorModal = () => {
     setIsMentorRedirectModalOpen(true);
     document.body.style.overflow = "hidden";
@@ -26,22 +27,43 @@ const App = () => {
 
   const teamMembers = [
     {
+      id: 1,
       name: "Dr. Evelyn Reed",
       role: "Head of Curriculum",
       bio: "A Ph.D. in Computer Science with over 15 years of experience in technical education. She designs our roadmaps to be both comprehensive and accessible.",
       image: "/course-hero.png",
+      socials: [
+        {
+          socialIcon: "fa-facebook",
+          link: "",
+        },
+      ],
     },
     {
+      id: 2,
       name: "Alex Chen",
       role: "Lead Instructor, Frontend",
       bio: "A seasoned software engineer with a passion for clean code and beautiful user interfaces. He leads our frontend workshops and mentors aspiring developers.",
       image: "/home-hero2.png",
+      socials: [
+        {
+          socialIcon: "fa-facebook",
+          link: "",
+        },
+      ],
     },
     {
+      id: 3,
       name: "Maria Rodriguez",
       role: "Community & Mentorship Lead",
       bio: "A champion of collaborative learning. She manages our mentor program and ensures every student feels supported on their journey.",
       image: "/home-hero.png",
+      socials: [
+        {
+          socialIcon: "fa-facebook",
+          link: "",
+        },
+      ],
     },
   ];
 
@@ -122,32 +144,31 @@ const App = () => {
   const memories = [
     {
       caption: "Building community at the Fall 2024 college hackathon.",
-      image:
-        "https://placehold.co/600x400/9CA3AF/ffffff?text=College+Hackathon",
+      image: "/memory3.png",
     },
     {
       caption:
         "A vibrant Q&A session with a guest speaker from a leading tech firm.",
-      image: "https://placehold.co/600x400/9CA3AF/ffffff?text=Q%26A+Session",
+      image: "/memory1.png",
     },
     {
       caption:
         "Our annual project showcase, where students present their final creations.",
-      image: "https://placehold.co/600x400/9CA3AF/ffffff?text=Project+Showcase",
+      image: "/memory6.png",
     },
     {
       caption:
         "Mentors providing one-on-one code reviews during a weekend workshop.",
-      image: "https://placehold.co/600x400/9CA3AF/ffffff?text=Mentor+Review",
+      image: "/memory5.png",
     },
     {
       caption:
         "Students celebrating their course completion and new career paths.",
-      image: "https://placehold.co/600x400/9CA3AF/ffffff?text=Graduation",
+      image: "/home-hero.png",
     },
     {
       caption: "Our team leading a hands-on session at the university campus.",
-      image: "https://placehold.co/600x400/9CA3AF/ffffff?text=Campus+Event",
+      image: "/memory4.png",
     },
   ];
 
@@ -232,13 +253,15 @@ const App = () => {
             <div className="gallery-grid">
               {memories.map((memory, index) => (
                 <div key={index} className="gallery-card">
-                  <img
-                    src={memory.image}
-                    alt={memory.caption}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-4">
-                    <p className="text-sm text-gray-600 text-center">
+                  <div className="gallery-card-image">
+                    <img
+                      src={memory.image}
+                      alt={memory.caption}
+                      className="image"
+                    />
+                  </div>
+                  <div className="gallery-card-text">
+                    <p className="">
                       {memory.caption}
                     </p>
                   </div>
@@ -256,7 +279,7 @@ const App = () => {
             </div>
             <div className="card-grid">
               {teamMembers.map((member, index) => (
-                <div key={index} className="team-card">
+                <div key={index} className={`team-card ${about ? `hide` : ""}`}>
                   <div className="team-card-inner">
                     <img
                       src={member.image}
@@ -265,11 +288,43 @@ const App = () => {
                     />
                     <h3 className="team-name">{member.name}</h3>
                     <p className="team-title">{member.role}</p>
+
+                    <h2
+                      className="about"
+                      onClick={() => {
+                        setAbout(true);
+                      }}
+                    >
+                      About <i className="fas fa-arrow-right"></i>
+                    </h2>
                   </div>
                   <div className="team-description">
                     <div className="team-description-inner">
-                      <h2>About</h2>
-                      <p>{member.bio}</p>
+                      <div className="top">
+                        <div className="top-header">
+                          {" "}
+                          <h2>
+                            About{" "}
+                            <span className="text-gradient">{member.name}</span>
+                          </h2>
+                          <i
+                            className="fas fa-x"
+                            onClick={() => {
+                              setAbout(false);
+                            }}
+                          ></i>
+                        </div>
+                        <p>{member.bio}</p>
+                      </div>
+                      <div className="bottom">
+                        {member.socials.map((item) => {
+                          return (
+                            <a key={item.social}>
+                              <i className={`fab ${item.socialIcon}`}></i>
+                            </a>
+                          );
+                        })}
+                      </div>
                     </div>
                   </div>
                 </div>

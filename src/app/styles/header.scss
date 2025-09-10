@@ -1,9 +1,9 @@
-header {
+.header {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  padding-inline: 3rem;
+  padding-inline: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,7 +31,7 @@ header {
       }
     }
   }
-  nav {
+  &-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -63,13 +63,93 @@ header {
   .btn {
     display: none;
   }
+  .fa-user {
+    color: $text-secondary;
+    background-color: black;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1rem;
+    border-radius: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      color: $text-accent;
+    }
+  }
+  .fa-x{
+    position: absolute;
+    z-index: 40;
+    right: 1rem;
+  }
+  &-nav-mobile {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    height: 80vh;
+    right: 100vh;
+    left: -100vh;
+    gap: 1rem;
+    transition: all 0.5s ease;
+    background-color: rgb(255, 255, 255);
+    &.show {
+      left: 0;
+      right: 0;
+    }
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 90%;
+      height: 54%;
+      text-transform: capitalize;
+      font-size: 1.2rem;
+      gap: 1rem;
+      .nav-link {
+        width: 90%;
+        padding-inline: 1rem;
+        display: flex;
+        align-items: center;
+        height: 3rem;
+        transition: all 0.4s ease;
+        border-radius: 1rem;
+        &:hover {
+          background-color: $text-accent;
+          color: white;
+        }
+        &.active {
+          background-color: $text-accent;
+          color: white;
+        }
+      }
+    }
+    .btn {
+      display: flex;
+      width: 90%;
+      padding-inline: 0;
+      height: 1.5rem;
+      font-size: 14px;
+      font-weight: 300;
+    }
+    .fa-user {
+      display: flex;
+    }
+  }
   @media (min-width: 768px) {
-    .fas {
+    .fa-bars,.fa-x {
       display: none;
+    }
+    .fa-user {
+      display: flex;
     }
     .btn {
       height: 1.2rem;
       display: block;
+    }
+    &-nav-mobile {
+      display: none;
     }
   }
 }

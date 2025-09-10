@@ -168,6 +168,9 @@ const Courses = () => {
 
         {/* Courses Section */}
         <section id="course-list" className="section">
+            <div className="section-header">
+                <h2 className="section-title">Our Courses</h2>
+            </div>
           <div className="card-grid">
             {courseCards.map((card, index) => (
               <div key={index} className="card course-card">

@@ -193,67 +193,86 @@ const SingleCourse = () => {
             <span>&gt;</span>
             <span>Frontend</span>
           </div>
-          <button onClick={openBackendModal} className="header-button">
-            Explore Backend Course
-          </button>
+          <a onClick={openBackendModal} className="next">
+            <h6>Backend Course</h6>
+            <i className="fas fa-chevron-right"></i>
+          </a>
         </div>
-
+        <section className="hero">
+          <div className="hero-inner">
+            <h2 className="hero-title">Frontend Development Course Overview</h2>
+          </div>
+        </section>
         {/* Introduction Section */}
         <section className="intro">
-          <h1 className="intro-title">Master Frontend Development</h1>
-          <p className="intro-description mb-4">
-            <strong>Frontend development</strong> is the practice of building the visual and
-            interactive parts of a website that users see and interact with
-            directly. It involves using languages and frameworks like HTML, CSS,
-            and JavaScript to create everything from the page layout and design
-            to animations and functionality. The goal is to deliver a smooth,
-            responsive, and visually appealing user experience.
-          </p>
+          <div className="intro-1">
+            <h1 className="intro-title">What is Frontend Development?</h1>
+            <p className="intro-description">
+              <strong>Frontend development</strong> is the practice of building
+              the visual and interactive parts of a website that users see and
+              interact with directly. It involves using languages and frameworks
+              like HTML, CSS, and JavaScript to create everything from the page
+              layout and design to animations and functionality. The goal is to
+              deliver a smooth, responsive, and visually appealing user
+              experience.
+            </p>
+          </div>
 
-          <h2 className="intro-title">
-            What is Frontend vs. Backend Development?
-          </h2>
-          <p className="intro-description mb-4">
-            <strong>Frontend</strong> development is all about the <strong>client-side</strong> of a web
-            application. It's the part the user can see and interact with in
-            their web browser. This includes everything from the layout and
-            fonts to buttons, forms, and animations. Frontend developers work
-            with languages like HTML, CSS, and JavaScript to bring designs to
-            life and ensure a seamless user experience.
-          </p>
-          <p className="intro-description mb-4">
-            <strong>Backend</strong> development, on the other hand, is the <strong>server-side</strong>
-            of a web application. It's the logic and functionality that happens
-            behind the scenes. This includes databases, APIs, server scripts,
-            and the business logic that makes the application work. While users
-            don't see the backend directly, it is essential for storing data,
-            processing requests, and authenticating users.
-          </p>
+          <div className="intro-2">
+            <h2 className="intro-title">
+              What is Frontend vs. Backend Development?
+            </h2>
+            <p className="intro-description mb-4">
+              <strong>Frontend</strong> development is all about the{" "}
+              <strong>client-side</strong> of a web application. It's the part
+              the user can see and interact with in their web browser. This
+              includes everything from the layout and fonts to buttons, forms,
+              and animations. Frontend developers work with languages like HTML,
+              CSS, and JavaScript to bring designs to life and ensure a seamless
+              user experience.
+            </p>
+            <p className="intro-description mb-4">
+              <strong>Backend</strong> development, on the other hand, is the{" "}
+              <strong>server-side</strong>
+              of a web application. It's the logic and functionality that
+              happens behind the scenes. This includes databases, APIs, server
+              scripts, and the business logic that makes the application work.
+              While users don't see the backend directly, it is essential for
+              storing data, processing requests, and authenticating users.
+            </p>
+          </div>
 
-          <h2 className="intro-title">
-            Essential Tools for Frontend Developers
-          </h2>
-          <p className="intro-description mb-4">
-            To build modern web applications, frontend developers use a variety
-            of tools. The core tools include a <strong>code editor</strong> like Visual
-            Studio Code, a <strong>version control system</strong> like Git for tracking
-            changes, and a <strong>package manager</strong> such as npm or Yarn for managing
-            project dependencies. You will also use the <strong>browser's developer
-            tools</strong> for debugging and a <strong>build tool</strong> like Webpack or Vite for
-            bundling your code.
-          </p>
+          <div className="intro-3">
+            <h2 className="intro-title">
+              Essential Tools for Frontend Developers
+            </h2>
+            <p className="intro-description mb-4">
+              To build modern web applications, frontend developers use a
+              variety of tools. The core tools include a{" "}
+              <strong>code editor</strong> like Visual Studio Code, a{" "}
+              <strong>version control system</strong> like Git for tracking
+              changes, and a <strong>package manager</strong> such as npm or
+              Yarn for managing project dependencies. You will also use the{" "}
+              <strong>browser's developer tools</strong> for debugging and a{" "}
+              <strong>build tool</strong> like Webpack or Vite for bundling your
+              code.
+            </p>
 
-          <p className="intro-description">
-            Our course provides a structured <strong>roadmap</strong> designed to take you
-            from a complete beginner to a confident developer. You'll learn the
-            core skills needed to build modern web applications and create a
-            portfolio of real projects along the way.
-          </p>
+            <p className="intro-description">
+              Our course provides a structured <strong>roadmap</strong> designed
+              to take you from a complete beginner to a confident developer.
+              You'll learn the core skills needed to build modern web
+              applications and create a portfolio of real projects along the
+              way.
+            </p>
+          </div>
         </section>
 
         {/* What You'll Learn Section */}
         <section>
-          <h2 className="section-title">Course Subjects</h2>
+          <div className="section-header">
+            <h2 className="section-title">Course Subjects</h2>
+          </div>
           <div className="grid-container">
             {Object.keys(subjectDetails).map((subject, index) => (
               <div

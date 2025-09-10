@@ -11,7 +11,7 @@ const App = () => {
   const [activeMemoryIndex, setActiveMemoryIndex] = useState(null);
   // New state to track which video is hovered for playback control
   const [hoveredVideoIndex, setHoveredVideoIndex] = useState(null);
-
+  const [about, setAbout] = useState();
   // Ref to hold the timeout ID for the overlay text
   const timeoutRef = useRef(null);
   // Refs to hold the video elements
@@ -97,6 +97,7 @@ const App = () => {
           <polyline points="8 6 2 12 8 18"></polyline>
         </g>
       ),
+      link: "/course/frontend",
     },
     {
       title: "Cybersecurity Analyst",
@@ -116,6 +117,44 @@ const App = () => {
       svg: (
         <g>
           <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+        </g>
+      ),
+    },
+    {
+      title: "Mobile App Development",
+      description:
+        "Build native and cross-platform mobile applications for iOS and Android using modern frameworks.",
+      svg: (
+        <g>
+          <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+          <path d="M17 2v5"></path>
+          <path d="M7 2v5"></path>
+          <path d="M12 12h.01"></path>
+          <path d="M12 16h.01"></path>
+        </g>
+      ),
+    },
+    {
+      title: "Cloud Computing & DevOps",
+      description:
+        "Manage and deploy applications on the cloud. Master services like AWS, Azure, and Google Cloud.",
+      svg: (
+        <g>
+          <path d="M12 12c-2.761 0-5-2.239-5-5s2.239-5 5-5 5 2.239 5 5-2.239 5-5 5z" />
+          <path d="M12 12v10" />
+          <path d="M7 17l-5-5" />
+          <path d="M17 17l5-5" />
+        </g>
+      ),
+    },
+    {
+      title: "UI/UX Design",
+      description:
+        "Create stunning and user-friendly interfaces. Learn design principles, wireframing, and prototyping.",
+      svg: (
+        <g>
+          <path d="M12 20s-8-4-8-12a8 8 0 1116 0c0 8-8 12-8 12z" />
+          <circle cx="12" cy="12" r="3" />
         </g>
       ),
     },
@@ -216,22 +255,45 @@ const App = () => {
     },
   ];
 
-  // Data for team members
   const teamMembers = [
     {
-      name: "John Doe",
-      title: "Lead Instructor, Web Dev",
-      imageUrl: "https://placehold.co/400x400/808080/FFFFFF?text=J.D.",
+      id: 1,
+      name: "Dr. Evelyn Reed",
+      role: "Head of Curriculum",
+      bio: "A Ph.D. in Computer Science with over 15 years of experience in technical education. She designs our roadmaps to be both comprehensive and accessible.",
+      image: "/course-hero.png",
+      socials: [
+        {
+          socialIcon: "fa-facebook",
+          link: "",
+        },
+      ],
     },
     {
-      name: "Jane Smith",
-      title: "Cybersecurity Expert",
-      imageUrl: "https://placehold.co/400x400/808080/FFFFFF?text=J.S.",
+      id: 2,
+      name: "Alex Chen",
+      role: "Lead Instructor, Frontend",
+      bio: "A seasoned software engineer with a passion for clean code and beautiful user interfaces. He leads our frontend workshops and mentors aspiring developers.",
+      image: "/home-hero2.png",
+      socials: [
+        {
+          socialIcon: "fa-facebook",
+          link: "",
+        },
+      ],
     },
     {
-      name: "Sam Wilson",
-      title: "Data Science Mentor",
-      imageUrl: "https://placehold.co/400x400/808080/FFFFFF?text=S.W.",
+      id: 3,
+      name: "Maria Rodriguez",
+      role: "Community & Mentorship Lead",
+      bio: "A champion of collaborative learning. She manages our mentor program and ensures every student feels supported on their journey.",
+      image: "/home-hero.png",
+      socials: [
+        {
+          socialIcon: "fa-facebook",
+          link: "",
+        },
+      ],
     },
   ];
 
@@ -368,23 +430,9 @@ const App = () => {
                 </div>
                 <h3 className="card-title">{card.title}</h3>
                 <p className="card-description">{card.description}</p>
-                <a href="#" className="card-link">
+                <a href={card.link} className="card-link">
                   <span>Learn More</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="1rem"
-                    width="1rem"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
+                  <i className="fas fa-chevron-right"></i>
                 </a>
               </div>
             ))}
@@ -442,25 +490,66 @@ const App = () => {
           </div>
         </section>
 
-        {/* Our Team Section */}
-        <section id="team" className="section testimonials-section">
+        {/* Team Section */}
+        <section className="section">
           <div className="section-header">
-            <h2 className="section-title">Meet Our Team</h2>
-            <p className="section-subtitle">
-              Our passionate instructors and mentors are here to guide you on
-              your journey.
-            </p>
+            <h2 className="section-title">
+              Meet the Architects of{" "}
+              <span className="text-gradient">Evolve</span>
+            </h2>
           </div>
           <div className="card-grid">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="team-card">
-                <img
-                  src={member.imageUrl}
-                  alt={member.name}
-                  className="team-image"
-                />
-                <h3 className="team-name">{member.name}</h3>
-                <p className="team-title">{member.title}</p>
+            {teamMembers.map((member) => (
+              <div
+                key={member.id}
+                className={`team-card ${about ? `hide` : ""}`}
+              >
+                <div className="team-card-inner">
+                  <img
+                    src={member.image}
+                    alt={`Photo of ${member.name}`}
+                    className="team-image"
+                  />
+                  <h3 className="team-name">{member.name}</h3>
+                  <p className="team-title">{member.role}</p>
+                  <h2
+                    className="about"
+                    onClick={() => {
+                      setAbout(true);
+                    }}
+                  >
+                    More<i className="fas fa-arrow-right"></i>
+                  </h2>
+                </div>
+                <div className="team-description">
+                  <div className="team-description-inner">
+                    <div className="top">
+                      <div className="top-header">
+                        {" "}
+                        <h2>
+                          About{" "}
+                          <span className="text-gradient">{member.name}</span>
+                        </h2>
+                        <i
+                          className="fas fa-x"
+                          onClick={() => {
+                            setAbout(false);
+                          }}
+                        ></i>
+                      </div>
+                      <p>{member.bio}</p>
+                    </div>
+                    <div className="bottom">
+                      {member.socials.map((item) => {
+                        return (
+                          <a key={item.social}>
+                            <i className={`fab ${item.socialIcon}`}></i>
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
