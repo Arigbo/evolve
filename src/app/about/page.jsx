@@ -196,9 +196,11 @@ const App = () => {
           <section className="section ">
             <div className="journey">
               <div className="journey-left">
-                <h2 className="section-title">
-                  How We <span className="text-gradient">Evolve</span>
-                </h2>
+                <div className="section-header">
+                  <h1 className="section-title">
+                    How We <span className="text-gradient">Evolve</span>
+                  </h1>
+                </div>
                 <div className="journey-left-text">
                   <p className="">
                     <span className="text-gradient">Evolve</span> was born from
@@ -230,9 +232,9 @@ const App = () => {
           {/* Our Services Section */}
           <section className="section">
             <div className="section-header">
-              <h2 className="section-title">
+              <h1 className="section-title">
                 How We <span className="text-gradient">Evolve</span> Careers
-              </h2>
+              </h1>
             </div>
             <div className="card-grid">
               {services.map((service, index) => (
@@ -261,9 +263,7 @@ const App = () => {
                     />
                   </div>
                   <div className="gallery-card-text">
-                    <p className="">
-                      {memory.caption}
-                    </p>
+                    <p className="">{memory.caption}</p>
                   </div>
                 </div>
               ))}

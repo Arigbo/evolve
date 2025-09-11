@@ -60,6 +60,7 @@ export default function Header() {
                 href={item.link}
                 key={item.name}
                 className={`nav-link ${item.link == pathname ? "active" : ""}`}
+                onClick={()=> setNav(false)}
               >
                 {item.name}
               </Link>
@@ -82,7 +83,7 @@ export default function Header() {
         <i className="fas fa-user"></i>
       )}
       {nav ? (
-        <i className="fas fa-x" onClick={() => setNav(false)}></i>
+        <i className="fas fa-arrow-left back" onClick={() => setNav(false)}></i>
       ) : (
         <i className="fas fa-bars" onClick={() => setNav(true)}></i>
       )}
