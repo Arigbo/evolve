@@ -1,27 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Context } from "@/components/content";
 const Courses = () => {
-  // State to manage the visibility of the contact modal
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // Function to open the modal
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  // Function to close the modal
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  // Handler for form submission
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    console.log("Form submitted!");
-    closeModal();
-  };
+const {setIsModalOpen}=useContext(Context)
 
   // Data for the course cards, including SVG icon JSX
   const courseCards = [
@@ -100,56 +83,6 @@ const Courses = () => {
 
   return (
     <>
-      <div
-        id="contact-modal"
-        className={`modal ${isModalOpen ? "open" : ""}`}
-        onClick={(e) => e.target.id === "contact-modal" && closeModal()}
-      >
-        <div className="modal-content">
-          <div className="modal-content-desc">
-            <i className="fas fa-x modal-close-button" onClick={closeModal}></i>
-            <h3 className="modal-title">Get in Touch</h3>
-            <p className="modal-subtitle">
-              Fill out the form below and we'll get back to you shortly.
-            </p>
-          </div>
-          <form
-            id="contact-form"
-            onSubmit={handleFormSubmit}
-            className="modal-form"
-          >
-            <div className="form-group">
-              <label htmlFor="name">Full Name</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email Address</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                required
-              ></textarea>
-            </div>
-            <div className="form-buttons">
-              <button
-                type="button"
-                className="cancel-button"
-                onClick={closeModal}
-              >
-                Cancel
-              </button>
-              <button type="submit" className="cta-button">
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
       <main>
         {/* Hero Section */}
         <section className="hero course-hero">
@@ -159,7 +92,7 @@ const Courses = () => {
               Find the right path for your career. We offer a wide range of
               training programs led by industry experts.
             </p>
-            <Link href="/course" className="btn cta-buttonn">
+            <Link href="/course" className="btn cta-button">
               {" "}
               Explore All Courses
             </Link>
@@ -219,12 +152,12 @@ const Courses = () => {
               Ready to <span className="text-gradient">Evolve</span> Your
               Career?
             </h2>
-            <p className="section-subtitle">
+          </div>
+                     <p className="section-subtitle">
               Contact us today to learn more about our programs and find the
               perfect course for you.
             </p>
-          </div>
-          <button onClick={openModal} className="cta-button">
+          <button onClick={()=>{setIsModalOpen(true)}} className="cta-button">
             Contact Us
           </button>
         </section>

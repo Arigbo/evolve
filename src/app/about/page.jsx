@@ -1,7 +1,8 @@
 "use client";
-
+import { useContext } from "react";
 import Link from "next/link";
 import React, { useState } from "react";
+import { Context } from "@/components/content";
 
 const App = () => {
   const [isMentorRedirectModalOpen, setIsMentorRedirectModalOpen] =
@@ -13,7 +14,7 @@ const App = () => {
     setIsMentorRedirectModalOpen(true);
     document.body.style.overflow = "hidden";
   };
-
+  const { setIsModalOpen, isModalOpen } = useContext(Context);
   const openCourseModal = () => {
     setIsCourseRedirectModalOpen(true);
     document.body.style.overflow = "hidden";
@@ -339,12 +340,14 @@ const App = () => {
                 Ready to <span className="text-gradient">Evolve </span>Your
                 Career?
               </h2>
-              <p className="section-subtitle">
-                Contact us today to learn more about our programs and find the
-                perfect course for you.
-              </p>
             </div>
-            <button className="btn cta-button">Contact Us</button>
+            <p className="section-subtitle">
+              Contact us today to learn more about our programs and find the
+              perfect course for you.
+            </p>
+            <button className="btn cta-button" onClick={() => {setIsModalOpen(true)}}>
+              Contact Us
+            </button>
           </section>
         </main>
 

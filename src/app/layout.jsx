@@ -1,23 +1,42 @@
+"use client";
+import { useState } from "react";
 import Header from "@/components/header";
 import "./styles/custom.scss";
 import Footer from "@/components/footer";
-
+import { Contact } from "@/components/contactModal";
+import { Context } from "@/components/content";
 export default function RootLayout({ children }) {
+  // State to manage the visibility of the contact modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <html lang="en">
       <head>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Asimovian&family=Chivo:ital,wght@0,100..900;1,100..900&family=Funnel+Display:wght@300..800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Rock+3D&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Asimovian&family=Chivo:ital,wght@0,100..900;1,100..900&family=Funnel+Display:wght@300..800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Rock+3D&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+          rel="stylesheet"
+        />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         />
       </head>
       <body>
-        <Header></Header>
-        {children}
-        <Footer></Footer>
+        <Context
+        
+        value={{
+          isModalOpen,
+          setIsModalOpen
+        }}>
+          <Contact
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+          ></Contact>
+          <Header></Header>
+          {children}
+          <Footer></Footer>
+        </Context>
       </body>
     </html>
   );

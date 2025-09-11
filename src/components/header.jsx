@@ -60,7 +60,7 @@ export default function Header() {
                 href={item.link}
                 key={item.name}
                 className={`nav-link ${item.link == pathname ? "active" : ""}`}
-                onClick={()=> setNav(false)}
+                onClick={() => setNav(false)}
               >
                 {item.name}
               </Link>
@@ -68,20 +68,32 @@ export default function Header() {
           })}
         </div>
         {signup ? (
-          <a href="#" className="btn cta-button">
+          <i className="fas fa-user" onClick={()=>{setSignup(false)}}></i>
+        ) : (
+          <a
+            href="#"
+            className="btn cta-button"
+            onClick={() => {
+              setSignup(true);
+            }}
+          >
             Signup
           </a>
-        ) : (
-          <i className="fas fa-user"></i>
         )}
       </nav>
       {signup ? (
-        <a href="#" className="btn cta-button">
-          Signup
-        </a>
-      ) : (
-        <i className="fas fa-user"></i>
-      )}
+          <i className="fas fa-user" onClick={()=>{setSignup(false)}}></i>
+        ) : (
+          <a
+            href="#"
+            className="btn cta-button"
+            onClick={() => {
+              setSignup(true);
+            }}
+          >
+            Signup
+          </a>
+        )}
       {nav ? (
         <i className="fas fa-arrow-left back" onClick={() => setNav(false)}></i>
       ) : (

@@ -1,10 +1,7 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
-import Link from "next/link";
-
-const App = () => {
-  // State to manage the visibility of the contact modal
-  const [isModalOpen, setIsModalOpen] = useState(false);
+import { Context } from "@/components/content";
+import React, { useState, useRef, useEffect, useContext } from "react";
+export default function Home() {
   // State to track the active testimonial index for the carousel
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
   // State to manage the index of the memory item with an active text overlay
@@ -16,23 +13,7 @@ const App = () => {
   const timeoutRef = useRef(null);
   // Refs to hold the video elements
   const videoRefs = useRef([]);
-
-  // Function to open the modal
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  // Function to close the modal
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  // Handler for form submission
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    console.log("Form submitted!");
-    closeModal();
-  };
+  const { setIsModalOpen, isModalOpen } = useContext(Context);
 
   // Function to navigate to the next testimonial
   const goToNextTestimonial = () => {
@@ -302,56 +283,6 @@ const App = () => {
 
   return (
     <>
-      <div
-        id="contact-modal"
-        className={`modal ${isModalOpen ? "open" : ""}`}
-        onClick={(e) => e.target.id === "contact-modal" && closeModal()}
-      >
-        <div className="modal-content">
-          <div className="modal-content-desc">
-            <i className="fas fa-x modal-close-button" onClick={closeModal}></i>
-            <h3 className="modal-title">Get in Touch</h3>
-            <p className="modal-subtitle">
-              Fill out the form below and we'll get back to you shortly.
-            </p>
-          </div>
-          <form
-            id="contact-form"
-            onSubmit={handleFormSubmit}
-            className="modal-form"
-          >
-            <div className="form-group">
-              <label htmlFor="name">Full Name</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email Address</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                required
-              ></textarea>
-            </div>
-            <div className="form-buttons">
-              <button
-                type="button"
-                className="cancel-button"
-                onClick={closeModal}
-              >
-                Cancel
-              </button>
-              <button type="submit" className="cta-button">
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
       <main>
         {/* Hero Section */}
         <section className="hero home-hero">
@@ -570,7 +501,9 @@ const App = () => {
                 {`"${currentTestimonial.quote}"`}
               </blockquote>
               <div className="testimonial-author-info">
-                <div className="author-avatar"><i className="fas fa-user"></i></div>
+                <div className="author-avatar">
+                  <i className="fas fa-user"></i>
+                </div>
                 <div className="author-details">
                   <p className="author-name">{currentTestimonial.name}</p>
                   <p className="author-title">{currentTestimonial.title}</p>
@@ -602,18 +535,21 @@ const App = () => {
               Ready to <span className="text-gradient">Evolve </span>Your
               Career?
             </h2>
-            <p className="section-subtitle">
-              Contact us today to learn more about our programs and find the
-              perfect course for you.
-            </p>
           </div>
-          <button onClick={openModal} className="btn cta-button">
+          <p className="section-subtitle">
+            Contact us today to learn more about our programs and find the
+            perfect course for you.
+          </p>
+          <button
+            onClick={() => {
+              setIsModalOpen(true);
+            }}
+            className="btn cta-button"
+          >
             Contact Us
           </button>
         </section>
       </main>
     </>
   );
-};
-
-export default App;
+}
