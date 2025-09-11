@@ -319,7 +319,7 @@ const App = () => {
                       <div className="bottom">
                         {member.socials.map((item) => {
                           return (
-                            <a key={item.social}>
+                            <a>
                               <i className={`fab ${item.socialIcon}`}></i>
                             </a>
                           );

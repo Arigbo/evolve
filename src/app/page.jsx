@@ -542,7 +542,7 @@ const App = () => {
                     <div className="bottom">
                       {member.socials.map((item) => {
                         return (
-                          <a key={item.social}>
+                          <a>
                             <i className={`fab ${item.socialIcon}`}></i>
                           </a>
                         );
@@ -570,7 +570,7 @@ const App = () => {
                 {`"${currentTestimonial.quote}"`}
               </blockquote>
               <div className="testimonial-author-info">
-                <div className="author-avatar"></div>
+                <div className="author-avatar"><i className="fas fa-user"></i></div>
                 <div className="author-details">
                   <p className="author-name">{currentTestimonial.name}</p>
                   <p className="author-title">{currentTestimonial.title}</p>
