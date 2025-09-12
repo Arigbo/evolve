@@ -17,14 +17,30 @@ const SingleCourse = () => {
       project:
         "Write a simple report explaining the journey of a webpage from a user clicking a link to it appearing on their screen, detailing each step and technology involved.",
       topics: [
-        "How the Internet Works (Clients, Servers)",
-        "HTTP/HTTPS Protocols",
-        "Domain Name System (DNS)",
-        "Web Browsers and Rendering Engines",
-        "Understanding URLs and Resources",
-        "Introduction to Frontend vs. Backend",
-        "Cookies and Session Storage",
-        "Anatomy of a Request-Response Cycle",
+        {
+          topic: "How the Internet Works (Clients, Servers)",
+        },
+        {
+          topic: "HTTP/HTTPS Protocols",
+        },
+        {
+          topic: "Domain Name System (DNS)",
+        },
+        {
+          topic: "Web Browsers and Rendering Engines",
+        },
+        {
+          topic: "Understanding URLs and Resources",
+        },
+        {
+          topic: "Introduction to Frontend vs. Backend",
+        },
+        {
+          topic: "Cookies and Session Storage",
+        },
+        {
+          topic: "Anatomy of a Request-Response Cycle",
+        },
       ],
     },
     "HTML Fundamentals": {
@@ -33,14 +49,31 @@ const SingleCourse = () => {
       project:
         "Build a multi-page portfolio website using only semantic HTML5. The site must include a home page, about page, and projects page, and must pass an accessibility checker.",
       topics: [
-        "Introduction to HTML and the Web",
-        "Semantic HTML5 Tags",
-        "HTML Forms and Inputs",
-        "Accessibility (ARIA roles and attributes)",
-        "Image and Multimedia Elements",
-        "Structuring Content with Headings, Paragraphs, and Lists",
-        "Working with Tables",
-        "Introduction to Web Components",
+        {
+          topic: "Introduction to HTML and the Web",
+        },
+        {
+          topic: "Semantic HTML5 Tags",
+        },
+        {
+          topic: "HTML Forms and Inputs",
+        },
+        {
+          topic: "Accessibility (ARIA roles and attributes)",
+        },
+        {
+          topic: "Image and Multimedia Elements",
+        },
+        {
+          topic: "Structuring Content with Headings, Paragraphs, and Lists",
+        },
+        {
+          topic: "Working with Tables",
+        },
+        {
+          topic: "Introduction to Web Components",
+        },
+        { topic: "Best Practices for Clean and Maintainable HTML" },
       ],
     },
     "CSS Fundamentals": {
@@ -49,15 +82,33 @@ const SingleCourse = () => {
       project:
         "Take a basic HTML page and style it to match a provided design mockup. You will create a fully responsive layout and implement custom fonts and animations using CSS.",
       topics: [
-        "CSS Syntax and Selectors",
-        "The Box Model, Sizing, and Spacing",
-        "Working with Colors and Backgrounds",
-        "Typography and Fonts",
-        "Flexbox for One-Dimensional Layouts",
-        "CSS Grid for Two-Dimensional Layouts",
-        "Responsive Design with Media Queries",
-        "CSS Animations and Transitions",
-        "Introduction to Preprocessors (Sass/Less)",
+        {
+          topic: "CSS Syntax and Selectors",
+        },
+        {
+          topic: "The Box Model, Sizing, and Spacing",
+        },
+        {
+          topic: "Working with Colors and Backgrounds",
+        },
+        {
+          topic: "Typography and Fonts",
+        },
+        {
+          topic: "Flexbox for One-Dimensional Layouts",
+        },
+        {
+          topic: "CSS Grid for Two-Dimensional Layouts",
+        },
+        {
+          topic: "Responsive Design with Media Queries",
+        },
+        {
+          topic: "CSS Animations and Transitions",
+        },
+        {
+          topic: "Introduction to Preprocessors (Sass/Less)",
+        },
       ],
     },
     "JavaScript & DOM": {
@@ -66,14 +117,30 @@ const SingleCourse = () => {
       project:
         "Create a fully functional to-do list application that allows users to add, remove, and mark tasks as complete, all without reloading the page.",
       topics: [
-        "Variables, Data Types, and Operators",
-        "Control Flow and Logic",
-        "Functions and Scopes",
-        "Arrays and Objects",
-        "DOM Manipulation and Traversal",
-        "Event Handling and Listeners",
-        "Introduction to Asynchronous JavaScript",
-        "Error Handling with Try/Catch",
+        {
+          topic: "Variables, Data Types, and Operators",
+        },
+        {
+          topic: "Control Flow and Logic",
+        },
+        {
+          topic: "Functions and Scopes",
+        },
+        {
+          topic: "Arrays and Objects",
+        },
+        {
+          topic: "DOM Manipulation and Traversal",
+        },
+        {
+          topic: "Event Handling and Listeners",
+        },
+        {
+          topic: "Introduction to Asynchronous JavaScript",
+        },
+        {
+          topic: "Error Handling with Try/Catch",
+        },
       ],
     },
     "Modern Frameworks (React)": {
@@ -82,14 +149,30 @@ const SingleCourse = () => {
       project:
         "Develop a simple e-commerce product gallery with a shopping cart. The application should use React components and manage state with hooks.",
       topics: [
-        "Introduction to React and JSX",
-        "Component-Based Architecture",
-        "State and Props",
-        "React Hooks (useState, useEffect, useContext)",
-        "Conditional Rendering and Lists",
-        "Handling Forms in React",
-        "Working with Third-Party Libraries",
-        "React Router for Navigation",
+        {
+          topic: "Introduction to React and JSX",
+        },
+        {
+          topic: "Component-Based Architecture",
+        },
+        {
+          topic: "State and Props",
+        },
+        {
+          topic: "React Hooks (useState, useEffect, useContext)",
+        },
+        {
+          topic: "Conditional Rendering and Lists",
+        },
+        {
+          topic: "Handling Forms in React",
+        },
+        {
+          topic: "Working with Third-Party Libraries",
+        },
+        {
+          topic: "React Router for Navigation",
+        },
       ],
     },
     "APIs & Asynchronous Data": {
@@ -98,12 +181,24 @@ const SingleCourse = () => {
       project:
         "Create a weather application that fetches and displays current weather data for a user-entered city using a public weather API.",
       topics: [
-        "Introduction to APIs and RESTful Principles",
-        "Using the Fetch API for Data Requests",
-        "Asynchronous JavaScript with `async`/`await`",
-        "Handling JSON Data and Response Objects",
-        "Error Handling for API Calls",
-        "Understanding CORS (Cross-Origin Resource Sharing)",
+        {
+          topic: "Introduction to APIs and RESTful Principles",
+        },
+        {
+          topic: "Using the Fetch API for Data Requests",
+        },
+        {
+          topic: "Asynchronous JavaScript with `async`/`await`",
+        },
+        {
+          topic: "Handling JSON Data and Response Objects",
+        },
+        {
+          topic: "Error Handling for API Calls",
+        },
+        {
+          topic: "Understanding CORS (Cross-Origin Resource Sharing)",
+        },
       ],
     },
     "Performance & Deployment": {
@@ -112,14 +207,30 @@ const SingleCourse = () => {
       project:
         "Optimize a sample website by compressing images, lazy-loading content, and deploying it to a free hosting service to achieve a high PageSpeed Insights score.",
       topics: [
-        "Web Performance Metrics",
-        "Code Splitting and Lazy Loading",
-        "Image and Asset Optimization",
-        "Minification and Bundling",
-        "Web Vitals and Lighthouse Audits",
-        "Domain Name Systems (DNS) and Hosting",
-        "Deployment with Vercel and Netlify",
-        "Content Delivery Networks (CDNs)",
+        {
+          topic: "Web Performance Metrics",
+        },
+        {
+          topic: "Code Splitting and Lazy Loading",
+        },
+        {
+          topic: "Image and Asset Optimization",
+        },
+        {
+          topic: "Minification and Bundling",
+        },
+        {
+          topic: "Web Vitals and Lighthouse Audits",
+        },
+        {
+          topic: "Domain Name Systems (DNS) and Hosting",
+        },
+        {
+          topic: "Deployment with Vercel and Netlify",
+        },
+        {
+          topic: "Content Delivery Networks (CDNs)",
+        },
       ],
     },
     "Git & GitHub": {
@@ -128,13 +239,27 @@ const SingleCourse = () => {
       project:
         "Collaborate with peers on a small web project, managing all code changes using Git commands and submitting pull requests on GitHub.",
       topics: [
-        "Git Basics (add, commit, push)",
-        "Branching and Merging",
-        "Working with Remote Repositories",
-        "Handling Merge Conflicts",
-        "Understanding Pull Requests",
-        "Collaborative Workflows",
-        "Using `.gitignore`",
+        {
+          topic: "Git Basics (add, commit, push)",
+        },
+        {
+          topic: "Branching and Merging",
+        },
+        {
+          topic: "Working with Remote Repositories",
+        },
+        {
+          topic: "Handling Merge Conflicts",
+        },
+        {
+          topic: "Understanding Pull Requests",
+        },
+        {
+          topic: "Collaborative Workflows",
+        },
+        {
+          topic: "Using `.gitignore`",
+        },
       ],
     },
   };
@@ -187,17 +312,7 @@ const SingleCourse = () => {
       {/* Main Content */}
       <main className="single-course">
         {/* Breadcrumbs and Backend Link */}
-        <div className="breadcrumbs-container">
-          <div className="breadcrumbs">
-            <a href="/course">Courses</a>
-            <span>&gt;</span>
-            <span>Frontend</span>
-          </div>
-          <a onClick={openBackendModal} className="next">
-            <h6>Backend Course</h6>
-            <i className="fas fa-chevron-right"></i>
-          </a>
-        </div>
+
         <section className="hero">
           <div className="hero-inner">
             <h2 className="hero-title">Frontend Development Course Overview</h2>
@@ -382,12 +497,7 @@ const SingleCourse = () => {
             <div className="modal-content-inner">
               <div className="subject-section">
                 <p className="modal-description">
-                  **About this Subject:** {currentSubject.details}
-                </p>
-              </div>
-              <div className="subject-section">
-                <p className="modal-description">
-                  **Project to Work On:** {currentSubject.project}
+                  <strong>About this Subject:</strong> {currentSubject.details}
                 </p>
               </div>
               <div className="subject-section">
@@ -395,10 +505,15 @@ const SingleCourse = () => {
                 <div className="topics-grid">
                   {currentSubject.topics.map((topic, index) => (
                     <div key={index} className="topic-link-card">
-                      <span>{index + 1}.</span> {topic}
+                      <span>{topic.topic}</span>
                     </div>
                   ))}
                 </div>
+              </div>
+              <div className="subject-section">
+                <p className="modal-description">
+                  <strong>Project to Work On:</strong> {currentSubject.project}
+                </p>
               </div>
             </div>
             <div className="text-right mt-4">
@@ -454,30 +569,6 @@ const SingleCourse = () => {
             <div className="text-right mt-4">
               <button onClick={closeModal} className="cta-button">
                 Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Backend Modal */}
-      {isBackendModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h3 className="modal-title">Backend Course</h3>
-              <i
-                onClick={closeModal}
-                className="fas fa-x modal-close-button"
-              ></i>
-            </div>
-            <p className="modal-description">
-              Our backend course is coming soon! Check back later for a full
-              list of subjects and projects.
-            </p>
-            <div className="text-right mt-4">
-              <button onClick={closeModal} className="cta-button">
-                OK
               </button>
             </div>
           </div>
