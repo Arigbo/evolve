@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Context } from "@/components/content";
 const Courses = () => {
-const {setIsModalOpen}=useContext(Context)
+  const { setIsModalOpen } = useContext(Context);
 
   // Data for the course cards, including SVG icon JSX
   const courseCards = [
@@ -101,9 +101,9 @@ const {setIsModalOpen}=useContext(Context)
 
         {/* Courses Section */}
         <section id="course-list" className="section">
-            <div className="section-header">
-                <h2 className="section-title">Our Courses</h2>
-            </div>
+          <div className="section-header">
+            <h2 className="section-title">Our Courses</h2>
+          </div>
           <div className="card-grid">
             {courseCards.map((card, index) => (
               <div key={index} className="card course-card">
@@ -146,18 +146,23 @@ const {setIsModalOpen}=useContext(Context)
         </section>
 
         {/* Call to Action Section */}
-        <section id="contact" className="section">
+        <section id="contact" className="section cta-section">
           <div className="section-header">
             <h2 className="section-title">
               Ready to <span className="text-gradient">Evolve</span> Your
               Career?
             </h2>
           </div>
-                     <p className="section-subtitle">
-              Contact us today to learn more about our programs and find the
-              perfect course for you.
-            </p>
-          <button onClick={()=>{setIsModalOpen(true)}} className="cta-button">
+          <p className="section-subtitle">
+            Contact us today to learn more about our programs and find the
+            perfect course for you.
+          </p>
+          <button
+            onClick={() => {
+              setIsModalOpen(true);
+            }}
+            className="cta-button"
+          >
             Contact Us
           </button>
         </section>

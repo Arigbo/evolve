@@ -293,11 +293,13 @@ const SingleCourse = () => {
         </section>
 
         {/* Mentor CTA Section */}
-        <section className="cta-banner">
-          <h2 className="cta-banner-title">
-            Are you an expert in frontend development?
-          </h2>
-          <p className="cta-banner-text">
+        <section className="section cta-section">
+          <div className="section-header">
+            <h2 className="section-title">
+              Are you an expert in Frontend Web Development?
+            </h2>
+          </div>
+          <p className="section-subtitle">
             Join our team of experienced mentors and help shape the next
             generation of developers.
           </p>

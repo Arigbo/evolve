@@ -68,7 +68,12 @@ export default function Header() {
           })}
         </div>
         {signup ? (
-          <i className="fas fa-user" onClick={()=>{setSignup(false)}}></i>
+          <i
+            className="fas fa-user"
+            onClick={() => {
+              setSignup(false);
+            }}
+          ></i>
         ) : (
           <a
             href="#"
@@ -82,18 +87,23 @@ export default function Header() {
         )}
       </nav>
       {signup ? (
-          <i className="fas fa-user" onClick={()=>{setSignup(false)}}></i>
-        ) : (
-          <a
-            href="#"
-            className="btn cta-button"
-            onClick={() => {
-              setSignup(true);
-            }}
-          >
-            Signup
-          </a>
-        )}
+        <i
+          className="fas fa-user"
+          onClick={() => {
+            setSignup(false);
+          }}
+        ></i>
+      ) : (
+        <a
+          href="#"
+          className="btn cta-button"
+          onClick={() => {
+            setSignup(true);
+          }}
+        >
+          Signup
+        </a>
+      )}
       {nav ? (
         <i className="fas fa-arrow-left back" onClick={() => setNav(false)}></i>
       ) : (

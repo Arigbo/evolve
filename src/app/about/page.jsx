@@ -175,271 +175,271 @@ const App = () => {
 
   return (
     <>
-      <div className="app-container">
-        {/* Main Content */}
-        <main className="main-content">
-          {/* Hero Section */}
-          <section className="hero about-hero">
-            <div className="hero-inner">
-              <h1 className="hero-title">Crafting Tomorrow's Innovators</h1>
-              <p className="hero-description">
-                We go beyond tutorials to provide a truly transformative,
-                project-based learning experience. At Evolve, you don't just
-                learn to code—you learn to build, collaborate, and thrive.
-              </p>
-              <Link href="/course" className="btn cta-button">
-                Discover Your Path
-              </Link>
-            </div>
-          </section>
+      {/* Main Content */}
+      <main className="main-content">
+        {/* Hero Section */}
+        <section className="hero about-hero">
+          <div className="hero-inner">
+            <h1 className="hero-title">Crafting Tomorrow's Innovators</h1>
+            <p className="hero-description">
+              We go beyond tutorials to provide a truly transformative,
+              project-based learning experience. At Evolve, you don't just learn
+              to code—you learn to build, collaborate, and thrive.
+            </p>
+            <Link href="/course" className="btn cta-button">
+              Discover Your Path
+            </Link>
+          </div>
+        </section>
 
-          {/* Our Journey Section with image */}
-          <section className="section ">
-            <div className="journey">
-              <div className="journey-left">
-                <div className="section-header">
-                  <h1 className="section-title">
-                    How We <span className="text-gradient">Evolve</span>
-                  </h1>
-                </div>
-                <div className="journey-left-text">
-                  <p className="">
-                    <span className="text-gradient">Evolve</span> was born from
-                    a simple idea: to fix online education. We were tired of
-                    passive video tutorials and outdated curricula that left
-                    learners with a certificate but no practical skills. Our
-                    founders, a group of seasoned software engineers, wanted to
-                    create a platform that mimicked the real-world experience of
-                    a development team.
-                  </p>
-                  <p className="">
-                    Today, our courses are centered around building a single,
-                    challenging project from start to finish. We provide direct
-                    mentorship, a vibrant community, and a roadmap that prepares
-                    you for a real-world career.
-                  </p>
-                </div>
+        {/* Our Journey Section with image */}
+        <section className="section ">
+          <div className="journey">
+            <div className="journey-left">
+              <div className="section-header">
+                <h1 className="section-title">
+                  How We <span className="text-gradient">Evolve</span>
+                </h1>
               </div>
-              <div className="journey-image">
-                <img
-                  src="/team.png"
-                  alt="Image of Evolve team collaborating"
-                  className=""
-                />
+              <div className="journey-left-text">
+                <p className="">
+                  <span className="text-gradient">Evolve</span> was born from a
+                  simple idea: to fix online education. We were tired of passive
+                  video tutorials and outdated curricula that left learners with
+                  a certificate but no practical skills. Our founders, a group
+                  of seasoned software engineers, wanted to create a platform
+                  that mimicked the real-world experience of a development team.
+                </p>
+                <p className="">
+                  Today, our courses are centered around building a single,
+                  challenging project from start to finish. We provide direct
+                  mentorship, a vibrant community, and a roadmap that prepares
+                  you for a real-world career.
+                </p>
               </div>
             </div>
-          </section>
+            <div className="journey-image">
+              <img
+                src="/team.png"
+                alt="Image of Evolve team collaborating"
+                className=""
+              />
+            </div>
+          </div>
+        </section>
 
-          {/* Our Services Section */}
-          <section className="section">
-            <div className="section-header">
-              <h1 className="section-title">
-                How We <span className="text-gradient">Evolve</span> Careers
-              </h1>
-            </div>
-            <div className="card-grid">
-              {services.map((service, index) => (
-                <div key={index} className="card">
-                  <div className="card-icon"> {service.icon}</div>
-                  <h3 className="card-title">{service.title}</h3>
-                  <p className="card-description">{service.description}</p>
+        {/* Our Services Section */}
+        <section className="section">
+          <div className="section-header">
+            <h1 className="section-title">
+              How We <span className="text-gradient">Evolve</span> Careers
+            </h1>
+          </div>
+          <div className="card-grid">
+            {services.map((service, index) => (
+              <div key={index} className="card">
+                <div className="card-icon"> {service.icon}</div>
+                <h3 className="card-title">{service.title}</h3>
+                <p className="card-description">{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+        {/* Memories & Events Section */}
+        <section className="section">
+          <div className="section-header">
+            {" "}
+            <h2 className="section-title">Memories from Our Community</h2>
+          </div>
+          <div className="gallery-grid">
+            {memories.map((memory, index) => (
+              <div key={index} className="gallery-card">
+                <div className="gallery-card-image">
+                  <img
+                    src={memory.image}
+                    alt={memory.caption}
+                    className="image"
+                  />
                 </div>
-              ))}
-            </div>
-          </section>
-          {/* Memories & Events Section */}
-          <section className="section">
-            <div className="section-header">
-              {" "}
-              <h2 className="section-title">Memories from Our Community</h2>
-            </div>
-            <div className="gallery-grid">
-              {memories.map((memory, index) => (
-                <div key={index} className="gallery-card">
-                  <div className="gallery-card-image">
-                    <img
-                      src={memory.image}
-                      alt={memory.caption}
-                      className="image"
-                    />
-                  </div>
-                  <div className="gallery-card-text">
-                    <p className="">{memory.caption}</p>
-                  </div>
+                <div className="gallery-card-text">
+                  <p className="">{memory.caption}</p>
                 </div>
-              ))}
-            </div>
-          </section>
-          {/* Team Section */}
-          <section className="section">
-            <div className="section-header">
-              <h2 className="section-title">
-                Meet the Architects of{" "}
-                <span className="text-gradient">Evolve</span>
-              </h2>
-            </div>
-            <div className="card-grid">
-              {teamMembers.map((member, index) => (
-                <div key={index} className={`team-card ${about ? `hide` : ""}`}>
-                  <div className="team-card-inner">
-                    <img
-                      src={member.image}
-                      alt={`Photo of ${member.name}`}
-                      className="team-image"
-                    />
-                    <h3 className="team-name">{member.name}</h3>
-                    <p className="team-title">{member.role}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+        {/* Team Section */}
+        <section className="section">
+          <div className="section-header">
+            <h2 className="section-title">
+              Meet the Architects of{" "}
+              <span className="text-gradient">Evolve</span>
+            </h2>
+          </div>
+          <div className="card-grid">
+            {teamMembers.map((member, index) => (
+              <div key={index} className={`team-card ${about ? `hide` : ""}`}>
+                <div className="team-card-inner">
+                  <img
+                    src={member.image}
+                    alt={`Photo of ${member.name}`}
+                    className="team-image"
+                  />
+                  <h3 className="team-name">{member.name}</h3>
+                  <p className="team-title">{member.role}</p>
 
-                    <h2
-                      className="about"
-                      onClick={() => {
-                        setAbout(true);
-                      }}
-                    >
-                      About <i className="fas fa-arrow-right"></i>
-                    </h2>
-                  </div>
-                  <div className="team-description">
-                    <div className="team-description-inner">
-                      <div className="top">
-                        <div className="top-header">
-                          {" "}
-                          <h2>
-                            About{" "}
-                            <span className="text-gradient">{member.name}</span>
-                          </h2>
-                          <i
-                            className="fas fa-x"
-                            onClick={() => {
-                              setAbout(false);
-                            }}
-                          ></i>
-                        </div>
-                        <p>{member.bio}</p>
+                  <h2
+                    className="about"
+                    onClick={() => {
+                      setAbout(true);
+                    }}
+                  >
+                    About <i className="fas fa-arrow-right"></i>
+                  </h2>
+                </div>
+                <div className="team-description">
+                  <div className="team-description-inner">
+                    <div className="top">
+                      <div className="top-header">
+                        {" "}
+                        <h2>
+                          About{" "}
+                          <span className="text-gradient">{member.name}</span>
+                        </h2>
+                        <i
+                          className="fas fa-x"
+                          onClick={() => {
+                            setAbout(false);
+                          }}
+                        ></i>
                       </div>
-                      <div className="bottom">
-                        {member.socials.map((item) => {
-                          return (
-                            <a>
-                              <i className={`fab ${item.socialIcon}`}></i>
-                            </a>
-                          );
-                        })}
-                      </div>
+                      <p>{member.bio}</p>
+                    </div>
+                    <div className="bottom">
+                      {member.socials.map((item) => {
+                        return (
+                          <a>
+                            <i className={`fab ${item.socialIcon}`}></i>
+                          </a>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </section>
+              </div>
+            ))}
+          </div>
+        </section>
 
-          {/* Call to Action Section */}
-          <section id="contact" className="section cta-section">
-            <div className="section-header">
-              <h2 className="section-title">
-                Ready to <span className="text-gradient">Evolve </span>Your
-                Career?
-              </h2>
+        {/* Call to Action Section */}
+        <section id="contact" className="section cta-section">
+          <div className="section-header">
+            <h2 className="section-title">
+              Ready to <span className="text-gradient">Evolve </span>Your
+              Career?
+            </h2>
+          </div>
+          <p className="section-subtitle">
+            Contact us today to learn more about our programs and find the
+            perfect course for you.
+          </p>
+          <button
+            className="btn cta-button"
+            onClick={() => {
+              setIsModalOpen(true);
+            }}
+          >
+            Contact Us
+          </button>
+        </section>
+      </main>
+
+      {/* Mentor Redirect Modal */}
+      {isMentorRedirectModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl font-bold text-gray-900">Work with Us</h3>
+              <button
+                onClick={closeModal}
+                className="text-gray-400 hover:text-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
             </div>
-            <p className="section-subtitle">
-              Contact us today to learn more about our programs and find the
-              perfect course for you.
+            <p className="text-gray-700 mb-4">
+              Thank you for your interest in becoming a mentor! Please contact
+              us at **mentors@evolve.com** with your resume and a brief
+              description of your experience to get started.
             </p>
-            <button className="btn cta-button" onClick={() => {setIsModalOpen(true)}}>
-              Contact Us
-            </button>
-          </section>
-        </main>
-
-        {/* Mentor Redirect Modal */}
-        {isMentorRedirectModalOpen && (
-          <div className="modal-overlay">
-            <div className="modal-content">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl font-bold text-gray-900">
-                  Work with Us
-                </h3>
-                <button
-                  onClick={closeModal}
-                  className="text-gray-400 hover:text-gray-600"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <p className="text-gray-700 mb-4">
-                Thank you for your interest in becoming a mentor! Please contact
-                us at **mentors@evolve.com** with your resume and a brief
-                description of your experience to get started.
-              </p>
-              <div className="text-right">
-                <button
-                  onClick={closeModal}
-                  className="bg-indigo-600 text-white font-medium py-2 px-6 rounded-full shadow-md transition-all duration-200 hover:bg-indigo-700"
-                >
-                  Close
-                </button>
-              </div>
+            <div className="text-right">
+              <button
+                onClick={closeModal}
+                className="bg-indigo-600 text-white font-medium py-2 px-6 rounded-full shadow-md transition-all duration-200 hover:bg-indigo-700"
+              >
+                Close
+              </button>
             </div>
           </div>
-        )}
+        </div>
+      )}
 
-        {/* Course Redirect Modal */}
-        {isCourseRedirectModalOpen && (
-          <div className="modal-overlay">
-            <div className="modal-content">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl font-bold text-gray-900">
-                  Course Information
-                </h3>
-                <button
-                  onClick={closeModal}
-                  className="text-gray-400 hover:text-gray-600"
+      {/* Course Redirect Modal */}
+      {isCourseRedirectModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl font-bold text-gray-900">
+                Course Information
+              </h3>
+              <button
+                onClick={closeModal}
+                className="text-gray-400 hover:text-gray-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <p className="text-gray-700 mb-4">
-                This would link you to the courses page. Since this is a sample,
-                you can imagine you've been redirected to the main course page.
-              </p>
-              <div className="text-right">
-                <button
-                  onClick={closeModal}
-                  className="bg-indigo-600 text-white font-medium py-2 px-6 rounded-full shadow-md transition-all duration-200 hover:bg-indigo-700"
-                >
-                  OK
-                </button>
-              </div>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+            <p className="text-gray-700 mb-4">
+              This would link you to the courses page. Since this is a sample,
+              you can imagine you've been redirected to the main course page.
+            </p>
+            <div className="text-right">
+              <button
+                onClick={closeModal}
+                className="bg-indigo-600 text-white font-medium py-2 px-6 rounded-full shadow-md transition-all duration-200 hover:bg-indigo-700"
+              >
+                OK
+              </button>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 };
