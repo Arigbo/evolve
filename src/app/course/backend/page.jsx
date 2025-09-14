@@ -133,7 +133,6 @@ const SingleCourse = () => {
     setIsSubjectModalOpen(false);
     setIsSuccessModalOpen(false);
     setIsMentorRedirectModalOpen(false);
-    setIsBackendModalOpen(false);
     setCurrentSubject(null);
     document.body.style.overflow = "";
   };
@@ -229,7 +228,7 @@ const SingleCourse = () => {
         <section className="section cta-section">
           <div className="section-header">
             <h2 className="section-title">
-              Are you an expert in Frontend Web Development?
+              Are you an expert in Backend Web Development?
             </h2>
           </div>
           <p className="section-subtitle">
