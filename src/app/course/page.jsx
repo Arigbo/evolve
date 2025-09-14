@@ -9,9 +9,21 @@ const Courses = () => {
   // Data for the course cards, including SVG icon JSX
   const courseCards = [
     {
-      title: "Full-Stack Web Development",
+      title: "Frontend Web Development",
       description:
-        "Master modern front-end and back-end frameworks to build and deploy dynamic web applications.",
+        "Master modern front-end frameworks to build and deploy dynamic web applications.",
+      svg: (
+        <g>
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </g>
+      ),
+      link: "/course/frontend",
+    },
+    {
+      title: "Backend Web Development",
+      description:
+        "Master modern back-end frameworks to build and deploy dynamic web applications.",
       svg: (
         <g>
           <polyline points="16 18 22 12 16 6"></polyline>
@@ -30,6 +42,7 @@ const Courses = () => {
           <path d="M12 14c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
         </g>
       ),
+      link: "/course/cybersecurity",
     },
     {
       title: "Data Science & AI",
@@ -40,7 +53,9 @@ const Courses = () => {
           <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
         </g>
       ),
+      link: "/course/data-science",
     },
+
     {
       title: "Mobile App Development",
       description:
@@ -54,6 +69,7 @@ const Courses = () => {
           <path d="M12 16h.01"></path>
         </g>
       ),
+      link: "/course/mobile-development",
     },
     {
       title: "Cloud Computing & DevOps",
@@ -67,6 +83,7 @@ const Courses = () => {
           <path d="M17 17l5-5" />
         </g>
       ),
+      link: "/course/cloud-computing",
     },
     {
       title: "UI/UX Design",
@@ -78,6 +95,7 @@ const Courses = () => {
           <circle cx="12" cy="12" r="3" />
         </g>
       ),
+      link: "/course/ui-ux-design",
     },
   ];
 

@@ -7,7 +7,7 @@ export  function NavCrumbs() {
         <span>Frontend</span>
       </div>
       <a className="next">
-        <h6>Backend Course</h6>
+        <a href="/course/backend">Backend Course</a>
         <i className="fas fa-chevron-right"></i>
       </a>
     </div>
