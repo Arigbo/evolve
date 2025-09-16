@@ -18,7 +18,7 @@ const Courses = () => {
           <polyline points="8 6 2 12 8 18"></polyline>
         </g>
       ),
-      link: "/course/frontend",
+      link: "/courses/frontend",
     },
     {
       title: "Backend Web Development",
@@ -30,7 +30,7 @@ const Courses = () => {
           <polyline points="8 6 2 12 8 18"></polyline>
         </g>
       ),
-      link: "/course/frontend",
+      link: "/courses/backend",
     },
     {
       title: "Cybersecurity Analyst",
@@ -42,7 +42,7 @@ const Courses = () => {
           <path d="M12 14c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
         </g>
       ),
-      link: "/course/cybersecurity",
+      link: "/courses/cybersecurity",
     },
     {
       title: "Data Science & AI",
@@ -53,7 +53,7 @@ const Courses = () => {
           <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
         </g>
       ),
-      link: "/course/data-science",
+      link: "/courses/data-science",
     },
 
     {
@@ -69,7 +69,7 @@ const Courses = () => {
           <path d="M12 16h.01"></path>
         </g>
       ),
-      link: "/course/mobile-development",
+      link: "/courses/mobile-development",
     },
     {
       title: "Cloud Computing & DevOps",
@@ -83,7 +83,7 @@ const Courses = () => {
           <path d="M17 17l5-5" />
         </g>
       ),
-      link: "/course/cloud-computing",
+      link: "/courses/cloud-computing",
     },
     {
       title: "UI/UX Design",
@@ -95,7 +95,7 @@ const Courses = () => {
           <circle cx="12" cy="12" r="3" />
         </g>
       ),
-      link: "/course/ui-ux-design",
+      link: "/courses/ui-ux-design",
     },
   ];
 

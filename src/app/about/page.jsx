@@ -318,7 +318,7 @@ const App = () => {
                     <div className="bottom">
                       {member.socials.map((item) => {
                         return (
-                          <a>
+                          <a key={item.socialIcon}>
                             <i className={`fab ${item.socialIcon}`}></i>
                           </a>
                         );
