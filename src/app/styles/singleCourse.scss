@@ -7,10 +7,17 @@
   --bg-color: #f9fafb;
   --bg-card: #ffffff;
 }
+.layout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .single-course {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   .hero {
     width: 90%;
     min-height: 10vh;
@@ -41,36 +48,123 @@
   * {
     font-size: 0.9rem;
     font-weight: 500;
+    color: var(--text-light-color);
+    .line-clamp {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      width: auto;
+    }
   }
-  a {
-    color: var(--primary-color);
+  .coursesNav {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    top: 7rem;
+    height: fit-content;
+    width: fit-content;
+    border: 1px solid;
+    left: -100vh;
+    transition: all 0.5s ease;
 
-    &:hover {
-      text-decoration: underline;
+    &.show {
+      left: 2rem;
+    }
+    .active {
+      background-color: var(--primary-color);
+      span,
+      i {
+        color: white;
+      }
+    }
+
+    .top {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 2rem;
+      background-color: var(--primary-dark-color);
+      h1,
+      i {
+        color: white;
+      }
+      &-inner {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h1 {
+          font-size: 14px;
+          font-weight: 700;
+        }
+      }
+    }
+    .bottom {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      a {
+        width: 100%;
+        padding-block: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        span {
+          width: 90%;
+          display: flex;
+          align-items: center;
+          gap: 0.3rem;
+        }
+        &:hover {
+          background-color: var(--primary-color);
+          span,
+          i {
+            color: white;
+          }
+        }
+      }
     }
   }
   .breadcrumbs {
     display: flex;
     align-items: center;
+    justify-content: start;
     gap: 0.5rem;
     font-size: 1rem;
-    color: #9ca3af;
+    .select {
+      color: var(--primary-color);
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
-.next-course {
+
+  .next-course {
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--primary-color);
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    justify-content: end;
     .next {
       display: flex;
       align-items: center;
-      gap: 0.25rem;
+      justify-content: center;
+      color: var(--primary-color);
+      &:hover {
+        text-decoration: underline;
+      }
     }
-  i {
+    i {
       font-size: 0.6rem;
-}
+    }
   }
 }
 
@@ -84,14 +178,19 @@
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+    width: 100%;
   }
-  &-title {
+  h1,
+  h2 {
     font-size: 1.25rem;
     width: 100%;
   }
-  &-description {
+  p {
     width: 100%;
     color: var(--text-light-color);
+    strong {
+      font-weight: 900;
+    }
   }
 }
 
@@ -108,8 +207,6 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
-
 
 .card-number {
   background-color: var(--accent-color);
