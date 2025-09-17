@@ -100,92 +100,89 @@ const Courses = () => {
   ];
 
   return (
-    <>
-      <main>
-        {/* Hero Section */}
-        <section className="hero course-hero">
-          <div className="hero-inner">
-            <h1 className="hero-title">Our Courses</h1>
-            <p className="hero-description">
-              Find the right path for your career. We offer a wide range of
-              training programs led by industry experts.
-            </p>
-            <Link href="/course" className="btn cta-button">
-              {" "}
-              Explore All Courses
-            </Link>
-          </div>
-        </section>
+    <main>
+      {/* Hero Section */}
+      <section className="hero course-hero">
+        <div className="hero-inner">
+          <h1 className="hero-title">Our Courses</h1>
+          <p className="hero-description">
+            Find the right path for your career. We offer a wide range of
+            training programs led by industry experts.
+          </p>
+          <Link href="/course" className="btn cta-button">
+            {" "}
+            Explore All Courses
+          </Link>
+        </div>
+      </section>
 
-        {/* Courses Section */}
-        <section id="course-list" className="section">
-          <div className="section-header">
-            <h2 className="section-title">Our Courses</h2>
-          </div>
-          <div className="card-grid">
-            {courseCards.map((card, index) => (
-              <div key={index} className="card course-card">
-                <div className="card-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
+      {/* Courses Section */}
+      <section id="course-list" className="section">
+        <div className="section-header">
+          <h2 className="section-title">Our Courses</h2>
+        </div>
+        <div className="card-grid">
+          {courseCards.map((card, index) => (
+            <div key={index} className="card course-card">
+              <div className="card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  {card.svg}
+                </svg>
+              </div>
+              <h3 className="card-title">{card.title}</h3>
+              <p className="card-description">{card.description}</p>
+              <a href={card.link} className="card-link">
+                <span>Learn More</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1rem"
+                  width="1rem"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                  >
-                    {card.svg}
-                  </svg>
-                </div>
-                <h3 className="card-title">{card.title}</h3>
-                <p className="card-description">{card.description}</p>
-                <a href={card.link} className="card-link">
-                  <span>Learn More</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="1rem"
-                    width="1rem"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </a>
-              </div>
-            ))}
-          </div>
-        </section>
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        {/* Call to Action Section */}
-        <section id="contact" className="section cta-section">
-          <div className="section-header">
-            <h2 className="section-title">
-              Ready to <span className="text-gradient">Evolve</span> Your
-              Career?
-            </h2>
-          </div>
-          <p className="section-subtitle">
-            Contact us today to learn more about our programs and find the
-            perfect course for you.
-          </p>
-          <button
-            onClick={() => {
-              setIsModalOpen(true);
-            }}
-            className="cta-button"
-          >
-            Contact Us
-          </button>
-        </section>
-      </main>
-    </>
+      {/* Call to Action Section */}
+      <section id="contact" className="section cta-section">
+        <div className="section-header">
+          <h2 className="section-title">
+            Ready to <span className="text-gradient">Evolve</span> Your Career?
+          </h2>
+        </div>
+        <p className="section-subtitle">
+          Contact us today to learn more about our programs and find the perfect
+          course for you.
+        </p>
+        <button
+          onClick={() => {
+            setIsModalOpen(true);
+          }}
+          className="cta-button"
+        >
+          Contact Us
+        </button>
+      </section>
+    </main>
   );
 };
 

@@ -55,8 +55,8 @@
       justify-content: center;
       background-color: white;
       top: 7rem;
-width: auto;
-      border: 1px solid;
+      width: auto;
+      border: 1px solid rgb(210, 206, 206);
       left: -100vh;
       transition: all 0.5s ease;
 
@@ -70,7 +70,7 @@ width: auto;
         justify-content: center;
         height: 2rem;
 
-border-bottom: 1px solid;
+       border-bottom: 1px solid rgb(210, 206, 206);
         &-inner {
           width: 90%;
           display: flex;
@@ -80,7 +80,7 @@ border-bottom: 1px solid;
             font-size: 16px;
             font-weight: 700;
           }
-          i{
+          i {
             font-size: 0.7rem;
             color: var(--text-light-color);
           }
@@ -90,13 +90,13 @@ border-bottom: 1px solid;
         width: 100%;
         display: flex;
         flex-direction: column;
-             .active {
-        background-color: var(--primary-color);
-        span,
-        i {
-          color: white;
+        .active {
+          background-color: var(--primary-color);
+          span,
+          i {
+            color: white;
+          }
         }
-      }
         a {
           padding-block: 0.5rem;
           display: flex;

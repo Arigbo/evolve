@@ -146,7 +146,7 @@ const courseData = {
       },
     },
   },
-  "cyberSecurity": {
+  cybersecurity: {
     id: "cybersecurity",
     title: "Cybersecurity",
     overview: "Cybersecurity Course Overview",
@@ -202,8 +202,114 @@ const courseData = {
         </p>
       ),
     },
+    subjects: {
+      "Introduction to Cybersecurity": {
+        details:
+          "Gain a foundational understanding of cybersecurity, including its importance, key concepts, and the evolving threat landscape. Learn about the CIA triad and basic security terminology.",
+        project:
+          "Write a report summarizing a recent cybersecurity incident, identifying the attack vector, impact, and lessons learned.",
+        topics: [
+          { topic: "What is Cybersecurity?" },
+          { topic: "The CIA Triad (Confidentiality, Integrity, Availability)" },
+          { topic: "Types of Threats and Attacks" },
+          { topic: "Security Terminology" },
+          { topic: "Overview of Cybersecurity Careers" },
+        ],
+      },
+      "Network Security Fundamentals": {
+        details:
+          "Understand how networks operate and the security measures used to protect them. Learn about firewalls, VPNs, network protocols, and common network attacks.",
+        project:
+          "Design a secure network diagram for a small business, including firewalls, DMZ, and VPN access.",
+        topics: [
+          { topic: "Network Basics (LAN, WAN, Protocols)" },
+          { topic: "Firewalls and Intrusion Detection Systems" },
+          { topic: "Virtual Private Networks (VPNs)" },
+          { topic: "Common Network Attacks (DDoS, MITM)" },
+          { topic: "Network Segmentation" },
+        ],
+      },
+      "Operating System Security": {
+        details:
+          "Explore how to secure Windows, Linux, and macOS systems. Learn about user permissions, patch management, and hardening techniques.",
+        project:
+          "Harden a virtual machine by disabling unnecessary services, setting strong permissions, and applying security updates.",
+        topics: [
+          { topic: "User Accounts and Permissions" },
+          { topic: "Patch and Update Management" },
+          { topic: "System Hardening Best Practices" },
+          { topic: "Malware and Antivirus Tools" },
+          { topic: "Logging and Monitoring" },
+        ],
+      },
+      "Application Security": {
+        details:
+          "Learn how to identify and mitigate vulnerabilities in software applications. Topics include secure coding, OWASP Top 10, and web application firewalls.",
+        project:
+          "Perform a basic security assessment of a demo web application and document the vulnerabilities found.",
+        topics: [
+          { topic: "Secure Coding Principles" },
+          { topic: "OWASP Top 10 Vulnerabilities" },
+          { topic: "Input Validation and Output Encoding" },
+          { topic: "Authentication and Authorization" },
+          { topic: "Web Application Firewalls (WAF)" },
+        ],
+      },
+      "Cryptography Basics": {
+        details:
+          "Understand the principles of cryptography, including encryption, hashing, and digital signatures. Learn how cryptography is used to secure data in transit and at rest.",
+        project:
+          "Encrypt and decrypt sample messages using symmetric and asymmetric algorithms with open-source tools.",
+        topics: [
+          { topic: "Symmetric vs. Asymmetric Encryption" },
+          { topic: "Hash Functions and Integrity" },
+          { topic: "Digital Signatures" },
+          { topic: "Public Key Infrastructure (PKI)" },
+          { topic: "SSL/TLS and HTTPS" },
+        ],
+      },
+      "Incident Response & Forensics": {
+        details:
+          "Learn how to detect, respond to, and recover from security incidents. Introduction to digital forensics and evidence handling.",
+        project:
+          "Create an incident response plan for a simulated ransomware attack and outline forensic steps.",
+        topics: [
+          { topic: "Incident Response Lifecycle" },
+          { topic: "Detection and Analysis" },
+          { topic: "Containment, Eradication, Recovery" },
+          { topic: "Digital Forensics Basics" },
+          { topic: "Evidence Collection and Preservation" },
+        ],
+      },
+      "Security Policies & Compliance": {
+        details:
+          "Explore the importance of security policies, standards, and regulatory compliance (GDPR, HIPAA, etc.). Learn how to create and enforce security policies.",
+        project:
+          "Draft a security policy for employee device usage and explain how it aligns with compliance requirements.",
+        topics: [
+          { topic: "Security Policy Development" },
+          { topic: "Risk Assessment and Management" },
+          { topic: "Regulatory Frameworks (GDPR, HIPAA, PCI DSS)" },
+          { topic: "Security Awareness Training" },
+          { topic: "Auditing and Compliance Tools" },
+        ],
+      },
+      "Ethical Hacking & Penetration Testing": {
+        details:
+          "Get hands-on with ethical hacking tools and techniques. Learn about penetration testing methodologies and responsible disclosure.",
+        project:
+          "Conduct a basic penetration test on a test environment and report the findings.",
+        topics: [
+          { topic: "Ethical Hacking Principles" },
+          { topic: "Penetration Testing Phases" },
+          { topic: "Reconnaissance and Scanning" },
+          { topic: "Exploitation and Post-Exploitation" },
+          { topic: "Reporting and Remediation" },
+        ],
+      },
+    },
   },
-  "frontend": {
+  frontend: {
     id: "frontend-web-development",
     title: "Frontend Web Development",
     overview: "Frontend Web Development Course Overview",
@@ -522,7 +628,7 @@ const courseData = {
       },
     },
   },
- "backend": {
+  backend: {
     id: "backend",
     title: "Backend Web Development",
     overview: "Backend Web Development Course Overview",
@@ -688,8 +794,8 @@ const courseData = {
       },
     },
   },
-  "dataAi": {
-    id: "data&ai",
+  dataai: {
+    id: "dataai",
     title: "Data Science & AI",
     overview: "Data Science & AI Course Overview",
     intro: {
@@ -1022,7 +1128,177 @@ const courseData = {
       },
     },
   },
-"mobileapp": {
+  clouddevops: {
+    id: "clouddevops",
+    title: "Cloud & DevOps",
+    overview: "Cloud & DevOps Course Overview",
+    intro: {
+      title: "What is Cloud & DevOps?",
+      description: (
+        <p className="intro-description">
+          <strong>Cloud computing</strong> delivers computing services—servers,
+          storage, databases, networking, software—over the internet, enabling
+          faster innovation and flexible resources. <strong>DevOps</strong> is a
+          set of practices that combines software development and IT operations
+          to shorten the development lifecycle and deliver high-quality software
+          continuously.
+        </p>
+      ),
+    },
+    why: {
+      title: "Why Cloud & DevOps Matter",
+      description: (
+        <p className="intro-description mb-4">
+          Cloud platforms like AWS, Azure, and Google Cloud have become the
+          backbone of modern IT infrastructure. DevOps practices such as
+          automation, CI/CD, and Infrastructure as Code help teams deliver
+          reliable software at scale, reduce downtime, and respond quickly to
+          business needs.
+        </p>
+      ),
+    },
+    tools: {
+      title: "Essential Tools for Cloud & DevOps Engineers",
+      description: (
+        <p className="intro-description mb-4">
+          Cloud & DevOps engineers use tools like <strong>Terraform</strong>,{" "}
+          <strong>Docker</strong>, <strong>Kubernetes</strong>,{" "}
+          <strong>Git</strong>, and CI/CD platforms such as{" "}
+          <strong>GitHub Actions</strong> or <strong>Jenkins</strong>.
+          Monitoring tools like <strong>Prometheus</strong> and{" "}
+          <strong>Grafana</strong> are also crucial for maintaining healthy
+          systems.
+        </p>
+      ),
+      description2: (
+        <p className="intro-description">
+          Our course provides a step-by-step <strong>roadmap</strong> to help
+          you become a skilled Cloud & DevOps engineer. You'll build real
+          projects and gain the skills needed to manage cloud infrastructure and
+          automate deployments.
+        </p>
+      ),
+    },
+    subjects: {
+      "Introduction to Cloud Computing": {
+        details:
+          "Get started with the basics of cloud computing. Learn about cloud service models (IaaS, PaaS, SaaS), deployment models (public, private, hybrid), and the benefits of cloud adoption.",
+        project:
+          "Write a short report comparing the major cloud providers (AWS, Azure, GCP) and their core services.",
+        topics: [
+          { topic: "Cloud Service Models (IaaS, PaaS, SaaS)" },
+          { topic: "Deployment Models (Public, Private, Hybrid)" },
+          { topic: "Major Cloud Providers Overview" },
+          { topic: "Cloud Adoption Benefits" },
+          { topic: "Cloud Terminology" },
+        ],
+      },
+      "Linux & Scripting Fundamentals": {
+        details:
+          "Learn the essentials of Linux for cloud and DevOps work. Explore basic commands, file systems, permissions, and shell scripting.",
+        project:
+          "Write a shell script to automate backup of a directory to a remote server.",
+        topics: [
+          { topic: "Linux Command Line Basics" },
+          { topic: "File Systems & Permissions" },
+          { topic: "Shell Scripting (bash/sh)" },
+          { topic: "Process Management" },
+          { topic: "Remote Access (SSH)" },
+        ],
+      },
+      "Networking & Security Basics": {
+        details:
+          "Understand networking concepts crucial for cloud and DevOps. Learn about IP addressing, firewalls, VPNs, and basic security best practices.",
+        project:
+          "Configure a secure VPC (Virtual Private Cloud) with subnets and firewall rules in a cloud provider.",
+        topics: [
+          { topic: "IP Addressing & Subnets" },
+          { topic: "Firewalls & Security Groups" },
+          { topic: "VPNs & Private Networking" },
+          { topic: "TLS/SSL Basics" },
+          { topic: "Identity & Access Management" },
+        ],
+      },
+      "Infrastructure as Code (IaC)": {
+        details:
+          "Automate infrastructure provisioning using tools like Terraform or AWS CloudFormation. Learn about declarative configuration and versioning infrastructure.",
+        project:
+          "Write a Terraform script to deploy a web server and database in the cloud.",
+        topics: [
+          { topic: "IaC Concepts & Benefits" },
+          { topic: "Terraform Basics" },
+          { topic: "State Management" },
+          { topic: "Modular Infrastructure" },
+          { topic: "CloudFormation Overview" },
+        ],
+      },
+      "Continuous Integration & Continuous Deployment (CI/CD)": {
+        details:
+          "Implement CI/CD pipelines to automate testing and deployment. Explore tools like GitHub Actions, Jenkins, or GitLab CI.",
+        project:
+          "Set up a CI/CD pipeline to build, test, and deploy a sample application automatically.",
+        topics: [
+          { topic: "CI/CD Concepts" },
+          { topic: "Pipeline as Code" },
+          { topic: "Popular CI/CD Tools" },
+          { topic: "Automated Testing" },
+          { topic: "Deployment Strategies" },
+        ],
+      },
+      "Containers & Orchestration": {
+        details:
+          "Learn about containerization with Docker and orchestration with Kubernetes. Understand how to package, deploy, and scale applications.",
+        project:
+          "Containerize a simple app with Docker and deploy it to a Kubernetes cluster.",
+        topics: [
+          { topic: "Docker Basics" },
+          { topic: "Container Images & Registries" },
+          { topic: "Kubernetes Fundamentals" },
+          { topic: "Pods, Services, Deployments" },
+          { topic: "Scaling & Rolling Updates" },
+        ],
+      },
+      "Monitoring & Logging": {
+        details:
+          "Set up monitoring and logging for cloud infrastructure and applications. Use tools like Prometheus, Grafana, and ELK Stack.",
+        project:
+          "Configure monitoring and alerting for a cloud-based application using open-source tools.",
+        topics: [
+          { topic: "Metrics & Monitoring Tools" },
+          { topic: "Log Aggregation" },
+          { topic: "Alerting & Incident Response" },
+          { topic: "Tracing & Observability" },
+        ],
+      },
+      "Cloud Cost Optimization": {
+        details:
+          "Learn strategies to optimize cloud costs, including resource right-sizing, reserved instances, and monitoring usage.",
+        project:
+          "Analyze a sample cloud bill and suggest optimizations to reduce costs.",
+        topics: [
+          { topic: "Cost Management Tools" },
+          { topic: "Resource Optimization" },
+          { topic: "Billing Alerts" },
+          { topic: "Tagging & Resource Organization" },
+          { topic: "FinOps Basics" },
+        ],
+      },
+      "Git & Collaboration": {
+        details:
+          "Master version control with Git and collaborate with others using GitHub. Learn branching, merging, and pull requests.",
+        project:
+          "Work with a teammate to build a feature and submit a pull request for review.",
+        topics: [
+          { topic: "Git Basics (add, commit, push)" },
+          { topic: "Branching & Merging" },
+          { topic: "Pull Requests & Code Review" },
+          { topic: "Resolving Merge Conflicts" },
+          { topic: "Using .gitignore" },
+        ],
+      },
+    },
+  },
+  mobileapp: {
     id: "mobileapp",
     title: "Mobile App Development",
     overview: "Mobile App Development Course Overview",

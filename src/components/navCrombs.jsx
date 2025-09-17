@@ -30,7 +30,7 @@ const pages = [
   },
   {
     page: "Data Science & AI",
-    pageLink: "/courses/data&ai",
+    pageLink: "/courses/dataai",
     pageIcon: " fas fa-robot",
   },
   {
