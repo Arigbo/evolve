@@ -1,8 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useParams } from "next/navigation";
-import { Dessert } from "lucide-react";
-
+import Link from "next/link";
 const courseData = {
   "computer-appreciation": {
     id: "computer-appreciation",
@@ -310,7 +309,7 @@ const courseData = {
     },
   },
   frontend: {
-    id: "frontend-web-development",
+    id: "frontend",
     title: "Frontend Web Development",
     overview: "Frontend Web Development Course Overview",
     intro: {
@@ -382,6 +381,7 @@ const courseData = {
           "Write a simple report explaining the journey of a webpage from a user clicking a link to it appearing on their screen, detailing each step and technology involved.",
         topics: [
           {
+            id:1,
             topic: "How the Internet Works (Clients, Servers)",
           },
           {
@@ -1673,9 +1673,14 @@ const SingleCourse = () => {
                     <h4>Course Topics</h4>
                     <div className="topics-grid">
                       {currentSubject.topics.map((topic, index) => (
-                        <div key={index} className="topic-link-card">
+                        <Link
+                          key={index}
+                          className="topic-link-card"
+                          // href={`/courses/${course.id}/topic/${topic.id}`}
+                          href={`/courses/${course.id}/`}
+                        >
                           <span>{topic.topic}</span>
-                        </div>
+                        </Link>
                       ))}
                     </div>
                   </div>
