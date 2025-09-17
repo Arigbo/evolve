@@ -1471,9 +1471,9 @@ const SingleCourse = () => {
           )}
         </main>
       ) : (
-        <div className="single-course">
+        <main className="single-course">
           <h1>Course Not found</h1>
-        </div>
+        </main>
       )}
     </>
   );

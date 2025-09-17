@@ -12,28 +12,16 @@ export default function SingleCourseLayout({
     setIsLoading(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 60);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
   return (
     <>
       {isLoading ? (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            minHeight: "120px",
-            fontSize: "1.2rem",
-            color: "#555",
-            fontWeight: "500",
-            background: "#f0f0f0",
-            borderRadius: "8px",
-          }}
-        >
+        <div className="loading">
           <span
-            className="spinner"
+            className=""
             style={{
               width: "24px",
               height: "24px",

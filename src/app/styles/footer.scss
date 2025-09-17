@@ -1,9 +1,11 @@
 /* Footer */
 .footer {
-  background-color: $bg-secondary;
-  padding: 2.5rem 0;
-  text-align: center;
-  border-top: 1px solid $border-color;
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .footer p {

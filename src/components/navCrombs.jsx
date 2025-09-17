@@ -4,17 +4,17 @@ import { usePathname } from "next/navigation";
 
 const pages = [
   {
-    page: "Frontend",
+    page: "Frontend Web Development",
     pageLink: "/courses/frontend",
     pageIcon: "fas fa-code",
   },
   {
-    page: "Backend",
+    page: "Backend Web Development",
     pageLink: "/courses/backend",
     pageIcon: "fas fa-database",
   },
   {
-    page: "UI/UX",
+    page: "UI/UX Design",
     pageLink: "/courses/ui-ux",
     pageIcon: "fas fa-pencil-ruler",
   },
@@ -75,12 +75,12 @@ export function NavCrumbs() {
               <a
                 key={element.page}
                 href={element.pageLink}
-                className={path == element.pageLink ? "active" : ""}
+                className={
+                  path == element.pageLink ? "active" : ""
+                }
               >
-                <span>
-                  <i className={element.pageIcon}></i>
-                  {element.page}
-                </span>
+                <i className={element.pageIcon}></i>
+                <span className="line-clamp">{element.page}</span>
               </a>
             );
           })}
@@ -96,21 +96,19 @@ export function NavCrumbs() {
           Courses
         </h1>
         <span>&gt;</span>
-        <span className="line-clamp">
-          {current ? (
-            current.page
-          ) : (
-            <h1>
-              Click <span className="select">Courses</span> to select a course
-            </h1>
-          )}
-        </span>
+        {current ? (
+          <h2 className="line-clamp">{current.page}</h2>
+        ) : (
+          <h1>
+            Click <span className="select">Courses</span> to select a course
+          </h1>
+        )}
       </div>
       <div className="next-course">
+        {next ? <h1>What's Next?</h1> : <h1>No more courses</h1>}
         {next && (
           <a href={next.pageLink} className="next">
-            <span className="line-clamp"> {next.page}</span>{" "}
-            <i className="fas fa-chevron-right"></i>
+            <span className="line-clamp"> {next.page}</span>
           </a>
         )}
       </div>

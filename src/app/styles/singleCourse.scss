@@ -7,17 +7,164 @@
   --bg-color: #f9fafb;
   --bg-card: #ffffff;
 }
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+}
 .layout {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  .breadcrumbs-container {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    gap: 3rem;
+    align-items: center;
+    height: 4rem;
+    h1,
+    h2 {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-light-color);
+    }
+    span,
+    a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-light-color);
+    }
+    i {
+      cursor: pointer;
+    }
+    .line-clamp {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      width: auto;
+    }
+    .coursesNav {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      top: 7rem;
+width: auto;
+      border: 1px solid;
+      left: -100vh;
+      transition: all 0.5s ease;
+
+      &.show {
+        left: 1.5rem;
+      }
+      .top {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2rem;
+
+border-bottom: 1px solid;
+        &-inner {
+          width: 90%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          h1 {
+            font-size: 16px;
+            font-weight: 700;
+          }
+          i{
+            font-size: 0.7rem;
+            color: var(--text-light-color);
+          }
+        }
+      }
+      .bottom {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+             .active {
+        background-color: var(--primary-color);
+        span,
+        i {
+          color: white;
+        }
+      }
+        a {
+          padding-block: 0.5rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding-inline: 1rem;
+          i {
+            font-size: 1rem;
+          }
+          &:hover {
+            background-color: var(--primary-color);
+            span,
+            i {
+              color: white;
+            }
+          }
+        }
+      }
+    }
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      gap: 0.5rem;
+      font-size: 1rem;
+      .select {
+        color: var(--primary-color);
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .next-course {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--primary-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      h1 {
+        font-size: 11.5px;
+        font-weight: 600;
+      }
+      .next {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        color: var(--primary-color);
+        span {
+          color: var(--primary-color);
+        }
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
+
 .single-course {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  justify-content: center;
+  min-height: 70vh;
   .hero {
     width: 90%;
     min-height: 10vh;
@@ -37,134 +184,6 @@
         rgba(79, 70, 229, 0.8)
       ),
       url("/home-hero.png");
-  }
-}
-.breadcrumbs-container {
-  display: flex;
-  width: 90%;
-  justify-content: space-between;
-  align-items: center;
-  height: 4rem;
-  * {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-light-color);
-    .line-clamp {
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 1;
-      width: auto;
-    }
-  }
-  .coursesNav {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    top: 7rem;
-    height: fit-content;
-    width: fit-content;
-    border: 1px solid;
-    left: -100vh;
-    transition: all 0.5s ease;
-
-    &.show {
-      left: 2rem;
-    }
-    .active {
-      background-color: var(--primary-color);
-      span,
-      i {
-        color: white;
-      }
-    }
-
-    .top {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 2rem;
-      background-color: var(--primary-dark-color);
-      h1,
-      i {
-        color: white;
-      }
-      &-inner {
-        width: 90%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        h1 {
-          font-size: 14px;
-          font-weight: 700;
-        }
-      }
-    }
-    .bottom {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      a {
-        width: 100%;
-        padding-block: 0.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        span {
-          width: 90%;
-          display: flex;
-          align-items: center;
-          gap: 0.3rem;
-        }
-        &:hover {
-          background-color: var(--primary-color);
-          span,
-          i {
-            color: white;
-          }
-        }
-      }
-    }
-  }
-  .breadcrumbs {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    gap: 0.5rem;
-    font-size: 1rem;
-    .select {
-      color: var(--primary-color);
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  .next-course {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    .next {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary-color);
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-    i {
-      font-size: 0.6rem;
-    }
   }
 }
 
