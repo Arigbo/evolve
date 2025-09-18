@@ -47,7 +47,7 @@ const pages = [
 
 export function NavCrumbs() {
   const path = usePathname();
-  const currentIndex = pages.findIndex((item) => item.pageLink === path);
+  const currentIndex = pages.findIndex((item) => item.pageLink == path);
   const current = pages[currentIndex];
   const next =
     currentIndex >= 0 && currentIndex < pages.length - 1

@@ -381,7 +381,7 @@ const courseData = {
           "Write a simple report explaining the journey of a webpage from a user clicking a link to it appearing on their screen, detailing each step and technology involved.",
         topics: [
           {
-            id:1,
+            id:"t1",
             topic: "How the Internet Works (Clients, Servers)",
           },
           {
@@ -1676,8 +1676,8 @@ const SingleCourse = () => {
                         <Link
                           key={index}
                           className="topic-link-card"
-                          // href={`/courses/${course.id}/topic/${topic.id}`}
-                          href={`/courses/${course.id}/`}
+                          href={`/courses/${course.id}/${topic.id}`}
+                          // href={`/courses/${course.id}/`}
                         >
                           <span>{topic.topic}</span>
                         </Link>
