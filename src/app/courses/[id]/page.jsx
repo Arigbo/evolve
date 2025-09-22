@@ -1676,7 +1676,7 @@ const SingleCourse = () => {
                         <Link
                           key={index}
                           className="topic-link-card"
-                          href={`/courses/${course.id}/${topic.id}`}
+                          href={`/courses/topic/${topic.id}`}
                           // href={`/courses/${course.id}/`}
                         >
                           <span>{topic.topic}</span>
