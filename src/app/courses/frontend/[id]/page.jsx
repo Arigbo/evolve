@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
+import { FooterCrumbs } from "@/components/footerCrumb";
 
 const topics = {
   t1: {
@@ -1851,23 +1852,10 @@ const TopicDetail = () => {
             <div className="intro-1">{topic.paragraph4}</div>
             <div className="intro-1">{topic.paragraph5}</div>
           </section>
-          <section className="section cta-section">
-            <div className="section-header">
-              <h2 className="section-title">
-                Are you an expert in {topic.topic}?
-              </h2>
-            </div>
-            <p className="section-subtitle">
-              Join our team of experienced mentors and help others build their
-              digital literacy skills.
-            </p>
-            <button
-              onClick={() => setIsMentorRedirectModalOpen(true)}
-              className="cta-button"
-            >
-              Work with Us
-            </button>
+          <section className="image-section">
+            <div className="image-container">{topic.image}</div>
           </section>
+          <FooterCrumbs />
           {/* Mentor Redirect Modal */}
           {isMentorRedirectModalOpen ? (
             <div className="modal-overlay">
@@ -1875,7 +1863,7 @@ const TopicDetail = () => {
                 <div className="modal-header">
                   <h3 className="modal-title">Work with Us</h3>
                   <i
-                    onClick={()=>setIsMentorRedirectModalOpen(false)}
+                    onClick={() => setIsMentorRedirectModalOpen(false)}
                     className="fas fa-x modal-close-button"
                   ></i>
                 </div>
@@ -1886,7 +1874,10 @@ const TopicDetail = () => {
                   started.
                 </p>
                 <div className="text-right mt-4">
-                  <button onClick={()=>setIsMentorRedirectModalOpen(false)} className="cta-button">
+                  <button
+                    onClick={() => setIsMentorRedirectModalOpen(false)}
+                    className="cta-button"
+                  >
                     Close
                   </button>
                 </div>

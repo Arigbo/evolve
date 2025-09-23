@@ -1489,20 +1489,6 @@ const SingleCourse = () => {
               ))}
             </div>
           </section>
-          <section className="section cta-section">
-            <div className="section-header">
-              <h2 className="section-title">
-                Are you an expert in {course.title}?
-              </h2>
-            </div>
-            <p className="section-subtitle">
-              Join our team of experienced mentors and help others build their
-              digital literacy skills.
-            </p>
-            <button onClick={openMentorModal} className="cta-button">
-              Work with Us
-            </button>
-          </section>
           {/* Enrollment Modal (for Students and Mentees) */}
           {isEnrollmentModalOpen && (
             <div className="modal-overlay">
@@ -1593,7 +1579,7 @@ const SingleCourse = () => {
                         <Link
                           key={index}
                           className="topic-link-card"
-                          href={`/courses/topic/${topic.id}`}
+                          href={`/courses/${course.id}/${topic.id}`}
                           // href={`/courses/${course.id}/`}
                         >
                           <span>{topic.topic}</span>

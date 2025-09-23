@@ -121,7 +121,58 @@
     }
   }
 }
+/* Common Section Styles */
+section {
+  padding-block: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  min-height: 50vh;
+  @media (min-width: 786px) {
+    min-height: 80vh;
+  }
+  .section-header {
+    text-align: center;
+    display: grid;
+    gap: 1.5rem;
+    width: 90%;
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      @media (min-width: 768px) {
+        font-size: 2.4rem;
+      }
+      @media (min-width: 1024px) {
+        font-size: 2.6rem;
+      }
+    }
+    .section-subtitle {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
 
+  p {
+    font-size: 0.94rem;
+    color: $text-secondary;
+    @media (min-width: 768px) {
+      font-size: 1.04rem;
+    }
+  }
+}
+.cta-section {
+  gap: 1rem;
+  p {
+    width: 90%;
+    text-align: center;
+  }
+}
 main {
   display: flex;
   flex-direction: column;
@@ -195,53 +246,6 @@ main {
       }
     }
   }
-
-  /* Common Section Styles */
-  section {
-    padding-block: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    width: 100%;
-    min-height: 50vh;
-    @media (min-width: 786px) {
-      min-height: 80vh;
-    }
-    .section-header {
-      text-align: center;
-      display: grid;
-      gap: 1.5rem;
-      width: 90%;
-      .section-title {
-        font-size: 2rem;
-        font-weight: bold;
-        @media (min-width: 768px) {
-          font-size: 2.4rem;
-        }
-        @media (min-width: 1024px) {
-          font-size: 2.6rem;
-        }
-      }
-      .section-subtitle {
-        width: 90%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-    }
-
-    p {
-      font-size: 0.94rem;
-      color: $text-secondary;
-      @media (min-width: 768px) {
-        font-size: 1.04rem;
-      }
-    }
-  }
-
   /* Card Grid Layouts */
   .card-grid {
     display: grid;
@@ -605,13 +609,6 @@ main {
         left: 0;
         opacity: 1;
       }
-    }
-  }
-  .cta-section {
-    gap: 1rem;
-    p {
-      width: 90%;
-      text-align: center;
     }
   }
 }

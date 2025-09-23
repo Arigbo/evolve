@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { usePathname } from "next/navigation";
 
 const pages = [
   {
@@ -138,120 +137,206 @@ const pages = [
     page: "Backend Web Development",
     pageLink: "/courses/backend",
     pageIcon: "fas fa-database",
+    topics: [
+      { topic: "How the Internet Works (Clients, Servers, Backend Focus)" },
+      { topic: "HTTP/HTTPS Protocols & Methods" },
+      { topic: "Domain Name System (DNS) for Backend Routing" },
+      { topic: "Web Servers (Nginx, Apache, Node.js)" },
+      { topic: "Request-Response Lifecycle" },
+      { topic: "RESTful APIs and Endpoints" },
+      { topic: "Cookies, Sessions, and Authentication" },
+      { topic: "Status Codes and Error Handling" },
+    ],
   },
   {
     page: "UI/UX Design",
     pageLink: "/courses/ui-ux",
     pageIcon: "fas fa-pencil-ruler",
+    topics: [
+      { topic: "Design Principles and Fundamentals" },
+      { topic: "User Research and Personas" },
+      { topic: "Wireframing and Prototyping" },
+      { topic: "Usability Testing" },
+      { topic: "Figma and Sketch Tools" },
+      { topic: "Mobile-First Design" },
+    ],
   },
   {
     page: "Mobile App Development",
     pageLink: "/courses/mobileapp",
     pageIcon: " fas fa-mobile-alt",
+    topics: [
+      { topic: "Mobile Development Platforms (iOS, Android)" },
+      { topic: "Swift and Kotlin Basics" },
+      { topic: "React Native for Cross-Platform" },
+      { topic: "UI/UX for Mobile Apps" },
+    ],
   },
   {
     page: "Cloud Computing & DevOps",
     pageLink: "/courses/clouddevops",
     pageIcon: " fas fa-cloud",
+    topics: [
+      { topic: "Cloud Models (IaaS, PaaS, SaaS)" },
+      { topic: "AWS, Google Cloud, Azure" },
+      { topic: "Containerization (Docker)" },
+      { topic: "CI/CD Pipelines" },
+      { topic: "Serverless Computing" },
+    ],
   },
   {
     page: "Data Science & AI",
     pageLink: "/courses/dataai",
     pageIcon: " fas fa-robot",
+    topics: [
+      { topic: "Data Analysis with Python" },
+      { topic: "Machine Learning Concepts" },
+      { topic: "Data Visualization" },
+      { topic: "Big Data Technologies" },
+      { topic: "Introduction to AI/ML Models" },
+    ],
   },
   {
     page: "Cybersecurity",
     pageLink: "/courses/cybersecurity",
     pageIcon: "fas fa-shield-alt",
+    topics: [
+      { topic: "Ethical Hacking Fundamentals" },
+      { topic: "Network Security" },
+      { topic: "Cryptography" },
+      { topic: "Incident Response" },
+      { topic: "Security Policies and Compliance" },
+    ],
   },
   {
     page: "Computer Appreciation",
     pageLink: "/courses/computer-appreciation",
     pageIcon: "fas fa-desktop",
+    topics: [
+      { topic: "Introduction to Computers" },
+      { topic: "Computer Hardware" },
+      { topic: "Computer Software" },
+      { topic: "Introduction to the Internet" },
+      { topic: "Word Processing Basics" },
+    ],
   },
 ];
 
 export function NavCrumbs() {
-  const path = usePathname();
-  const currentIndex = pages.findIndex(
-    (item) => item.pageLink || item.topics[0] == path
-  );
-  const current = pages[currentIndex];
-  const next =
-    currentIndex >= 0 && currentIndex < pages.length - 1
-      ? pages[currentIndex + 1]
-      : null;
+  const path = typeof window !== "undefined" ? window.location.pathname : "";
   const [nav, setNav] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const currentCourse = pages.find((item) => path.startsWith(item.pageLink));
+  const currentTopic = currentCourse?.topics?.find(
+    (topic) => topic.id === path
+  );
+  const nextCourse =
+    pages[
+      pages.findIndex((item) => item.pageLink === currentCourse?.pageLink) + 1
+    ] || null;
+
+  const handleDropdownClick = (page) => {
+    setOpenDropdown(openDropdown === page ? null : page);
+  };
+
   return (
-    <div className="breadcrumbs-container">
-      <div className={`coursesNav ${nav ? "show" : ""}`}>
-        <div className="top">
-          {" "}
-          <div className="top-inner">
-            <h1>All Courses</h1>
-            <i
-              className="fas fa-x"
-              onClick={() => {
-                setNav(false);
-              }}
-            ></i>
+      <div className="breadcrumbs-container">
+        <div className={`coursesNav ${nav ? "show" : ""}`}>
+          <div className="top">
+            <div className="top-inner">
+              <h1>All Courses</h1>
+              <i
+                className="fas fa-x"
+                onClick={() => {
+                  setNav(false);
+                }}
+              ></i>
+            </div>
           </div>
-        </div>
-        <div className="bottom">
-          {pages.map((element) => {
-            return (
-              <a
-                key={element.page}
-                href={element.pageLink}
-                className={path == element.pageLink ? "active" : ""}
-              >
-                <i className={element.pageIcon}></i>
-                <span className="line-clamp">{element.page}</span>
-              </a>
-            );
-          })}
-        </div>
-      </div>
-      <div className="breadcrumbs">
-        <h1
-          onClick={() => {
-            setNav(true);
-          }}
-          className="select"
-        >
-          Courses
-        </h1>
-        <span>&gt;</span>
-        {current ? (
-          <div className="current">
-            <h2 className={`line-clamp`}>{current.page}</h2>
-            {current.topics.map((topic) => {
-              return (
-                <div>
-                  {topic.id == path && (
+          <div className="bottom">
+            {pages.map((element) => (
+              <div key={element.page} className="bottom-inner">
+                <div
+                  className={`dropdown-header ${
+                    currentCourse?.page === element.page ? "active-course" : ""
+                  }`}
+                  onClick={() => handleDropdownClick(element.page)}
+                >
+                  <div className="dropdown-header-inner">
                     <h1>
-                      <span>&gt;</span>
-                      {topic.topic}
+                      <i className={element.pageIcon}></i>
+                      <span className="line-clamp">{element.page}</span>
                     </h1>
-                  )}
+                    {element.topics && (
+                      <i
+                        className={`fas fa-chevron-down dropdown-icon ${
+                          openDropdown === element.page ? "rotated" : ""
+                        }`}
+                      ></i>
+                    )}
+                  </div>
                 </div>
-              );
-            })}
+                {element.topics && (
+                  <div
+                    className={`dropdown-topics ${
+                      openDropdown === element.page ||
+                      currentCourse?.page === element.page
+                        ? "open"
+                        : ""
+                    }`}
+                  >
+                    <a
+                      href={element.pageLink}
+                      className={`block hover:text-blue-400 transition-colors duration-300 ${
+                        path === element.pageLink ? "active-topic" : ""
+                      }`}
+                    >
+                      <span>Overview</span>
+                    </a>
+                    {element.topics.map((topic, index) => (
+                      <a
+                        key={index}
+                        href={topic.id}
+                        className={`block hover:text-blue-400 transition-colors duration-300 ${
+                          topic.id === path ? "active-topic" : ""
+                        }`}
+                      >
+                        <span>{topic.topic}</span>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-        ) : (
-          <h1>
-            Click <span className="select">Courses</span> to select a course
-          </h1>
-        )}
+        </div>
+        <div className="breadcrumbs">
+          {currentCourse ? (
+            <div className="current">
+              <h2 className="select line-clamp" onClick={() => setNav(true)}>
+                {currentCourse.page}
+              </h2>
+              <span>&gt;</span>
+              <h2 className="line-clamp">
+                {currentTopic?.topic ||
+                  (path === currentCourse.pageLink ? "Overview" : "Topic")}
+              </h2>
+            </div>
+          ) : (
+            <h1>
+              Click <span className="select">Courses</span> to select a course
+            </h1>
+          )}
+        </div>
+        <div className="next-course">
+          {nextCourse ? <h1>What's Next?</h1> : <h1>No more courses</h1>}
+          {nextCourse && (
+            <a href={nextCourse.pageLink} className="next">
+              <span className="line-clamp"> {nextCourse.page}</span>
+            </a>
+          )}
+        </div>
       </div>
-      <div className="next-course">
-        {next ? <h1>What's Next?</h1> : <h1>No more courses</h1>}
-        {next && (
-          <a href={next.pageLink} className="next">
-            <span className="line-clamp"> {next.page}</span>
-          </a>
-        )}
-      </div>
-    </div>
   );
 }
