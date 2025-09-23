@@ -1160,10 +1160,10 @@ const TopicDetail = () => {
   return (
     <>
       {topic ? (
-        <div>
-          <h2 className="detail-title">{topic.topic}</h2>
+        <main>
+          <h2 className="section-title">{topic.topic}</h2>
 
-          <div className="detail-box content-box-light">
+          <section className="section">
             <h3 className="box-title" style={{ color: "#374151" }}>
               Topic Content
             </h3>
@@ -1173,13 +1173,13 @@ const TopicDetail = () => {
             {topic.paragraph4}
             {topic.paragraph5}
             {topic.image}
-          </div>
+          </section>
 
           <div className="detail-box project-box">
             <h3 className="box-title">Project</h3>
             <p className="box-text">{topic.subjectProject}</p>
           </div>
-        </div>
+        </main>
       ) : (
         <div
           style={{

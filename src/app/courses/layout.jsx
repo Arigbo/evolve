@@ -17,19 +17,19 @@ export default function SingleLayout({ currentSubject, closeModal, children }) {
       {isLoading ? (
         <div className="loading">
           <span
-            className=""
+            className="text-gradient"
             style={{
               width: "24px",
               height: "24px",
               border: "3px solid #ccc",
-              borderTop: "3px solid #0070f3",
+              borderTop: "3px solid",
               borderRadius: "50%",
               marginRight: "1rem",
               animation: "spin 1s linear infinite",
               display: "inline-block",
             }}
           />
-          Loading courses...
+          <h1 className="text-gradient">Evolve</h1>
           <style>{`
                             @keyframes spin {
                                 0% { transform: rotate(0deg); }
