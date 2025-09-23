@@ -373,260 +373,177 @@ const courseData = {
         </p>
       ),
     },
-    subjects: {
-      "Internet & the Web": {
-        details:
-          "This module demystifies how the internet works, from browsers to servers. You will learn about key concepts like DNS, HTTP/HTTPS, and how client-side applications communicate with the backend.",
-        project:
-          "Write a simple report explaining the journey of a webpage from a user clicking a link to it appearing on their screen, detailing each step and technology involved.",
-        topics: [
-          {
-            id:"t1",
-            topic: "How the Internet Works (Clients, Servers)",
-          },
-          {
-            topic: "HTTP/HTTPS Protocols",
-          },
-          {
-            topic: "Domain Name System (DNS)",
-          },
-          {
-            topic: "Web Browsers and Rendering Engines",
-          },
-          {
-            topic: "Understanding URLs and Resources",
-          },
-          {
-            topic: "Introduction to Frontend vs. Backend",
-          },
-          {
-            topic: "Cookies and Session Storage",
-          },
-          {
-            topic: "Anatomy of a Request-Response Cycle",
-          },
-        ],
+     subjects: {
+  "Internet & the Web": {
+    details:
+      "This module demystifies how the internet works, from browsers to servers. You will learn about key concepts like DNS, HTTP/HTTPS, and how client-side applications communicate with the backend.",
+    project:
+      "Write a simple report explaining the journey of a webpage from a user clicking a link to it appearing on their screen, detailing each step and technology involved.",
+    topics: [
+      {
+        id: "t1",
+        topic: "How the Internet Works (Clients, Servers)",
+        content: `The internet is a globally interconnected network of billions of computers and other electronic devices. At its core, the most fundamental interaction is the **client-server model**. Think of it as a request-and-response system. Your web browser, running on your device, is the **client**—it’s the machine that initiates a request for a resource. A **server** is a powerful computer, often located in a large data center, that stores files, data, and websites. When you want to visit a website, you are essentially asking a server to send you a copy of its files.
+
+The process begins when you type a URL into your browser's address bar. This seemingly simple action triggers a complex series of events. First, your computer needs to figure out the numeric address of the server, which is its **IP address**. To do this, your computer sends a request to a **Domain Name System (DNS)** server. The DNS acts like the internet’s phonebook, translating the human-friendly domain name (like "www.example.com") into the machine-readable IP address (like "93.184.216.34"). Once your computer has the IP address, it knows exactly where to send its request.
+
+Next, your browser packages up the request as a series of data packets. This is governed by the **TCP/IP protocol suite**. TCP (Transmission Transmission Control Protocol) breaks the request into smaller packets, ensuring they are sent reliably and in the correct order. IP (Internet Protocol) handles the routing, adding the source and destination IP addresses to each packet so they know where to go. The packets then begin their journey across the network. They travel through a series of **routers**, which are like traffic cops for the internet, directing the packets along the most efficient path to their destination. Each router reads the destination IP address and forwards the packet to the next router on the route.
+
+When the packets finally arrive at the server, they are reassembled to form the original request. The server's web server software (like Apache or Nginx) receives this request and processes it. It determines which files the client is asking for (e.g., the home page, an image, or a stylesheet). The server then retrieves these files from its storage.
+
+After gathering all the necessary files, the server creates an **HTTP response**. This response includes a status code (like **200 OK** for success) and the requested content, which is typically a bundle of HTML, CSS, and JavaScript files. The response is also broken down into packets and sent back to your computer through the same network of routers.
+
+Once your browser receives all the response packets, it reassembles the files. The browser’s **rendering engine** then goes to work. It first reads the **HTML** to understand the structure of the webpage. Then, it applies the **CSS** to style the elements and give them color, layout, and visual appeal. Finally, it executes the **JavaScript**, which adds dynamic behavior and interactivity to the page, such as animations, form validation, and real-time updates. This entire process, from typing a URL to seeing the fully rendered page, happens in a fraction of a second, demonstrating the incredible speed and efficiency of the modern internet.`
       },
-      "HTML Fundamentals": {
-        details:
-          "Master the foundational language of the web. This section covers semantic HTML5 for structuring content, accessibility standards, and modern best practices for building robust and well-organized web pages.",
-        project:
-          "Build a multi-page portfolio website using only semantic HTML5. The site must include a home page, about page, and projects page, and must pass an accessibility checker.",
-        topics: [
-          {
-            topic: "Introduction to HTML and the Web",
-          },
-          {
-            topic: "Semantic HTML5 Tags",
-          },
-          {
-            topic: "HTML Forms and Inputs",
-          },
-          {
-            topic: "Accessibility (ARIA roles and attributes)",
-          },
-          {
-            topic: "Image and Multimedia Elements",
-          },
-          {
-            topic: "Structuring Content with Headings, Paragraphs, and Lists",
-          },
-          {
-            topic: "Working with Tables",
-          },
-          {
-            topic: "Introduction to Web Components",
-          },
-          { topic: "Best Practices for Clean and Maintainable HTML" },
-        ],
+      {
+        id: "t2",
+        topic: "HTTP/HTTPS Protocols",
+        content: "**HTTP (Hypertext Transfer Protocol)** is the fundamental set of rules for how clients and servers exchange data. It's the language they speak. All web requests are HTTP requests, and all server responses are HTTP responses. **HTTPS** is the secure version of HTTP. The 'S' stands for Secure, and it means the data exchanged between your browser and the server is encrypted using a protocol called TLS (Transport Layer Security). This encryption scrambles the data, making it unreadable to anyone who might intercept it. This is crucial for protecting sensitive information like passwords, credit card numbers, and personal details. You can always tell if a website is using HTTPS by looking for the padlock icon in the address bar."
       },
-      "CSS Fundamentals": {
-        details:
-          "Dive into the language of web styling. This module covers modern CSS3 for creating visually stunning interfaces. You will learn about the box model, responsive design with media queries, and advanced layout techniques using Flexbox and CSS Grid.",
-        project:
-          "Take a basic HTML page and style it to match a provided design mockup. You will create a fully responsive layout and implement custom fonts and animations using CSS.",
-        topics: [
-          {
-            topic: "CSS Syntax and Selectors",
-          },
-          {
-            topic: "The Box Model, Sizing, and Spacing",
-          },
-          {
-            topic: "Working with Colors and Backgrounds",
-          },
-          {
-            topic: "Typography and Fonts",
-          },
-          {
-            topic: "Flexbox for One-Dimensional Layouts",
-          },
-          {
-            topic: "CSS Grid for Two-Dimensional Layouts",
-          },
-          {
-            topic: "Responsive Design with Media Queries",
-          },
-          {
-            topic: "CSS Animations and Transitions",
-          },
-          {
-            topic: "Introduction to Preprocessors (Sass/Less)",
-          },
-        ],
+      {
+        id: "t3",
+        topic: "Domain Name System (DNS)",
+        content: "The **Domain Name System (DNS)** is often called the 'phonebook of the internet.' Computers communicate using **IP addresses**, which are long strings of numbers (like `192.0.2.1`). However, humans find it much easier to remember names like `www.google.com`. The DNS's job is to translate these human-friendly domain names into the machine-friendly IP addresses that computers need to find the right server. When you type a domain name, your computer sends a query to a DNS server, which finds the correct IP address and sends it back, allowing the client to connect to the right server. "
       },
-      "JavaScript & DOM": {
-        details:
-          "Dive into the core logic of web applications. This module focuses on modern JavaScript (ES6+), teaching you how to manipulate the Document Object Model (DOM) to create interactive and dynamic user experiences. You will also learn about event handling and asynchronous operations.",
-        project:
-          "Create a fully functional to-do list application that allows users to add, remove, and mark tasks as complete, all without reloading the page.",
-        topics: [
-          {
-            topic: "Variables, Data Types, and Operators",
-          },
-          {
-            topic: "Control Flow and Logic",
-          },
-          {
-            topic: "Functions and Scopes",
-          },
-          {
-            topic: "Arrays and Objects",
-          },
-          {
-            topic: "DOM Manipulation and Traversal",
-          },
-          {
-            topic: "Event Handling and Listeners",
-          },
-          {
-            topic: "Introduction to Asynchronous JavaScript",
-          },
-          {
-            topic: "Error Handling with Try/Catch",
-          },
-        ],
+      {
+        id: "t4",
+        topic: "Web Browsers and Rendering Engines",
+        content: "A web browser is the software application you use to access the internet. It has a **rendering engine** (also known as a browser engine or layout engine) at its core. This engine is responsible for processing the raw HTML, CSS, and JavaScript files received from a server. It constructs the page layout, paints the elements, and executes the code to display a visual and interactive web page on your screen. Different browsers have their own rendering engines; for example, Chrome uses Blink and Firefox uses Gecko. The `document` and `window` objects that JavaScript interacts with are created by this rendering engine."
       },
-      "Modern Frameworks (React)": {
-        details:
-          "Build scalable and complex single-page applications using the React library. You will learn about component-based architecture, state management with hooks (useState, useEffect), and efficient data flow to create reusable UI components.",
-        project:
-          "Develop a simple e-commerce product gallery with a shopping cart. The application should use React components and manage state with hooks.",
-        topics: [
-          {
-            topic: "Introduction to React and JSX",
-          },
-          {
-            topic: "Component-Based Architecture",
-          },
-          {
-            topic: "State and Props",
-          },
-          {
-            topic: "React Hooks (useState, useEffect, useContext)",
-          },
-          {
-            topic: "Conditional Rendering and Lists",
-          },
-          {
-            topic: "Handling Forms in React",
-          },
-          {
-            topic: "Working with Third-Party Libraries",
-          },
-          {
-            topic: "React Router for Navigation",
-          },
-        ],
+      {
+        id: "t5",
+        topic: "Understanding URLs and Resources",
+        content: "A **URL (Uniform Resource Locator)** is the complete address for a specific resource on the web. It has several distinct parts: `protocol://subdomain.domain.tld/path/to/resource?query=value`. The **protocol** (`https://`) defines how to communicate. The **domain name** (`example.com`) is the human-readable address. The **path** (`/about/us`) specifies the exact location of a resource on the server. The **query** (`?user=123`) passes additional data to the server. Understanding these components is key to navigating the web and building web applications that fetch specific data."
       },
-      "APIs & Asynchronous Data": {
-        details:
-          "Connect your frontend applications to backend services. This part of the course teaches you how to fetch data from RESTful APIs using the Fetch API and `async/await`. You will also learn to handle data and display it dynamically in your application.",
-        project:
-          "Create a weather application that fetches and displays current weather data for a user-entered city using a public weather API.",
-        topics: [
-          {
-            topic: "Introduction to APIs and RESTful Principles",
-          },
-          {
-            topic: "Using the Fetch API for Data Requests",
-          },
-          {
-            topic: "Asynchronous JavaScript with `async`/`await`",
-          },
-          {
-            topic: "Handling JSON Data and Response Objects",
-          },
-          {
-            topic: "Error Handling for API Calls",
-          },
-          {
-            topic: "Understanding CORS (Cross-Origin Resource Sharing)",
-          },
-        ],
+      {
+        id: "t6",
+        topic: "Introduction to Frontend vs. Backend",
+        content: "**Frontend development** focuses on everything the user sees and interacts with. It's the client-side of the application, built with HTML for structure, CSS for style, and JavaScript for interactivity. The goal of frontend is to create a great user experience. **Backend development** handles the server-side logic, databases, and application data. It's the 'behind-the-scenes' engine that powers the frontend, dealing with user authentication, data storage, and business logic. The frontend and backend communicate via APIs."
       },
-      "Performance & Deployment": {
-        details:
-          "Learn to optimize your code for speed and efficiency. This section covers techniques for reducing page load times, lazy loading, and code splitting. You will also learn how to deploy your projects to platforms like Vercel and Netlify.",
-        project:
-          "Optimize a sample website by compressing images, lazy-loading content, and deploying it to a free hosting service to achieve a high PageSpeed Insights score.",
-        topics: [
-          {
-            topic: "Web Performance Metrics",
-          },
-          {
-            topic: "Code Splitting and Lazy Loading",
-          },
-          {
-            topic: "Image and Asset Optimization",
-          },
-          {
-            topic: "Minification and Bundling",
-          },
-          {
-            topic: "Web Vitals and Lighthouse Audits",
-          },
-          {
-            topic: "Domain Name Systems (DNS) and Hosting",
-          },
-          {
-            topic: "Deployment with Vercel and Netlify",
-          },
-          {
-            topic: "Content Delivery Networks (CDNs)",
-          },
-        ],
+      {
+        id: "t7",
+        topic: "Cookies and Session Storage",
+        content: "**Cookies** are small pieces of data that a server sends to a client, and the client's browser stores them. They are used for purposes like maintaining a user's logged-in status, remembering items in a shopping cart, or personalizing content. Cookies are sent back to the server with every subsequent request. **Session Storage** and **Local Storage** are other modern ways to store data in the browser. They are more secure and can store more information, but unlike cookies, they are not automatically sent back to the server with every request."
       },
-      "Git & GitHub": {
-        details:
-          "Understand the essential tools for professional software development. This module introduces you to Git for version control and GitHub for collaborative development. You will learn how to create repositories, make commits, handle branches, and work in a team.",
-        project:
-          "Collaborate with peers on a small web project, managing all code changes using Git commands and submitting pull requests on GitHub.",
-        topics: [
-          {
-            topic: "Git Basics (add, commit, push)",
-          },
-          {
-            topic: "Branching and Merging",
-          },
-          {
-            topic: "Working with Remote Repositories",
-          },
-          {
-            topic: "Handling Merge Conflicts",
-          },
-          {
-            topic: "Understanding Pull Requests",
-          },
-          {
-            topic: "Collaborative Workflows",
-          },
-          {
-            topic: "Using `.gitignore`",
-          },
-        ],
+      {
+        id: "t8",
+        topic: "Anatomy of a Request-Response Cycle",
+        content: "The **request-response cycle** is the fundamental process of web communication. It begins when a user's action (e.g., clicking a link) triggers an **HTTP request**. This request is sent from the client to the server, asking for a resource. The server receives, processes the request, and finds the requested data. It then sends an **HTTP response** back to the client. This response contains the status of the request (e.g., `200 OK` for success) and the requested data. Finally, the client's browser renders the data, completing the cycle. This entire process happens in a fraction of a second for most modern websites."
       },
-    },
+    ],
+  },
+  "HTML Fundamentals": {
+    details:
+      "Master the foundational language of the web. This section covers semantic HTML5 for structuring content, accessibility standards, and modern best practices for building robust and well-organized web pages.",
+    project:
+      "Build a multi-page portfolio website using only semantic HTML5. The site must include a home page, about page, and projects page, and must pass an accessibility checker.",
+    topics: [
+      { id: "t9", topic: "Introduction to HTML and the Web", content: "**HTML (Hypertext Markup Language)** is the foundational language of the web. It provides the structure and meaning for web content. Think of it as the skeleton of a webpage. An HTML document is made up of elements, which are defined by tags. For example, the `<p>` tag defines a paragraph, and the `<h1>` tag defines a main heading. All HTML documents begin with a `<!DOCTYPE html>` declaration and are contained within `<html>` tags. The content is then split between the `<head>` (for metadata) and `<body>` (for visible content) sections." },
+      { id: "t10", topic: "Semantic HTML5 Tags", content: "**Semantic HTML** is the practice of using HTML tags that convey meaning about the content they contain. For example, instead of using a generic `<div>` tag for a navigation bar, you should use the `<nav>` tag. This makes the code easier for both humans and computers (like screen readers and search engines) to understand. Other important semantic tags include `<header>`, `<main>`, `<article>`, `<section>`, and `<footer>`. Using them improves accessibility, code readability, and search engine optimization (SEO)." },
+      { id: "t11", topic: "HTML Forms and Inputs", content: "HTML forms are used to collect user data, such as login information, contact details, or survey responses. The `<form>` tag is the container for all form elements. The most common element is `<input>`, which can have different types like `text`, `email`, `password`, `checkbox`, and `radio`. You can also use other elements like `<textarea>` for multi-line text and `<select>` for dropdown lists. The `action` and `method` attributes of the `<form>` tag determine where and how the form data is sent to a server." },
+      { id: "t12", topic: "Accessibility (ARIA roles and attributes)", content: "**Accessibility** means making websites usable for everyone, including people with disabilities. **ARIA (Accessible Rich Internet Applications)** is a set of attributes that you can add to HTML elements to provide additional context for assistive technologies like screen readers. For example, if you have a custom button created with a `<div>`, you can add `role=\"button\"` and `aria-label=\"Close\"` to tell a screen reader what the element is and what it does. Accessibility is a crucial part of modern web development and a legal requirement in many countries." },
+      { id: "t13", topic: "Image and Multimedia Elements", content: "HTML provides tags to embed images, videos, and audio. The `<img>` tag is used for images and requires a `src` attribute (the path to the image file) and an `alt` attribute (alternative text for screen readers). The `<video>` and `<audio>` tags are used for embedding media files and can be customized with attributes like `controls`, `autoplay`, and `loop`. Properly using these tags and attributes is essential for creating rich and engaging web content." },
+      { id: "t14", topic: "Structuring Content with Headings, Paragraphs, and Lists", content: "Good content structure is essential for readability and SEO. **Headings** (`<h1>` to `<h6>`) create a clear content hierarchy, with `<h1>` being the most important. **Paragraphs** (`<p>`) are used for blocks of body text. For a list of items, you can use an **unordered list** (`<ul>`) which uses bullet points, or an **ordered list** (`<ol>`) which uses numbers. Each item in the list is defined by an `<li>` tag. These simple tags are the building blocks of almost all written content on the web." },
+      { id: "t15", topic: "Working with Tables", content: "HTML tables are used to display tabular data, such as a company's financial report or a sports schedule. The basic structure includes a `<table>` tag, a `<thead>` for the table's header row, a `<tbody>` for the body of the data, and `<tr>` for each table row. `<th>` is used for header cells, and `<td>` is used for standard data cells. While tables were once used for page layout, modern practice dictates using them only for their intended purpose: displaying structured data." },
+      { id: "t16", topic: "Introduction to Web Components", content: "Web Components are a set of three web platform APIs that allow you to create custom, reusable, and encapsulated HTML elements. These are **Custom Elements**, which let you create new HTML tags (`<my-component>`); the **Shadow DOM**, which encapsulates a component's styles and markup so they don't interfere with the rest of the page; and **HTML Templates**, which let you define reusable markup. Together, these APIs allow developers to create truly modular and reusable UI components without needing a framework." },
+      { id: "t17", topic: "Best Practices for Clean and Maintainable HTML", content: "Writing clean code is crucial for collaboration and long-term maintenance. Best practices include: 1) Using clear and descriptive class names (`.user-profile-card` instead of `.card`); 2) Indenting your code consistently to improve readability; 3) Adding comments to complex sections to explain their purpose; and 4) Using semantic HTML tags to convey meaning. These habits ensure your projects are easy to understand and work on for yourself and for other developers." },
+    ],
+  },
+  "CSS Fundamentals": {
+    details:
+      "Dive into the language of web styling. This module covers modern CSS3 for creating visually stunning interfaces. You will learn about the box model, responsive design with media queries, and advanced layout techniques using Flexbox and CSS Grid.",
+    project:
+      "Take a basic HTML page and style it to match a provided design mockup. You will create a fully responsive layout and implement custom fonts and animations using CSS.",
+    topics: [
+      { id: "t18", topic: "CSS Syntax and Selectors", content: "CSS (**Cascading Style Sheets**) is the language used to style HTML documents. A CSS rule consists of a **selector**, which specifies which HTML elements to style. It's followed by a set of declarations in curly braces. A declaration has a **property** (`color`, `font-size`) and a **value** (`blue`, `16px`). There are many types of selectors, including element selectors (`p`), class selectors (`.my-class`), and ID selectors (`#my-id`). The cascading nature of CSS means that rules from different stylesheets can be combined, and a rule's specificity determines which one wins if there's a conflict." },
+      { id: "t19", topic: "The Box Model, Sizing, and Spacing", content: "The **CSS Box Model** is a foundational concept that describes how every HTML element is rendered as a box. The box has four parts: the **content** itself (the actual text or image), **padding** (space between the content and the border), a **border**, and **margin** (space outside the border that separates it from other elements). Understanding this model is essential for controlling the layout and spacing of all elements on a page. " },
+      { id: "t20", topic: "Working with Colors and Backgrounds", content: "CSS provides a wide range of ways to style colors and backgrounds. You can use color names (`red`), hexadecimal codes (`#ff0000`), or `rgb()` and `hsl()` values. You can apply these to text with the `color` property and to backgrounds with `background-color`. You can also add background images, repeat them, or position them. You can even use `linear-gradient()` and `radial-gradient()` to create smooth color transitions." },
+      { id: "t21", topic: "Typography and Fonts", content: "Typography is the art of arranging type to make it readable and visually appealing. In CSS, you can control the font family with `font-family`, the size with `font-size`, the thickness with `font-weight`, and the style with `font-style` (`italic`). You can also control line height and letter spacing. To use custom fonts, you can use the `@font-face` rule or import them from a service like Google Fonts." },
+      { id: "t22", topic: "Flexbox for One-Dimensional Layouts", content: "**Flexbox** is a powerful one-dimensional layout system. It's designed to align and distribute space among items in a single row or column. You define a container as a flexbox with `display: flex;` and then use properties like `justify-content` and `align-items` to control the alignment of the items inside. Flexbox is perfect for creating responsive navigation bars, component cards, and other layouts where items need to be aligned along a single axis." },
+      { id: "t23", topic: "CSS Grid for Two-Dimensional Layouts", content: "**CSS Grid** is a two-dimensional layout system that lets you arrange elements in both rows and columns at the same time. You define a container as a grid with `display: grid;` and then use properties like `grid-template-columns` and `grid-template-rows` to create your grid structure. It's the ideal tool for building complex, full-page layouts with precise alignment, such as a magazine-style grid or an entire website's structure." },
+      { id: "t24", topic: "Responsive Design with Media Queries", content: "**Responsive design** means making a website look great on any device. **Media queries** are the core of this approach in CSS. They allow you to apply different CSS rules based on a device's characteristics, like its screen width, height, or orientation. This lets you adapt your layout, font sizes, and other styles to ensure an optimal user experience whether the user is on a mobile phone, tablet, or large desktop monitor." },
+      { id: "t25", topic: "CSS Animations and Transitions", content: "CSS **transitions** and **animations** add motion and life to a website. A **transition** is a simple, smooth change from one state to another, such as a button smoothly changing color on hover. An **animation** allows for more complex, multi-step effects. You define keyframes using `@keyframes` to control the style at different points in the animation, and then apply the animation to an element. Both are fully hardware-accelerated, ensuring smooth performance." },
+      { id: "t26", topic: "Introduction to Preprocessors (Sass/Less)", content: "CSS preprocessors like Sass and Less are scripting languages that extend CSS with powerful features like **variables**, **nesting**, and **functions**. They are not directly understood by browsers and must be compiled into standard CSS. Using a preprocessor can make your stylesheets more organized, reusable, and easier to maintain for large projects. For example, you can define a color once in a variable and reuse it everywhere in your stylesheet." },
+    ],
+  },
+  "JavaScript & DOM": {
+    details:
+      "Dive into the core logic of web applications. This module focuses on modern JavaScript (ES6+), teaching you how to manipulate the Document Object Model (DOM) to create interactive and dynamic user experiences. You will also learn about event handling and asynchronous operations.",
+    project:
+      "Create a fully functional to-do list application that allows users to add, remove, and mark tasks as complete, all without reloading the page.",
+    topics: [
+      { id: "t27", topic: "Variables, Data Types, and Operators", content: "JavaScript is the programming language of the web, and it's essential for creating interactivity. **Variables** are used to store data, like a name or a number, and are declared with `let`, `const`, or `var`. JavaScript has several **data types**, including strings, numbers, booleans, arrays, and objects. **Operators** are symbols that perform actions on these data types, such as addition (`+`), subtraction (`-`), comparison (`===`), and assignment (`=`)." },
+      { id: "t28", topic: "Control Flow and Logic", content: "**Control flow** dictates the order in which a program's code is executed. You can use `if/else` statements to make decisions based on conditions (`if (score > 90) { // do something }`). **Loops** (`for` or `while`) allow you to repeat a block of code multiple times. This logic is what allows applications to react to different scenarios and data, making them dynamic and useful." },
+      { id: "t29", topic: "Functions and Scopes", content: "A **function** is a reusable block of code that performs a specific task. They are essential for organizing your code and avoiding repetition. **Scope** refers to where variables and functions can be accessed. Variables defined inside a function are **local** to that function and can't be accessed from outside, which helps prevent unintended conflicts and keeps your code organized. **Global** variables are accessible from anywhere in your code." },
+      { id: "t30", topic: "Arrays and Objects", content: "JavaScript provides built-in data structures for working with collections of data. An **array** is an ordered list of items (`let colors = ['red', 'green', 'blue']`). An **object** is a collection of key-value pairs, perfect for representing more complex data (`let person = { name: 'Jane', age: 30 }`). You can access array items by their index and object properties by their key. These are the workhorses of JavaScript data handling." },
+      { id: "t31", topic: "DOM Manipulation and Traversal", content: "The **Document Object Model (DOM)** is a tree-like representation of your HTML page. JavaScript can be used to manipulate the DOM, allowing you to change the content, styling, and structure of a page after it has loaded. You can use methods like `document.getElementById()`, `document.querySelector()`, `element.innerHTML = 'New text'`, and `element.classList.add('new-class')` to make dynamic changes. This is the foundation of all client-side interactivity." },
+      { id: "t32", topic: "Event Handling and Listeners", content: "Events are actions that happen on a web page, like a button click, a keypress, a mouse hover, or a page load. An **event listener** is a function that waits for a specific event to occur on a specific element. When the event is detected, the listener executes a specific block of code, allowing your web page to respond to user interactions. For example, `button.addEventListener('click', function() { alert('Clicked!'); })`." },
+      { id: "t33", topic: "Introduction to Asynchronous JavaScript", content: "**Asynchronous JavaScript** handles tasks that might take time to complete, such as fetching data from a server or waiting for a timer to finish. Instead of freezing the entire application, these tasks run in the background. **Promises** and the `async/await` syntax are modern ways to manage these operations in a clean, readable way. They ensure that your code doesn't block the main thread and that your application remains responsive." },
+      { id: "t34", topic: "Error Handling with Try/Catch", content: "When a piece of code might fail (e.g., a network request to an API), it's important to gracefully handle the error. You can use a `try...catch` block to do this. The code in the `try` block is executed, and if it throws an error, the code in the `catch` block is executed instead. This prevents your entire application from crashing and allows you to display a user-friendly error message." },
+    ],
+  },
+  "Modern Frameworks (React)": {
+    details:
+      "Build scalable and complex single-page applications using the React library. You will learn about component-based architecture, state management with hooks (useState, useEffect), and efficient data flow to create reusable UI components.",
+    project:
+      "Develop a simple e-commerce product gallery with a shopping cart. The application should use React components and manage state with hooks.",
+    topics: [
+      { id: "t35", topic: "Introduction to React and JSX", content: "React is a popular JavaScript library for building user interfaces. Instead of writing HTML and JavaScript in separate files, React uses **JSX**, a syntax extension for JavaScript that looks a lot like HTML. This allows you to write your markup and your logic in the same file. It makes building dynamic user interfaces much more intuitive. For example, you can write `const element = <h1>Hello, {name}</h1>;` directly in your JavaScript code." },
+      { id: "t36", topic: "Component-Based Architecture", content: "The core philosophy of React is building UIs with **components**. A component is a self-contained, reusable piece of a UI. Think of a web page broken down into smaller parts: a `Header` component, a `Button` component, or a `UserProfile` component. Each component has its own logic and can be used on its own or nested inside other components, allowing for modular and organized code. This approach makes large applications much easier to manage." },
+      { id: "t37", topic: "State and Props", content: "In React, **props** (short for properties) are a way to pass data from a parent component down to a child component. They are read-only and immutable. **State** is data that a component can manage and change over time. When a component's state changes, React automatically re-renders the component to reflect the new state. This simple principle of unidirectional data flow is key to how React works." },
+      { id: "t38", topic: "React Hooks (useState, useEffect, useContext)", content: "**Hooks** are special functions that let you 'hook into' React features from your functional components. `useState` is for managing state within a component. `useEffect` is for handling side effects like fetching data or setting up event listeners, and it runs after the component renders. `useContext` provides a way to pass data through the component tree without having to manually pass props down at every level, which is known as prop drilling. Hooks are the modern way to write React code." },
+      { id: "t39", topic: "Conditional Rendering and Lists", content: "**Conditional rendering** allows you to show or hide components based on a condition, using standard JavaScript logic (`if/else` or the ternary operator). To render a list of items, you can use the `.map()` array method to iterate over an array of data and return a list of components for each item. This is a powerful feature for building dynamic UIs, such as a list of search results or a to-do list." },
+      { id: "t40", topic: "Handling Forms in React", content: "In React, forms are often managed as **controlled components.** This means that the form's input values are stored in the component's state, and their values are updated with an event handler (e.g., `onChange`). This provides more control over the form data and allows for real-time validation and feedback. It prevents the DOM from holding its own state and keeps the data consistent with your component's state." },
+      { id: "t41", topic: "Working with Third-Party Libraries", content: "A key part of modern development is leveraging existing code. You can easily add functionality to your React app by installing and integrating third-party libraries, available from package managers like npm. This can save you a lot of time and effort by providing pre-built components, utility functions, or data-fetching helpers. For example, you might use a charting library to easily display data or an animation library to add dynamic effects." },
+      { id: "t42", topic: "React Router for Navigation", content: "For single-page applications, you need a way to handle navigation without reloading the entire page. **React Router** is a popular library that allows you to create different 'routes' or paths (like `/about` or `/contact`) that correspond to different components. It manages the browser's URL and the component that is rendered, creating a seamless multi-page experience while staying on a single page." },
+    ],
+  },
+  "APIs & Asynchronous Data": {
+    details:
+      "Connect your frontend applications to backend services. This part of the course teaches you how to fetch data from RESTful APIs using the Fetch API and `async/await`. You will also learn to handle data and display it dynamically in your application.",
+    project:
+      "Create a weather application that fetches and displays current weather data for a user-entered city using a public weather API.",
+    topics: [
+      { id: "t43", topic: "Introduction to APIs and RESTful Principles", content: "An **API (Application Programming Interface)** is a set of rules that allows different software applications to communicate with each other. A **RESTful API** is a popular style of web API that uses standard HTTP methods (`GET`, `POST`, `PUT`, `DELETE`) to perform operations on data, such as fetching user information or creating a new post. It allows a frontend application to request data from a backend server and display it dynamically." },
+      { id: "t44", topic: "Using the Fetch API for Data Requests", content: "The **Fetch API** is a modern, built-in JavaScript function for making network requests. It returns a `Promise`, which makes it easy to handle success and failure cases. You can use it to fetch data from an API endpoint. The most common use case is a `GET` request to retrieve data, for example: `fetch('https://api.example.com/users').then(response => response.json())`." },
+      { id: "t45", topic: "Asynchronous JavaScript with `async`/`await`", content: "Asynchronous operations can be difficult to manage. The `async/await` syntax makes working with Promises much simpler and more readable. An `async` function always returns a Promise, and the `await` keyword pauses the function's execution until the Promise is settled (either resolved or rejected). This allows you to write asynchronous code that looks and behaves like synchronous code, making it much easier to reason about." },
+      { id: "t46", topic: "Handling JSON Data and Response Objects", content: "Most web APIs return data in a format called **JSON (JavaScript Object Notation)**. It's a lightweight, human-readable format for data exchange. When you get a response from an API, you'll need to parse the JSON string into a JavaScript object that you can work with. The `response.json()` method of the Fetch API automatically parses the JSON data for you, turning it into a usable JavaScript object." },
+      { id: "t47", topic: "Error Handling for API Calls", content: "When making an API call, it's important to handle potential errors. This includes network failures or server errors (like a 404 Not Found response). You can use a `try...catch` block around your `await fetch()` call to catch any errors and display a user-friendly message, preventing your app from crashing. It's also important to check the `response.ok` property to see if the request was successful." },
+      { id: "t48", topic: "Understanding CORS (Cross-Origin Resource Sharing)", content: "**CORS (Cross-Origin Resource Sharing)** is a browser security feature that prevents a web page from making a request to a server that is hosted on a different domain unless the server explicitly allows it. This is a crucial security measure to prevent malicious websites from stealing your data. If you get a CORS error, it means the server's configuration is blocking your request, and the server administrator needs to add your domain to a list of trusted origins." },
+    ],
+  },
+  "Performance & Deployment": {
+    details:
+      "Learn to optimize your code for speed and efficiency. This section covers techniques for reducing page load times, lazy loading, and code splitting. You will also learn how to deploy your projects to platforms like Vercel and Netlify.",
+    project:
+      "Optimize a sample website by compressing images, lazy-loading content, and deploying it to a free hosting service to achieve a high PageSpeed Insights score.",
+    topics: [
+      { id: "t49", topic: "Web Performance Metrics", content: "Web performance is all about how fast a website loads and becomes interactive. Key metrics to measure include **First Contentful Paint (FCP)**, the time it takes for the first piece of content to appear, and **Largest Contentful Paint (LCP)**, the time it takes for the largest content element to be rendered. Optimizing these metrics improves user experience and SEO. Google's **Lighthouse** tool can help you audit your website and identify areas for improvement." },
+      { id: "t50", topic: "Code Splitting and Lazy Loading", content: "**Code splitting** is a technique that divides your JavaScript bundle into smaller, more manageable chunks. **Lazy loading** is a type of code splitting that defers the loading of these chunks until they are needed. This significantly reduces the initial page load time by only loading the code required to render the first view of the application. It's especially useful for large applications with many pages or features." },
+      { id: "t51", topic: "Image and Asset Optimization", content: "Images are often the largest files on a webpage. Optimizing them is crucial for performance. Techniques include **compressing images** to reduce their file size without sacrificing quality, using **modern formats** like WebP, and **lazy-loading** images so they only load when they are visible on the screen. Properly sizing images for different devices also helps a lot." },
+      { id: "t52", topic: "Minification and Bundling", content: "**Minification** is the process of removing all unnecessary characters from code (like whitespace, comments, and line breaks) without changing its functionality. **Bundling** combines multiple JavaScript or CSS files into a single file to reduce the number of network requests. Both of these processes are automated by build tools and are essential for modern web performance, leading to faster load times." },
+      { id: "t53", topic: "Web Vitals and Lighthouse Audits", content: "Core **Web Vitals** are a set of metrics from Google that measure a website's user experience, including loading performance, interactivity, and visual stability. Tools like **Lighthouse** audit a webpage and provide a score based on these metrics, as well as accessibility and SEO. A high Lighthouse score indicates a well-optimized website. Consistently checking and improving these scores is a key part of web development." },
+      { id: "t54", topic: "Domain Name Systems (DNS) and Hosting", content: "Once your project is ready, you need to host it on a server so it can be accessed by others. A **domain name** is the easy-to-remember address for your site. You will need to configure your domain's **DNS records** to point to your **hosting service** (e.g., Vercel, Netlify) so that when someone types your domain, their browser knows where to find your website. The DNS essentially directs traffic to your server." },
+      { id: "t55", topic: "Deployment with Vercel and Netlify", content: "Vercel and Netlify are popular platforms for deploying modern web applications. They offer a seamless, automated deployment process that can connect directly to your GitHub repository. Every time you push new code to your repository, the platform automatically builds and deploys your website to a live URL. They also provide features like automatic SSL certificates and a global CDN, making them an excellent choice for modern frontend projects." },
+      { id: "t56", topic: "Content Delivery Networks (CDNs)", content: "A **CDN (Content Delivery Network)** is a geographically distributed network of servers that caches your website's static content (like images, CSS, and JavaScript files). When a user requests your site, the content is delivered from the server closest to them, which drastically reduces latency and improves load times. CDNs are essential for global-facing websites and are often a built-in feature of modern hosting platforms like Vercel and Netlify." },
+    ],
+  },
+  "Git & GitHub": {
+    details:
+      "Understand the essential tools for professional software development. This module introduces you to Git for version control and GitHub for collaborative development. You will learn how to create repositories, make commits, handle branches, and work in a team.",
+    project:
+      "Collaborate with peers on a small web project, managing all code changes using Git commands and submitting pull requests on GitHub.",
+    topics: [
+      { id: "t57", topic: "Git Basics (add, commit, push)", content: "**Git** is a version control system. You use it to track changes in your code. `git add` stages your changes, preparing them to be saved. This is like putting files into a box before sealing it. `git commit` saves a permanent snapshot of the staged changes, along with a descriptive message. This is like sealing the box and labeling it. `git push` uploads your local commits to a remote repository on a service like GitHub, making them available to others. This is like shipping your box of changes to the cloud." },
+      { id: "t58", topic: "Branching and Merging", content: "**Branching** allows you to work on new features or bug fixes in isolation from the main codebase. You can create a new branch, make your changes without affecting the `main` branch, and when you are finished, you can **merge** that branch back into the main branch. This is a core part of collaborative development as it allows multiple people to work on the same project without interfering with each other's work." },
+      { id: "t59", topic: "Working with Remote Repositories", content: "A **remote repository** is a version of your project hosted on a service like GitHub. It serves as a central hub or a single source of truth for your team. You `git pull` changes from the remote to get the latest updates from your collaborators, and `git push` your changes to the remote to share them with others. This allows a distributed team to stay in sync and work together seamlessly." },
+      { id: "t60", topic: "Handling Merge Conflicts", content: "A **merge conflict** occurs when two developers have changed the same line of code in different ways. Git doesn't know which version to keep, so it stops the merge and asks for your help. You must manually resolve the conflict by editing the file to include the correct changes, then staging and committing the resolved file. Learning to handle conflicts is a crucial skill for collaborative development." },
+      { id: "t61", topic: "Understanding Pull Requests", content: "A **pull request (PR)** is a way to propose a set of changes to a project. It serves as a formal review process. You submit a PR from your feature branch to the main branch, and other developers can review your changes, leave comments, and suggest improvements before the changes are officially merged into the project. This ensures code quality and provides an opportunity for feedback and discussion." },
+      { id: "t62", topic: "Collaborative Workflows", content: "A common Git workflow for teams involves creating a new branch for every new feature or bug fix, working on the changes, creating a pull request for a code review, and then merging the changes into the main branch. This structured approach helps teams maintain code quality, avoid conflicts, and keep the project organized and stable. It's the standard for professional software development." },
+      { id: "t63", topic: "Using `.gitignore`", content: "The `.gitignore` file is a plain text file where you list the files and directories that Git should ignore and not track. This is useful for preventing sensitive information (like API keys) or temporary files (like build directories) from being committed to your repository. It keeps your repository clean and prevents you from accidentally sharing private data." },
+    ],
+  },
+}
   },
   backend: {
     id: "backend",
