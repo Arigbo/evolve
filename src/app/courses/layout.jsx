@@ -38,7 +38,9 @@ export default function SingleLayout({ currentSubject, closeModal, children }) {
                         `}</style>
         </div>
       ) : (
-        <div className="layout">{children}</div>
+        <div className="layout">
+          <NavCrumbs/>
+          {children}</div>
       )}
     </>
   );

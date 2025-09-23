@@ -128,6 +128,23 @@
           text-decoration: underline;
         }
       }
+      .current {
+        display: flex;
+        align-items: center;
+        h2 {
+          margin-right: 0.5rem;
+        }
+        div {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          h1 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          }
+        }
+      }
     }
 
     .next-course {

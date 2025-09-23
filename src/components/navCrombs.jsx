@@ -7,6 +7,132 @@ const pages = [
     page: "Frontend Web Development",
     pageLink: "/courses/frontend",
     pageIcon: "fas fa-code",
+    topics: [
+      {
+        id: `/courses/frontend/t1`,
+        topic: "How the Internet Works (Clients, Servers)",
+      },
+      {
+        id: `/courses/frontend/t2`,
+        topic: "HTTP/HTTPS Protocols",
+      },
+      {
+        id: `/courses/frontend/t3`,
+        topic: "Domain Name System (DNS)",
+      },
+      {
+        id: `/courses/frontend/t4`,
+        topic: "Web Browsers and Rendering Engines",
+      },
+      {
+        id: `/courses/frontend/t5`,
+        topic: "Understanding URLs and Resources",
+      },
+      {
+        id: `/courses/frontend/t6`,
+        topic: "Introduction to Frontend vs. Backend",
+      },
+      {
+        id: `/courses/frontend/t7`,
+        topic: "Cookies and Session Storage",
+      },
+      {
+        id: `/courses/frontend/t8`,
+        topic: "Anatomy of a Request-Response Cycle",
+      },
+      {
+        id: `/courses/frontend/t9`,
+        topic: "Introduction to HTML and the Web",
+      },
+      {
+        id: `/courses/frontend/t10`,
+        topic: "Semantic HTML5 Tags",
+      },
+      {
+        id: `/courses/frontend/t11`,
+        topic: "HTML Forms and Inputs",
+      },
+      {
+        id: `/courses/frontend/t12`,
+        topic: "Accessibility (ARIA roles and attributes)",
+      },
+      {
+        id: `/courses/frontend/t13`,
+        topic: "Image and Multimedia Elements",
+      },
+      {
+        id: `/courses/frontend/t14`,
+        topic: "Structuring Content with Headings, Paragraphs, and Lists",
+      },
+      {
+        id: `/courses/frontend/t15`,
+        topic: "Working with Tables",
+      },
+      {
+        id: `/courses/frontend/t16`,
+        topic: "Introduction to Web Components",
+      },
+      {
+        id: `/courses/frontend/t17`,
+        topic: "Best Practices for Clean and Maintainable HTML",
+      },
+      {
+        id: `/courses/frontend/t18`,
+        topic: "CSS Syntax and Selectors",
+      },
+      {
+        id: `/courses/frontend/t19`,
+        topic: "The Box Model, Sizing, and Spacing",
+      },
+      {
+        id: `/courses/frontend/t20`,
+        topic: "Working with Colors and Backgrounds",
+      },
+      {
+        id: `/courses/frontend/t21`,
+        topic: "Typography and Fonts",
+      },
+      {
+        id: `/courses/frontend/t22`,
+        topic: "Flexbox for One-Dimensional Layouts",
+      },
+      {
+        id: `/courses/frontend/t23`,
+        topic: "CSS Grid for Two-Dimensional Layouts",
+      },
+      {
+        id: `/courses/frontend/t24`,
+        topic: "Responsive Design with Media Queries",
+      },
+      {
+        id: `/courses/frontend/t25`,
+        topic: "CSS Animations and Transitions",
+      },
+      {
+        id: `/courses/frontend/t26`,
+        topic: "Introduction to Preprocessors (Sass/Less)",
+      },
+      {
+        id: `/courses/frontend/t27`,
+        topic: "Variables, Data Types, and Operators",
+      },
+      {
+        id: `/courses/frontend/t28`,
+        topic: "Control Flow and Logic",
+      },
+      {
+        id: `/courses/frontend/t29`,
+        topic: "Functions and Scopes",
+      },
+      {
+        id: `/courses/frontend/t30`,
+        topic: "Arrays and Objects",
+      },
+      {
+        id: `/courses/frontend/t31`,
+        topic: "DOM Manipulation and Traversal",
+      },
+    ],
   },
   {
     page: "Backend Web Development",
@@ -47,7 +173,9 @@ const pages = [
 
 export function NavCrumbs() {
   const path = usePathname();
-  const currentIndex = pages.findIndex((item) => item.pageLink == path);
+  const currentIndex = pages.findIndex(
+    (item) => item.pageLink || item.topics[0] == path
+  );
   const current = pages[currentIndex];
   const next =
     currentIndex >= 0 && currentIndex < pages.length - 1
@@ -75,9 +203,7 @@ export function NavCrumbs() {
               <a
                 key={element.page}
                 href={element.pageLink}
-                className={
-                  path == element.pageLink ? "active" : ""
-                }
+                className={path == element.pageLink ? "active" : ""}
               >
                 <i className={element.pageIcon}></i>
                 <span className="line-clamp">{element.page}</span>
@@ -97,7 +223,21 @@ export function NavCrumbs() {
         </h1>
         <span>&gt;</span>
         {current ? (
-          <h2 className="line-clamp">{current.page}</h2>
+          <div className="current">
+            <h2 className={`line-clamp`}>{current.page}</h2>
+            {current.topics.map((topic) => {
+              return (
+                <div>
+                  {topic.id == path && (
+                    <h1>
+                      <span>&gt;</span>
+                      {topic.topic}
+                    </h1>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         ) : (
           <h1>
             Click <span className="select">Courses</span> to select a course
