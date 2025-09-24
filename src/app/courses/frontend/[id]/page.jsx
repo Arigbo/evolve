@@ -1833,8 +1833,7 @@ const topics = {
 const TopicDetail = () => {
   const { id } = useParams();
   const topic = topics[id];
-  const [isMentorRedirectModalOpen, setIsMentorRedirectModalOpen] =
-    useState(false);
+
   // Render the new topic details, including the subject details and project.
   return (
     <>
@@ -1856,36 +1855,6 @@ const TopicDetail = () => {
             <div className="image-container">{topic.image}</div>
           </section>
           <FooterCrumbs />
-          {/* Mentor Redirect Modal */}
-          {isMentorRedirectModalOpen ? (
-            <div className="modal-overlay">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h3 className="modal-title">Work with Us</h3>
-                  <i
-                    onClick={() => setIsMentorRedirectModalOpen(false)}
-                    className="fas fa-x modal-close-button"
-                  ></i>
-                </div>
-                <p className="modal-description">
-                  Thank you for your interest in becoming a mentor! Please
-                  contact us at <strong>mentors@evolve.com</strong> with your
-                  resume and a brief description of your experience to get
-                  started.
-                </p>
-                <div className="text-right mt-4">
-                  <button
-                    onClick={() => setIsMentorRedirectModalOpen(false)}
-                    className="cta-button"
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <></>
-          )}
         </main>
       ) : (
         <div
