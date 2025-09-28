@@ -6,7 +6,7 @@ const mockUser = {
   imageUrl: "https://placehold.co/128x128/4f46e5/ffffff?text=AS", // Profile Image URL
   courses: [],
 };
-export default function UserProfileModal({ title = "User Profile" }) {
+export default function UserProfileModal({ setUserModal,title = "User Profile" }) {
   const modalRef = useRef(null);
 
   //   // Close modal on Escape key press
@@ -224,7 +224,7 @@ export default function UserProfileModal({ title = "User Profile" }) {
             <h2 id="modal-title" className="modal-title">
               {title}
             </h2>
-            <i className="fas fa-x"></i>
+            <i className="fas fa-x" onClick={()=>setUserModal(false)}></i>
           </div>
           {/* Modal Body (Content) */}
           {loading ? (

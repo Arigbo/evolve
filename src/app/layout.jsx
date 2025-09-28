@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
             setIsModalOpen={setIsModalOpen}
           ></Contact>
           <Header setUserModal={setUserModal}></Header>
-          {userModal && <UserModal />}
+          {userModal && <UserModal setUserModal={setUserModal} />}
           {children}
           <Footer></Footer>
         </Context>
