@@ -7,7 +7,7 @@
   --bg-color: #f9fafb;
   --bg-card: #ffffff;
 }
-.loading {
+.loading, .userloading {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,6 +17,9 @@
   font-weight: 700;
   color: var(--text-light-color);
   background-color: var(--bg-color);
+}
+.useloading{
+  height: 100%;
 }
 .layout {
   width: 100%;
