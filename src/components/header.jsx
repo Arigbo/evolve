@@ -29,7 +29,7 @@ function isActive(link, extras, pathname) {
   return false;
 }
 
-export default function Header() {
+export default function Header({setUserModal}) {
   const pathname = usePathname();
   const [signup, setSignup] = useState(true);
   const [nav, setNav] = useState(false);
@@ -39,7 +39,9 @@ export default function Header() {
       <Link
         href={link}
         key={name}
-        className={`nav-link${isActive(link, extras, pathname) ? " active" : ""}`}
+        className={`nav-link${
+          isActive(link, extras, pathname) ? " active" : ""
+        }`}
         onClick={onClick}
       >
         {name}
@@ -47,11 +49,7 @@ export default function Header() {
     ));
 
   const SignupButton = (
-    <a
-      href="#"
-      className="btn cta-button"
-      onClick={() => setSignup(true)}
-    >
+    <a href="#" className="btn cta-button" onClick={() => setSignup(true)}>
       Signup
     </a>
   );
@@ -59,7 +57,8 @@ export default function Header() {
   const UserIcon = (
     <i
       className="fas fa-user"
-      onClick={() => setSignup(false)}
+      onClick={() => {setUserModal(true);
+      }}
       aria-label="User"
       tabIndex={0}
     ></i>

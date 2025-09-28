@@ -5,11 +5,14 @@ import "./styles/custom.scss";
 import Footer from "@/components/footer";
 import { Contact } from "@/components/contactModal";
 import { Context } from "@/components/content";
+import UserModal from "@/components/userProfileModal";
 export default function RootLayout({ children }) {
   // State to manage the visibility of the contact modal
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [userModal,setUserModal ]=useState()
   return (
     <html lang="en">
+
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -33,7 +36,8 @@ export default function RootLayout({ children }) {
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}
           ></Contact>
-          <Header></Header>
+          <Header setUserModal={setUserModal}></Header>
+       {userModal&&   <UserModal/>}
           {children}
           <Footer></Footer>
         </Context>
