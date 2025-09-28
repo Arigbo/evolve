@@ -9,10 +9,9 @@ import UserModal from "@/components/userProfileModal";
 export default function RootLayout({ children }) {
   // State to manage the visibility of the contact modal
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [userModal,setUserModal ]=useState()
+  const [userModal, setUserModal] = useState();
   return (
     <html lang="en">
-
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -27,17 +26,17 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <Context
-        
-        value={{
-          isModalOpen,
-          setIsModalOpen
-        }}>
+          value={{
+            isModalOpen,
+            setIsModalOpen,
+          }}
+        >
           <Contact
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}
           ></Contact>
           <Header setUserModal={setUserModal}></Header>
-       {userModal&&   <UserModal/>}
+          {userModal && <UserModal />}
           {children}
           <Footer></Footer>
         </Context>
