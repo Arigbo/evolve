@@ -1,4 +1,5 @@
 "use client";
+import { AIChatbot } from "@/components/ai";
 import CourseCTA from "@/components/course-cta";
 import { NavCrumbs } from "@/components/navCrombs";
 import { usePathname } from "next/navigation";
@@ -89,6 +90,7 @@ export default function SingleLayout({ children }) {
           <CourseCTA
             course={currentCourse ? currentCourse.title : "this course"}
           />
+          <AIChatbot/>
         </div>
       )}
     </>

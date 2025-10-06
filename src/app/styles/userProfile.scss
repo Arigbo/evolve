@@ -1,0 +1,103 @@
+.modal-body {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-summary,
+.divider,
+.course-section {
+  width: 100%;
+}
+
+.profile {
+  &-summary {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    .user-avatar {
+      width: 5rem; /* w-20 */
+      height: 5rem; /* h-20 */
+      border-radius: 50%; /* rounded-full */
+      object-fit: cover;
+      border: 3px solid #4f46e5; /* indigo-600 ring */
+      box-shadow: 0 0 0 2px white; /* inner shadow for contrast */
+    }
+  }
+  &-details {
+    flex-grow: 1;
+    .user-type-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px; /* full rounded */
+  font-size: 0.75rem; /* xs */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+/* Dynamic Badge Colors */
+.user-type-mentor {
+  background-color: #fcd34d;
+  color: #92400e;
+}
+.user-type-student {
+  background-color: #60a5fa;
+  color: #1e40af;
+}
+.user-type-tutor {
+  background-color: #a7f3d0;
+  color: #065f46;
+}
+  }
+  &-name {
+    font-size: 1.125rem; /* lg */
+    font-weight: 700;
+    margin: 0;
+    color: #111827;
+  }
+  &-email {
+    font-size: 0.875rem; /* sm */
+    color: #4b5563; /* gray-600 */
+    margin: 0.25rem 0 0.5rem 0;
+  }
+}
+
+/* --- Divider --- */
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #e5e7eb; /* gray-200 */
+  margin: 1.5rem 0;
+}
+
+/* --- Courses Section --- */
+.courses-section {
+  margin-bottom: 1.5rem;
+}
+
+.courses-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #111827;
+}
+
+.course-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 10rem; /* Limit height for scrollability */
+  overflow-y: auto;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  border-radius: 0.5rem;
+}
+.page-container[data-theme="dark"] .course-list {
+  border-color: #374151; /* gray-700 */
+}
+
+.course-item {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: #374151;
+  border-bottom: 1px solid #f3f4f6; /* light gray separator */
+}
